@@ -1,0 +1,8 @@
+/Temp
+/obj
+/library
+*.csproj
+*.unityproj
+*.sln
+*.pdb
+*.suo
