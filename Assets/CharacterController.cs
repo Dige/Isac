@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
@@ -12,27 +12,69 @@ public class CharacterController : MonoBehaviour
     }
 
     [SerializeField]
-    private float _turnSpeed;
-    public float TurnSpeed
+    private bool _isSelected;
+    public bool IsSelected
     {
-        get { return _turnSpeed; }
-        set { _turnSpeed = value; }
+        get { return _isSelected; }
+        set 
+        {
+            if(value)
+                OnSelected();
+            else
+                OnUnselected();
+        }
     }
+
+    private void OnSelected()
+    {
+        _isSelected = true;
+        renderer.material.color = Color.red;
+        _instantiatedTargetingController.SetActive(true);
+    }
+
+    private void OnUnselected()
+    {
+        _isSelected = false;
+        renderer.material.color = Color.white;
+        _animator.enabled = false;
+        _shouldMove = false;
+        _instantiatedTargetingController.SetActive(false);
+    }
+
+    [SerializeField]
+    private GameObject _targetingController;
+    public GameObject TargetingController
+    {
+        get { return _targetingController; }
+        set { _targetingController = value; }
+    }
+
+    private GameObject _instantiatedTargetingController;
 
     private Vector3 _moveDirection;
     private Vector3 _target;
     private bool _shouldMove;
+    private bool _mouseDown;
+
     private Animator _animator;
+
 
 	public void Start ()
 	{
 	    _moveDirection = Vector3.down;
-        _animator = this.GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
 		_animator.enabled = false;
+        _instantiatedTargetingController = Instantiate(_targetingController) as GameObject;
+	    _instantiatedTargetingController.transform.parent = transform;
+	    _instantiatedTargetingController.transform.localPosition = Vector3.zero;
+        _instantiatedTargetingController.SetActive(false);
 	}
 	
 	public void Update () {
-
+        if(!_isSelected || _mouseDown)
+        {
+            return;
+        }
         Vector3 currentPosition = transform.position;
         if (Input.GetButton("Fire1"))
         {
@@ -66,4 +108,17 @@ public class CharacterController : MonoBehaviour
             _animator.enabled = false;
         }
 	}
+
+    public void OnMouseDown()
+    {
+        var units = new List<GameObject>(GameObject.FindGameObjectsWithTag("Unit"));
+        units.ForEach(u => u.GetComponent<CharacterController>().IsSelected = false);
+        IsSelected = true;
+        _mouseDown = true;
+    }
+
+    public void OnMouseUp()
+    {
+        _mouseDown = false;
+    }
 }

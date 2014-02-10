@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class TargetingController : MonoBehaviour {
 
@@ -13,7 +12,7 @@ public class TargetingController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButton("Fire1") || Input.GetButton("Fire2"))
+        if (Input.GetButton("Fire1"))
         {
             var target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             target.z = 0;
