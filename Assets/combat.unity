@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 4
-  _targetingController: {fileID: 100000, guid: 974ac505dde7832458e8bf64e66682bf, type: 2}
+  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
 --- !u!95 &1698350859
 Animator:
   serializedVersion: 3
@@ -256,7 +256,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1c479469c5a205845bd47dee7132eb02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1698350861
@@ -266,7 +266,7 @@ Transform:
   m_PrefabInternal: {fileID: 1848032788}
   m_GameObject: {fileID: 1698350856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0462784544, y: -1.89683151, z: 0}
+  m_LocalPosition: {x: -.190807104, y: -.988357663, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -280,11 +280,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -.0462784544
+      value: -.190807104
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.89683151
+      value: -.988357663
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
       propertyPath: m_LocalPosition.z
@@ -313,6 +313,14 @@ Prefab:
     - target: {fileID: 11400000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
       propertyPath: _moveSpeed
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
+      propertyPath: _bulletPrefab
+      value: 
+      objectReference: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
+    - target: {fileID: 21200000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}

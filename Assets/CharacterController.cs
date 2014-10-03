@@ -10,21 +10,19 @@ public class CharacterController : MonoBehaviour
         set { _moveSpeed = value; }
     }
 
-    [SerializeField]
-    private GameObject _targetingController;
-    public GameObject TargetingController
-    {
-        get { return _targetingController; }
-        set { _targetingController = value; }
-    }
-
-    private GameObject _instantiatedTargetingController;
-
     private Vector3 _moveDirection;
     private Vector3 _target;
     private bool _shouldMove;
 
     private Animator _animator;
+
+    [SerializeField]
+    private Rigidbody2D _bulletPrefab;
+    public Rigidbody2D BulletPrefab
+    {
+        get { return _bulletPrefab; }
+        set { _bulletPrefab = value; }
+    }
 
 
     public void Start()
@@ -32,13 +30,44 @@ public class CharacterController : MonoBehaviour
         _moveDirection = Vector3.down;
         _animator = GetComponent<Animator>();
         _animator.enabled = false;
-        _instantiatedTargetingController = Instantiate(_targetingController) as GameObject;
-        _instantiatedTargetingController.transform.parent = transform;
-        _instantiatedTargetingController.transform.localPosition = Vector3.zero;
-        _instantiatedTargetingController.SetActive(false);
     }
 
     public void Update()
+    {
+        HandleMovement();
+        HandleShooting();
+    }
+
+    private void HandleShooting()
+    {
+        if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow)
+            || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            var bullet = (Rigidbody2D)Instantiate(_bulletPrefab);
+            bullet.transform.position = transform.position;
+            if (Input.GetKeyUp(KeyCode.UpArrow))
+            {
+                bullet.transform.Rotate(0, 0, -90);
+                bullet.AddForce(new Vector2(0, 1));
+            }
+            else if (Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                bullet.transform.Rotate(0, 0, 90);
+                bullet.AddForce(new Vector2(0, -1));
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                bullet.AddForce(new Vector2(-1, 0));
+            }
+            else if (Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                bullet.transform.Rotate(0, 0, -180);
+                bullet.AddForce(new Vector2(1, 0));
+            }
+        }
+    }
+
+    private void HandleMovement()
     {
         Vector3 currentPosition = transform.position;
 
@@ -79,7 +108,7 @@ public class CharacterController : MonoBehaviour
         _moveDirection.Normalize();
         _animator.enabled = true;
 
-        Vector3 target = _moveDirection * MoveSpeed + currentPosition;
+        Vector3 target = _moveDirection*MoveSpeed + currentPosition;
         transform.position = currentPosition = Vector3.Lerp(currentPosition, target, Time.deltaTime);
         if (movement.x != 0.0f && movement.y != 0.0f)
         {
@@ -89,7 +118,7 @@ public class CharacterController : MonoBehaviour
         {
             _animator.SetInteger("Direction", _target.x > currentPosition.x ? 1 : 3);
         }
-        else if(Mathf.Abs(_target.x - currentPosition.x) > Mathf.Abs(_target.y - currentPosition.y))
+        else if (Mathf.Abs(_target.x - currentPosition.x) > Mathf.Abs(_target.y - currentPosition.y))
         {
             _animator.SetInteger("Direction", _target.y > currentPosition.y ? 0 : 2);
         }
