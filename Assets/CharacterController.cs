@@ -44,24 +44,27 @@ public class CharacterController : MonoBehaviour
 
         _shouldMove = false;
         _target = currentPosition;
+
+        var movement = new Vector3();
+
         if (Input.GetKey("w"))
         {
-            _target += new Vector3(0, 1, 0);
+            movement += new Vector3(0, 1, 0);
             _shouldMove = true;
         }
         if (Input.GetKey("s"))
         {
-            _target += new Vector3(0, -1, 0);
+            movement += new Vector3(0, -1, 0);
             _shouldMove = true;
         }
         if (Input.GetKey("a"))
         {
-            _target += new Vector3(-1, 0, 0);
+            movement += new Vector3(-1, 0, 0);
             _shouldMove = true;
         }
         if (Input.GetKey("d"))
         {
-            _target += new Vector3(1, 0, 0);
+            movement += new Vector3(1, 0, 0);
             _shouldMove = true;
         }
 
@@ -70,7 +73,7 @@ public class CharacterController : MonoBehaviour
             _animator.enabled = false;
             return;
         }
-
+        _target += movement;
         _moveDirection = _target - currentPosition;
         _moveDirection.z = _target.z = 0;
         _moveDirection.Normalize();
@@ -78,9 +81,9 @@ public class CharacterController : MonoBehaviour
 
         Vector3 target = _moveDirection * MoveSpeed + currentPosition;
         transform.position = currentPosition = Vector3.Lerp(currentPosition, target, Time.deltaTime);
-        if (_target.x != 0.0f && _target.y != 0.0f)
+        if (movement.x != 0.0f && movement.y != 0.0f)
         {
-            _animator.SetInteger("Direction", _target.x > currentPosition.x ? 1 : 3);
+            _animator.SetInteger("Direction", _target.y > currentPosition.y ? 0 : 2);
         }
         else if (Mathf.Abs(_target.x - currentPosition.x) > Mathf.Abs(_target.y - currentPosition.y))
         {
@@ -89,12 +92,6 @@ public class CharacterController : MonoBehaviour
         else if(Mathf.Abs(_target.x - currentPosition.x) > Mathf.Abs(_target.y - currentPosition.y))
         {
             _animator.SetInteger("Direction", _target.y > currentPosition.y ? 0 : 2);
-        }
-
-        if (Vector3.Distance(transform.position, _target) < 0.1)
-        {
-            _shouldMove = false;
-            _animator.enabled = false;
         }
     }
 }
