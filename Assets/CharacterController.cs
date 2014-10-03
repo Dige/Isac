@@ -4,10 +4,18 @@ public class CharacterController : MonoBehaviour
 {
     [SerializeField]
     private float _moveSpeed;
+    private Vector2 _momentum;
     public float MoveSpeed
     {
         get { return _moveSpeed; }
         set { _moveSpeed = value; }
+    }
+    [SerializeField]
+    private float _bulletSpeed = 0.5f;
+    public float BulletSpeed
+    {
+        get { return _bulletSpeed; }
+        set { _bulletSpeed = value;  }
     }
 
     private Vector3 _moveDirection;
@@ -48,22 +56,23 @@ public class CharacterController : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.UpArrow))
             {
                 bullet.transform.Rotate(0, 0, -90);
-                bullet.AddForce(new Vector2(0, 1));
+                bullet.AddForce(new Vector2(0, _bulletSpeed));
             }
             else if (Input.GetKeyUp(KeyCode.DownArrow))
             {
                 bullet.transform.Rotate(0, 0, 90);
-                bullet.AddForce(new Vector2(0, -1));
+                bullet.AddForce(new Vector2(0, -_bulletSpeed));
             }
             else if (Input.GetKeyUp(KeyCode.LeftArrow))
             {
-                bullet.AddForce(new Vector2(-1, 0));
+                bullet.AddForce(new Vector2(-_bulletSpeed, 0));
             }
             else if (Input.GetKeyUp(KeyCode.RightArrow))
             {
                 bullet.transform.Rotate(0, 0, -180);
-                bullet.AddForce(new Vector2(1, 0));
+                bullet.AddForce(new Vector2(_bulletSpeed, 0));
             }
+            bullet.AddForce(_momentum*0.001f);
         }
     }
 
@@ -117,7 +126,8 @@ public class CharacterController : MonoBehaviour
 
         //Vector3 target = _moveDirection * MoveSpeed + currentPosition;
         //transform.position = currentPosition = Vector3.Lerp(currentPosition, target, Time.deltaTime);
-        gameObject.rigidbody2D.AddForce(movement*MoveSpeed);
+        _momentum = movement * MoveSpeed;
+        gameObject.rigidbody2D.AddForce(_momentum);
         if (movement.x != 0.0f && movement.y != 0.0f)
         {
             _animator.SetInteger("Direction", _target.y > currentPosition.y ? 0 : 2);
