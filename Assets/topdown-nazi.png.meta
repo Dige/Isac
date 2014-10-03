@@ -1,6 +1,51 @@
 fileFormatVersion: 2
 guid: 1c479469c5a205845bd47dee7132eb02
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: topdown-nazi_0
+    21300002: topdown-nazi_1
+    21300004: topdown-nazi_2
+    21300006: topdown-nazi_3
+    21300008: topdown-nazi_4
+    21300010: topdown-nazi_5
+    21300012: topdown-nazi_6
+    21300014: topdown-nazi_7
+    21300016: topdown-nazi_8
+    21300018: topdown-nazi_9
+    21300020: topdown-nazi_10
+    21300022: topdown-nazi_11
+    21300024: topdown-nazi_12
+    21300026: topdown-nazi_13
+    21300028: topdown-nazi_14
+    21300030: topdown-nazi_15
+    21300032: topdown-nazi_16
+    21300034: topdown-nazi_17
+    21300036: topdown-nazi_18
+    21300038: topdown-nazi_19
+    21300040: topdown-nazi_20
+    21300042: topdown-nazi_21
+    21300044: topdown-nazi_22
+    21300046: topdown-nazi_23
+    21300048: topdown-nazi_24
+    21300050: topdown-nazi_25
+    21300052: topdown-nazi_26
+    21300054: topdown-nazi_27
+    21300056: topdown-nazi_28
+    21300058: topdown-nazi_29
+    21300060: topdown-nazi_30
+    21300062: topdown-nazi_31
+    21300064: topdown-nazi_32
+    21300066: topdown-nazi_33
+    21300068: topdown-nazi_34
+    21300070: topdown-nazi_35
+    21300072: topdown-nazi_36
+    21300074: topdown-nazi_37
+    21300076: topdown-nazi_38
+    21300078: topdown-nazi_39
+    21300080: topdown-nazi_40
+    21300082: topdown-nazi_41
+    21300084: topdown-nazi_42
+    21300086: topdown-nazi_43
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +80,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
@@ -54,6 +100,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_1
       rect:
         serializedVersion: 2
@@ -63,6 +110,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_2
       rect:
         serializedVersion: 2
@@ -72,6 +120,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_3
       rect:
         serializedVersion: 2
@@ -81,6 +130,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_4
       rect:
         serializedVersion: 2
@@ -90,6 +140,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_5
       rect:
         serializedVersion: 2
@@ -99,6 +150,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_6
       rect:
         serializedVersion: 2
@@ -108,6 +160,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_7
       rect:
         serializedVersion: 2
@@ -117,6 +170,7 @@ TextureImporter:
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_8
       rect:
         serializedVersion: 2
@@ -126,6 +180,7 @@ TextureImporter:
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_9
       rect:
         serializedVersion: 2
@@ -135,6 +190,7 @@ TextureImporter:
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_10
       rect:
         serializedVersion: 2
@@ -144,6 +200,7 @@ TextureImporter:
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_11
       rect:
         serializedVersion: 2
@@ -153,6 +210,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_12
       rect:
         serializedVersion: 2
@@ -162,6 +220,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_13
       rect:
         serializedVersion: 2
@@ -171,6 +230,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_14
       rect:
         serializedVersion: 2
@@ -180,6 +240,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_15
       rect:
         serializedVersion: 2
@@ -189,6 +250,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_16
       rect:
         serializedVersion: 2
@@ -198,6 +260,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_17
       rect:
         serializedVersion: 2
@@ -207,6 +270,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_18
       rect:
         serializedVersion: 2
@@ -216,6 +280,7 @@ TextureImporter:
         height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_19
       rect:
         serializedVersion: 2
@@ -225,6 +290,7 @@ TextureImporter:
         height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_20
       rect:
         serializedVersion: 2
@@ -234,6 +300,7 @@ TextureImporter:
         height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_21
       rect:
         serializedVersion: 2
@@ -243,6 +310,7 @@ TextureImporter:
         height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_22
       rect:
         serializedVersion: 2
@@ -252,6 +320,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_23
       rect:
         serializedVersion: 2
@@ -261,6 +330,7 @@ TextureImporter:
         height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_24
       rect:
         serializedVersion: 2
@@ -270,6 +340,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_25
       rect:
         serializedVersion: 2
@@ -279,6 +350,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_26
       rect:
         serializedVersion: 2
@@ -288,6 +360,7 @@ TextureImporter:
         height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_27
       rect:
         serializedVersion: 2
@@ -297,6 +370,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_28
       rect:
         serializedVersion: 2
@@ -306,6 +380,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_29
       rect:
         serializedVersion: 2
@@ -315,6 +390,7 @@ TextureImporter:
         height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_30
       rect:
         serializedVersion: 2
@@ -324,6 +400,7 @@ TextureImporter:
         height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_31
       rect:
         serializedVersion: 2
@@ -333,6 +410,7 @@ TextureImporter:
         height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_32
       rect:
         serializedVersion: 2
@@ -342,6 +420,7 @@ TextureImporter:
         height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_33
       rect:
         serializedVersion: 2
@@ -351,6 +430,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_34
       rect:
         serializedVersion: 2
@@ -360,6 +440,7 @@ TextureImporter:
         height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_35
       rect:
         serializedVersion: 2
@@ -369,6 +450,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_36
       rect:
         serializedVersion: 2
@@ -378,6 +460,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_37
       rect:
         serializedVersion: 2
@@ -387,6 +470,7 @@ TextureImporter:
         height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_38
       rect:
         serializedVersion: 2
@@ -396,6 +480,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_39
       rect:
         serializedVersion: 2
@@ -405,6 +490,7 @@ TextureImporter:
         height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_40
       rect:
         serializedVersion: 2
@@ -414,6 +500,7 @@ TextureImporter:
         height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_41
       rect:
         serializedVersion: 2
@@ -423,6 +510,7 @@ TextureImporter:
         height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_42
       rect:
         serializedVersion: 2
@@ -432,6 +520,7 @@ TextureImporter:
         height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: topdown-nazi_43
       rect:
         serializedVersion: 2
@@ -441,5 +530,6 @@ TextureImporter:
         height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
