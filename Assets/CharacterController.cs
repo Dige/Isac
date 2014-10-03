@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
@@ -9,36 +8,6 @@ public class CharacterController : MonoBehaviour
     {
         get { return _moveSpeed; }
         set { _moveSpeed = value; }
-    }
-
-    [SerializeField]
-    private bool _isSelected;
-    public bool IsSelected
-    {
-        get { return _isSelected; }
-        set
-        {
-            if (value)
-                OnSelected();
-            else
-                OnUnselected();
-        }
-    }
-
-    private void OnSelected()
-    {
-        _isSelected = true;
-        renderer.material.color = Color.red;
-        _instantiatedTargetingController.SetActive(true);
-    }
-
-    private void OnUnselected()
-    {
-        _isSelected = false;
-        renderer.material.color = Color.white;
-        _animator.enabled = false;
-        _shouldMove = false;
-        _instantiatedTargetingController.SetActive(false);
     }
 
     [SerializeField]
@@ -54,7 +23,6 @@ public class CharacterController : MonoBehaviour
     private Vector3 _moveDirection;
     private Vector3 _target;
     private bool _shouldMove;
-    private bool _mouseDown;
 
     private Animator _animator;
 
@@ -72,20 +40,7 @@ public class CharacterController : MonoBehaviour
 
     public void Update()
     {
-        if (!_isSelected || _mouseDown)
-        {
-            return;
-        }
         Vector3 currentPosition = transform.position;
-        if (Input.GetButton("Fire1"))
-        {
-            _target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            _moveDirection = _target - currentPosition;
-            _moveDirection.z = _target.z = 0;
-            _moveDirection.Normalize();
-            _shouldMove = true;
-            _animator.enabled = true;
-        }
 
         _shouldMove = false;
         _target = currentPosition;
@@ -110,29 +65,28 @@ public class CharacterController : MonoBehaviour
             _shouldMove = true;
         }
 
-
-
         if (!_shouldMove)
         {
-            _shouldMove = false;
             _animator.enabled = false;
             return;
         }
-        else
-        {
-            _moveDirection = _target - currentPosition;
-            _moveDirection.z = _target.z = 0;
-            _moveDirection.Normalize();
-            _animator.enabled = true;
-        }
+
+        _moveDirection = _target - currentPosition;
+        _moveDirection.z = _target.z = 0;
+        _moveDirection.Normalize();
+        _animator.enabled = true;
 
         Vector3 target = _moveDirection * MoveSpeed + currentPosition;
         transform.position = currentPosition = Vector3.Lerp(currentPosition, target, Time.deltaTime);
-        if (Mathf.Abs(_target.x - currentPosition.x) > Mathf.Abs(_target.y - currentPosition.y))
+        if (_target.x != 0.0f && _target.y != 0.0f)
         {
             _animator.SetInteger("Direction", _target.x > currentPosition.x ? 1 : 3);
         }
-        else
+        else if (Mathf.Abs(_target.x - currentPosition.x) > Mathf.Abs(_target.y - currentPosition.y))
+        {
+            _animator.SetInteger("Direction", _target.x > currentPosition.x ? 1 : 3);
+        }
+        else if(Mathf.Abs(_target.x - currentPosition.x) > Mathf.Abs(_target.y - currentPosition.y))
         {
             _animator.SetInteger("Direction", _target.y > currentPosition.y ? 0 : 2);
         }
@@ -142,18 +96,5 @@ public class CharacterController : MonoBehaviour
             _shouldMove = false;
             _animator.enabled = false;
         }
-    }
-
-    public void OnMouseDown()
-    {
-        var units = new List<GameObject>(GameObject.FindGameObjectsWithTag("Unit"));
-        units.ForEach(u => u.GetComponent<CharacterController>().IsSelected = false);
-        IsSelected = true;
-        _mouseDown = true;
-    }
-
-    public void OnMouseUp()
-    {
-        _mouseDown = false;
     }
 }
