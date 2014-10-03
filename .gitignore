@@ -6,3 +6,5 @@
 *.sln
 *.pdb
 *.suo
+*.user
+*.userprefs
