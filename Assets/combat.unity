@@ -218,8 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99bbb30b5a9dcc344a21fb1bf3c50287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 2
-  _isSelected: 0
+  _moveSpeed: 4
   _targetingController: {fileID: 100000, guid: 974ac505dde7832458e8bf64e66682bf, type: 2}
 --- !u!95 &1698350859
 Animator:
@@ -310,6 +309,10 @@ Prefab:
     - target: {fileID: 400000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
+      propertyPath: _moveSpeed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
