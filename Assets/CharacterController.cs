@@ -72,20 +72,14 @@ public class CharacterController : MonoBehaviour
 
     public void Update()
     {
-        if (!_isSelected || _mouseDown)
+        // shoot first, move later
+
+        if (!_isSelected)
         {
             return;
         }
+
         Vector3 currentPosition = transform.position;
-        if (Input.GetButton("Fire1"))
-        {
-            _target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            _moveDirection = _target - currentPosition;
-            _moveDirection.z = _target.z = 0;
-            _moveDirection.Normalize();
-            _shouldMove = true;
-            _animator.enabled = true;
-        }
 
         _shouldMove = false;
         _target = currentPosition;
@@ -110,8 +104,6 @@ public class CharacterController : MonoBehaviour
             _shouldMove = true;
         }
 
-
-
         if (!_shouldMove)
         {
             _shouldMove = false;
@@ -126,8 +118,8 @@ public class CharacterController : MonoBehaviour
             _animator.enabled = true;
         }
 
-        Vector3 target = _moveDirection * MoveSpeed + currentPosition;
-        transform.position = currentPosition = Vector3.Lerp(currentPosition, target, Time.deltaTime);
+        
+        transform.position = _moveDirection * MoveSpeed * Time.deltaTime + currentPosition;
         if (Mathf.Abs(_target.x - currentPosition.x) > Mathf.Abs(_target.y - currentPosition.y))
         {
             _animator.SetInteger("Direction", _target.x > currentPosition.x ? 1 : 3);
@@ -135,12 +127,6 @@ public class CharacterController : MonoBehaviour
         else
         {
             _animator.SetInteger("Direction", _target.y > currentPosition.y ? 0 : 2);
-        }
-
-        if (Vector3.Distance(transform.position, _target) < 0.1)
-        {
-            _shouldMove = false;
-            _animator.enabled = false;
         }
     }
 
