@@ -187,6 +187,7 @@ GameObject:
   - 95: {fileID: 1698350859}
   - 114: {fileID: 1698350858}
   - 61: {fileID: 1698350857}
+  - 50: {fileID: 1698350862}
   m_Layer: 0
   m_Name: Character
   m_TagString: Unit
@@ -271,6 +272,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!50 &1698350862
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1698350856}
+  m_Mass: 1
+  m_LinearDrag: .949999988
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
 --- !u!1001 &1848032788
 Prefab:
   m_ObjectHideFlags: 0

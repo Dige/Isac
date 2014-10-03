@@ -67,6 +67,8 @@ public class CharacterController : MonoBehaviour
         }
     }
 
+    private const float ANIMATION_STOP_VELOCITY = 0.35f;
+
     private void HandleMovement()
     {
         Vector3 currentPosition = transform.position;
@@ -97,28 +99,34 @@ public class CharacterController : MonoBehaviour
             _shouldMove = true;
         }
 
-        if (!_shouldMove)
+        if (_animator.enabled && gameObject.rigidbody2D.velocity.x < ANIMATION_STOP_VELOCITY && gameObject.rigidbody2D.velocity.x > -ANIMATION_STOP_VELOCITY
+            && gameObject.rigidbody2D.velocity.y < ANIMATION_STOP_VELOCITY && gameObject.rigidbody2D.velocity.y > -ANIMATION_STOP_VELOCITY)
         {
             _animator.enabled = false;
             return;
         }
+
+        if (!_shouldMove)
+            return;
+
         _target += movement;
         _moveDirection = _target - currentPosition;
         _moveDirection.z = _target.z = 0;
         _moveDirection.Normalize();
         _animator.enabled = true;
 
-        Vector3 target = _moveDirection*MoveSpeed + currentPosition;
-        transform.position = currentPosition = Vector3.Lerp(currentPosition, target, Time.deltaTime);
+        //Vector3 target = _moveDirection * MoveSpeed + currentPosition;
+        //transform.position = currentPosition = Vector3.Lerp(currentPosition, target, Time.deltaTime);
+        gameObject.rigidbody2D.AddForce(movement*MoveSpeed);
         if (movement.x != 0.0f && movement.y != 0.0f)
         {
             _animator.SetInteger("Direction", _target.y > currentPosition.y ? 0 : 2);
         }
-        else if (Mathf.Abs(_target.x - currentPosition.x) > Mathf.Abs(_target.y - currentPosition.y))
+        else if (movement.x != 0.0f && movement.y == 0.0f)
         {
             _animator.SetInteger("Direction", _target.x > currentPosition.x ? 1 : 3);
         }
-        else if (Mathf.Abs(_target.x - currentPosition.x) > Mathf.Abs(_target.y - currentPosition.y))
+        else if (movement.x == 0.0f && movement.y != 0.0f)
         {
             _animator.SetInteger("Direction", _target.y > currentPosition.y ? 0 : 2);
         }
