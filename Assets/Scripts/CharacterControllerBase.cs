@@ -40,6 +40,13 @@ namespace Assets.Scripts
             set { _health = value; }
         }
 
+        [SerializeField]
+        private int _range = 8;
+        public int Range
+        {
+            get { return _range; }
+            set { _range = value; }
+        }
 
         public virtual void Start()
         {
@@ -49,6 +56,11 @@ namespace Assets.Scripts
 
         public virtual void Update()
         {
+            if ( Health <= 0 && gameObject.tag == "Enemy")
+            {
+                Destroy(gameObject);
+                
+            }
             var movement = DetermineMovement();
             HandleAnimation(movement);
             HandleMovement(movement);
