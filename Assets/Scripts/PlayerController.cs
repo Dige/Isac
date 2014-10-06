@@ -1,9 +1,17 @@
 ﻿using Assets.Scripts;
 using UnityEngine;
 
-public class CharacterController : CharacterControllerBase
+public class PlayerController : CharacterControllerBase
 {   
     private Vector2 _momentum;
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.Contains("Enemy"))
+        {
+            Health--;
+        }
+    }
 
     protected override void HandleShooting()
     {
