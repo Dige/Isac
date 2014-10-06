@@ -15,7 +15,7 @@ GameObject:
   - 50: {fileID: 5000002}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Unit
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
   _moveSpeed: 4
   _bulletSpeed: .5
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
-  _health: 8
+  _health: 7
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
