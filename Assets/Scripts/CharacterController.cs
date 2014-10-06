@@ -10,6 +10,7 @@ public class CharacterController : MonoBehaviour
         get { return _moveSpeed; }
         set { _moveSpeed = value; }
     }
+
     [SerializeField]
     private float _bulletSpeed = 0.5f;
     public float BulletSpeed
@@ -30,6 +31,14 @@ public class CharacterController : MonoBehaviour
     {
         get { return _bulletPrefab; }
         set { _bulletPrefab = value; }
+    }
+
+    [SerializeField]
+    private int _health = 8;
+    public int Health
+    {
+        get { return _health; }
+        set { _health = value; }
     }
 
 
