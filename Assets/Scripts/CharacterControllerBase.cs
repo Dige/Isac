@@ -65,6 +65,7 @@ namespace Assets.Scripts
             HandleAnimation(movement);
             HandleMovement(movement);
             HandleShooting();
+			transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y / 100);
         }
 
         protected abstract void HandleMovement(Vector3 movement);
