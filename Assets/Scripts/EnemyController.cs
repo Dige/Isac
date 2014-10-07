@@ -23,7 +23,7 @@ public class EnemyController : CharacterControllerBase
 
     protected override void HandleMovement(Vector3 movement)
     {
-        transform.position += movement;
+        transform.Translate(movement);
     }
 
     protected override void HandleShooting()
