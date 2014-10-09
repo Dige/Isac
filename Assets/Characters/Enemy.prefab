@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Unit
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,6 +88,7 @@ MonoBehaviour:
   _bulletSpeed: .5
   _bulletPrefab: {fileID: 0}
   _health: 8
+  _range: 8
   _movementStyle: 0
 --- !u!212 &21200000
 SpriteRenderer:
