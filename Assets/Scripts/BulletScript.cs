@@ -7,7 +7,7 @@ public class BulletScript : MonoBehaviour {
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        GameObject o = collision.collider.attachedRigidbody.gameObject;
+        GameObject o = collision.gameObject;
         if (o.CompareTag("Enemy"))
         {
             o.GetComponentInParent<EnemyController>().Health--;
