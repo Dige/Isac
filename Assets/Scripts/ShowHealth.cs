@@ -29,12 +29,12 @@ public class ShowHealth : MonoBehaviour {
     {
         for (int i = 0; i < _playerCharacter.Health / 2; i++)
         {
-            GUI.DrawTexture(new Rect(Screen.width - 250 + i*40,30,40,40), _healthTexture, ScaleMode.ScaleToFit);    
+            GUI.DrawTexture(new Rect(Screen.width - Screen.width / 4 + i*40,30,40,40), _healthTexture, ScaleMode.ScaleToFit);    
         }
 
         if (_playerCharacter.Health % 2 == 1)
         {
-            GUI.DrawTexture(new Rect(Screen.width - 250 + _playerCharacter.Health / 2 * 40, 30, 40, 40), _halfHealthTexture, ScaleMode.ScaleToFit);
+            GUI.DrawTexture(new Rect(Screen.width - Screen.width / 4 + _playerCharacter.Health / 2 * 40, 30, 40, 40), _halfHealthTexture, ScaleMode.ScaleToFit);
         }
     }
 }
