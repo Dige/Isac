@@ -1,0 +1,289 @@
+fileFormatVersion: 2
+guid: 590605a6339bcbb48bf02ef233f525c8
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Enemy_Cannon_Ring_Sprite_0
+    21300002: Enemy_Cannon_Ring_Sprite_1
+    21300004: Enemy_Cannon_Ring_Sprite_2
+    21300006: Enemy_Cannon_Ring_Sprite_3
+    21300008: Enemy_Cannon_Ring_Sprite_4
+    21300010: Enemy_Cannon_Ring_Sprite_5
+    21300012: Enemy_Cannon_Ring_Sprite_6
+    21300014: Enemy_Cannon_Ring_Sprite_7
+    21300016: Enemy_Cannon_Ring_Sprite_8
+    21300018: Enemy_Cannon_Ring_Sprite_9
+    21300020: Enemy_Cannon_Ring_Sprite_10
+    21300022: Enemy_Cannon_Ring_Sprite_11
+    21300024: Enemy_Cannon_Ring_Sprite_12
+    21300026: Enemy_Cannon_Ring_Sprite_13
+    21300028: Enemy_Cannon_Ring_Sprite_14
+    21300030: Enemy_Cannon_Ring_Sprite_15
+    21300032: Enemy_Cannon_Ring_Sprite_16
+    21300034: Enemy_Cannon_Ring_Sprite_17
+    21300036: Enemy_Cannon_Ring_Sprite_18
+    21300038: Enemy_Cannon_Ring_Sprite_19
+    21300040: Enemy_Cannon_Ring_Sprite_20
+    21300042: Enemy_Cannon_Ring_Sprite_21
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Enemy_Cannon_Ring_Sprite_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 161
+        width: 114
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 161
+        width: 104
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 159
+        width: 109
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_3
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 159
+        width: 97
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_4
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 150
+        width: 97
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 148
+        width: 91
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_6
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 149
+        width: 92
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_7
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 149
+        width: 91
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_8
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 157
+        width: 97
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_9
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 158
+        width: 116
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_10
+      rect:
+        serializedVersion: 2
+        x: 1515
+        y: 158
+        width: 114
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_11
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 157
+        width: 104
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_12
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 158
+        width: 115
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_13
+      rect:
+        serializedVersion: 2
+        x: 1974
+        y: 159
+        width: 95
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_14
+      rect:
+        serializedVersion: 2
+        x: 2125
+        y: 152
+        width: 91
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_15
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 9
+        width: 94
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_16
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 16
+        width: 88
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_17
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 10
+        width: 90
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_18
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 14
+        width: 97
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_19
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 21
+        width: 100
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_20
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 23
+        width: 112
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_Cannon_Ring_Sprite_21
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 18
+        width: 117
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
