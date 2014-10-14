@@ -153,6 +153,7 @@ MonoBehaviour:
   _headFront: {fileID: 21300016, guid: dd4491962fabe5344a5d04ebe515cdc8, type: 3}
   _headBack: {fileID: 21300036, guid: dd4491962fabe5344a5d04ebe515cdc8, type: 3}
   _headSideways: {fileID: 21300034, guid: dd4491962fabe5344a5d04ebe515cdc8, type: 3}
+  _shootSpeed: .300000012
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
