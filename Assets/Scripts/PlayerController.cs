@@ -125,6 +125,12 @@ public class PlayerController : CharacterControllerBase
             yield return new WaitForSeconds(ShootingSpeed);
         }
         _isShooting = false;
+        
+        //Reset head flipping
+        if (_headObject.transform.localScale.x < 0)
+        {
+            TransformHelpers.FlipX(_headObject.gameObject);
+        }
     }
 
     private void SetHeadDirection(KeyCode shootKey)
