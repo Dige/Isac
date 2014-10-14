@@ -48,6 +48,14 @@ namespace Assets.Scripts
             set { _range = value; }
         }
 
+        [SerializeField]
+        private bool _mirrorAnimation = false;
+        public bool MirrorAnimation
+        {
+            get { return _mirrorAnimation; }
+            set { _mirrorAnimation = value; }
+        }
+
         public virtual void Start()
         {
             Animator = GetComponent<Animator>();
@@ -92,18 +100,54 @@ namespace Assets.Scripts
             var target = currentPosition + movement;
             Animator.enabled = true;
 
+            SetAnimationDirection(movement, target, currentPosition);
+        }
+
+        private void SetAnimationDirection(Vector3 movement, Vector3 target, Vector3 currentPosition)
+        {
+            int animationDirection = Animator.GetInteger("Direction");
+            int newDirection = -1;
             if (movement.x != 0.0f && movement.y != 0.0f)
             {
-                Animator.SetInteger("Direction", target.y > currentPosition.y ? 0 : 2);
+                newDirection = target.y > currentPosition.y ? 0 : 2;
             }
             else if (movement.x != 0.0f && movement.y == 0.0f)
             {
-                Animator.SetInteger("Direction", target.x > currentPosition.x ? 1 : 3);
+                newDirection = target.x > currentPosition.x ? 1 : 3;
             }
             else if (movement.x == 0.0f && movement.y != 0.0f)
             {
-                Animator.SetInteger("Direction", target.y > currentPosition.y ? 0 : 2);
+                newDirection = target.y > currentPosition.y ? 0 : 2;
             }
+
+            if (animationDirection != newDirection)
+            {
+                Animator.SetInteger("Direction", newDirection);
+                if (MirrorAnimation)
+                {
+                    if ((transform.localScale.x < 0 && newDirection == 3) ||
+                        (transform.localScale.x > 0 && newDirection == 1) ||
+                        (transform.localScale.y < 0 && newDirection == 0) ||
+                        (transform.localScale.y > 0 && newDirection == 2))
+                    {
+                        FlipX();
+                    }
+                }
+            }
+        }
+
+        public void FlipX()
+        {
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
+
+        public void FlipY()
+        {
+            Vector3 theScale = transform.localScale;
+            theScale.y *= -1;
+            transform.localScale = theScale;
         }
     }
 }

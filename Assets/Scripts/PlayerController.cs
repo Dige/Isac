@@ -5,6 +5,46 @@ public class PlayerController : CharacterControllerBase
 {   
     private Vector2 _momentum;
 
+    [SerializeField]
+    private SpriteRenderer _gunObject;
+    public SpriteRenderer GunObject
+    {
+        get { return _gunObject; }
+        set { _gunObject = value; }
+    }
+
+    [SerializeField]
+    private SpriteRenderer _headObject;
+    public SpriteRenderer HeadObject
+    {
+        get { return _headObject; }
+        set { _headObject = value; }
+    }
+
+    [SerializeField]
+    private Sprite _headFront;
+    public Sprite HeadFront
+    {
+        get { return _headFront; }
+        set { _headFront = value; }
+    }
+
+    [SerializeField]
+    private Sprite _headBack;
+    public Sprite HeadBack
+    {
+        get { return _headBack; }
+        set { _headBack = value; }
+    }
+
+    [SerializeField]
+    private Sprite _headSideways;
+    public Sprite HeadSideways
+    {
+        get { return _headSideways; }
+        set { _headSideways = value; }
+    }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name.Contains("Enemy"))
@@ -51,21 +91,29 @@ public class PlayerController : CharacterControllerBase
         {
             movement += new Vector3(0, 1, 0);
             ShouldMove = true;
+            GunObject.enabled = false;
+            _headObject.sprite = _headBack;
         }
         if (Input.GetKey("s"))
         {
             movement += new Vector3(0, -1, 0);
             ShouldMove = true;
+            GunObject.enabled = true;
+            _headObject.sprite = _headFront;
         }
         if (Input.GetKey("a"))
         {
             movement += new Vector3(-1, 0, 0);
             ShouldMove = true;
+            GunObject.enabled = false;
+            _headObject.sprite = _headSideways;
         }
         if (Input.GetKey("d"))
         {
             movement += new Vector3(1, 0, 0);
             ShouldMove = true;
+            GunObject.enabled = false;
+            _headObject.sprite = _headSideways;
         }
         return movement;
     }
