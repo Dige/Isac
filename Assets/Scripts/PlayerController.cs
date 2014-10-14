@@ -70,6 +70,7 @@ public class PlayerController : CharacterControllerBase
     {
         if (_isShooting)
         {
+            SetHeadDirection(_shootKey);
             return;
         }
 
@@ -105,7 +106,6 @@ public class PlayerController : CharacterControllerBase
         _isShooting = true;
         while (Input.GetKey(_shootKey))
         {
-            SetHeadDirection(_shootKey);
             var bullet = (Rigidbody2D)Instantiate(BulletPrefab);
             bullet.transform.position = transform.position;
             if (_shootDirection.y > 0)
