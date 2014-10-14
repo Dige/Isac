@@ -130,24 +130,10 @@ namespace Assets.Scripts
                         (transform.localScale.y < 0 && newDirection == 0) ||
                         (transform.localScale.y > 0 && newDirection == 2))
                     {
-                        FlipX();
+                        TransformHelpers.FlipX(gameObject);
                     }
                 }
             }
-        }
-
-        public void FlipX()
-        {
-            Vector3 theScale = transform.localScale;
-            theScale.x *= -1;
-            transform.localScale = theScale;
-        }
-
-        public void FlipY()
-        {
-            Vector3 theScale = transform.localScale;
-            theScale.y *= -1;
-            transform.localScale = theScale;
         }
     }
 }

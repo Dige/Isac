@@ -1,4 +1,5 @@
-﻿using Assets.Scripts;
+﻿using System.Collections;
+using Assets.Scripts;
 using UnityEngine;
 
 public class PlayerController : CharacterControllerBase
@@ -45,6 +46,14 @@ public class PlayerController : CharacterControllerBase
         set { _headSideways = value; }
     }
 
+    [SerializeField]
+    private float _shootSpeed = 0.3f;
+    public float ShootingSpeed
+    {
+        get { return _shootSpeed; }
+        set { _shootSpeed = value; }
+    }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name.Contains("Enemy"))
@@ -53,33 +62,93 @@ public class PlayerController : CharacterControllerBase
         }
     }
 
+    private bool _isShooting;
+    private KeyCode _shootKey;
+    private Vector2 _shootDirection;
+
     protected override void HandleShooting()
     {
-        if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow)
-            || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+        if (_isShooting)
         {
+            return;
+        }
+
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)
+            || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        {
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                _shootDirection = new Vector2(0, BulletSpeed);
+                _shootKey = KeyCode.UpArrow;
+            }
+            else if (Input.GetKey(KeyCode.DownArrow))
+            {
+                _shootDirection = new Vector2(0, -BulletSpeed);
+                _shootKey = KeyCode.DownArrow;
+            }
+            else if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                _shootDirection = new Vector2(-BulletSpeed, 0);
+                _shootKey = KeyCode.LeftArrow;
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                _shootDirection = new Vector2(BulletSpeed, 0);
+                _shootKey = KeyCode.RightArrow;
+            }
+            StartCoroutine(Shoot());
+        }
+    }
+
+    IEnumerator Shoot()
+    {
+        _isShooting = true;
+        while (Input.GetKey(_shootKey))
+        {
+            SetHeadDirection(_shootKey);
             var bullet = (Rigidbody2D)Instantiate(BulletPrefab);
             bullet.transform.position = transform.position;
-            if (Input.GetKeyUp(KeyCode.UpArrow))
+            if (_shootDirection.y > 0)
             {
                 bullet.transform.Rotate(0, 0, -90);
-                bullet.AddForce(new Vector2(0, BulletSpeed));
             }
-            else if (Input.GetKeyUp(KeyCode.DownArrow))
+            else if (_shootDirection.y < 0)
             {
                 bullet.transform.Rotate(0, 0, 90);
-                bullet.AddForce(new Vector2(0, -BulletSpeed));
             }
-            else if (Input.GetKeyUp(KeyCode.LeftArrow))
+            else if (_shootDirection.x > 0)
             {
-                bullet.AddForce(new Vector2(-BulletSpeed, 0));
+                TransformHelpers.FlipX(bullet.gameObject);
             }
-            else if (Input.GetKeyUp(KeyCode.RightArrow))
-            {
-                bullet.transform.Rotate(0, 0, -180);
-                bullet.AddForce(new Vector2(BulletSpeed, 0));
-            }
-            bullet.AddForce(_momentum*0.001f);
+            bullet.AddForce(_shootDirection);
+            bullet.AddForce(_momentum * 0.001f);
+            yield return new WaitForSeconds(ShootingSpeed);
+        }
+        _isShooting = false;
+    }
+
+    private void SetHeadDirection(KeyCode shootKey)
+    {
+        switch (shootKey)
+        {
+            case KeyCode.UpArrow:
+                _headObject.sprite = _headBack;
+                break;
+            case KeyCode.DownArrow:
+                _headObject.sprite = _headFront;
+                break;
+            case KeyCode.LeftArrow:
+                _headObject.sprite = _headSideways;
+                if ((gameObject.transform.localScale.x < 0 && _headObject.transform.localScale.x > 0) ||
+                    gameObject.transform.localScale.x > 0 && _headObject.transform.localScale.x < 0)
+                    TransformHelpers.FlipX(_headObject.gameObject);
+                break;
+            case KeyCode.RightArrow:
+                _headObject.sprite = _headSideways;
+                if ((gameObject.transform.localScale.x < 0 && _headObject.transform.localScale.x < 0) ||
+                    gameObject.transform.localScale.x > 0 && _headObject.transform.localScale.x > 0)
+                    TransformHelpers.FlipX(_headObject.gameObject);
+                break;
         }
     }
 
@@ -92,28 +161,32 @@ public class PlayerController : CharacterControllerBase
             movement += new Vector3(0, 1, 0);
             ShouldMove = true;
             GunObject.enabled = false;
-            _headObject.sprite = _headBack;
+            if(!_isShooting)
+                _headObject.sprite = _headBack;
         }
         if (Input.GetKey("s"))
         {
             movement += new Vector3(0, -1, 0);
             ShouldMove = true;
             GunObject.enabled = true;
-            _headObject.sprite = _headFront;
+            if (!_isShooting)
+                _headObject.sprite = _headFront;
         }
         if (Input.GetKey("a"))
         {
             movement += new Vector3(-1, 0, 0);
             ShouldMove = true;
             GunObject.enabled = false;
-            _headObject.sprite = _headSideways;
+            if (!_isShooting)
+                _headObject.sprite = _headSideways;
         }
         if (Input.GetKey("d"))
         {
             movement += new Vector3(1, 0, 0);
             ShouldMove = true;
             GunObject.enabled = false;
-            _headObject.sprite = _headSideways;
+            if (!_isShooting)
+                _headObject.sprite = _headSideways;
         }
         return movement;
     }
