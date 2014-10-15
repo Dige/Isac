@@ -74,8 +74,7 @@ public class PlayerController : CharacterControllerBase
             return;
         }
 
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)
-            || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        if (InputHelpers.IsAnyKeyDown(KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow))
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
@@ -162,38 +161,38 @@ public class PlayerController : CharacterControllerBase
     {
         var movement = new Vector3();
 
-        if (Input.GetKey("w"))
+        if (InputHelpers.IsAnyKeyDown("w", "s", "a", "d"))
         {
-            movement += new Vector3(0, 1, 0);
             ShouldMove = true;
             GunObject.enabled = false;
-            if(!_isShooting)
-                _headObject.sprite = _headBack;
+
+            if (Input.GetKey("w"))
+            {
+                movement += new Vector3(0, 1, 0);
+                if (!_isShooting)
+                    _headObject.sprite = _headBack;
+            }
+            else if (Input.GetKey("s"))
+            {
+                movement += new Vector3(0, -1, 0);
+                GunObject.enabled = true;
+                if (!_isShooting)
+                    _headObject.sprite = _headFront;
+            }
+            else if (Input.GetKey("a"))
+            {
+                movement += new Vector3(-1, 0, 0);
+                if (!_isShooting)
+                    _headObject.sprite = _headSideways;
+            }
+            else if (Input.GetKey("d"))
+            {
+                movement += new Vector3(1, 0, 0);
+                if (!_isShooting)
+                    _headObject.sprite = _headSideways;
+            }
         }
-        if (Input.GetKey("s"))
-        {
-            movement += new Vector3(0, -1, 0);
-            ShouldMove = true;
-            GunObject.enabled = true;
-            if (!_isShooting)
-                _headObject.sprite = _headFront;
-        }
-        if (Input.GetKey("a"))
-        {
-            movement += new Vector3(-1, 0, 0);
-            ShouldMove = true;
-            GunObject.enabled = false;
-            if (!_isShooting)
-                _headObject.sprite = _headSideways;
-        }
-        if (Input.GetKey("d"))
-        {
-            movement += new Vector3(1, 0, 0);
-            ShouldMove = true;
-            GunObject.enabled = false;
-            if (!_isShooting)
-                _headObject.sprite = _headSideways;
-        }
+
         return movement;
     }
 
