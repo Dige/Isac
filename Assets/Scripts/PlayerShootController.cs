@@ -91,6 +91,7 @@ namespace Assets.Scripts
                 }
                 bullet.AddForce(_shootDirection);
                 bullet.AddForce(_player.Momentum * 0.001f);
+                audio.PlayOneShot(ShootClip);
                 yield return new WaitForSeconds(ShootingSpeed);
             }
             IsShooting = false;

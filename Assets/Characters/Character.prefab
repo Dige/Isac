@@ -206,6 +206,8 @@ MonoBehaviour:
   _moveSpeed: 4
   _health: 7
   _range: 8
+  _takeDamageClip: {fileID: 0}
+  _dieClip: {fileID: 0}
   _mirrorAnimation: 1
   _gunObject: {fileID: 21200004}
   _headObject: {fileID: 11400004}
@@ -223,6 +225,7 @@ MonoBehaviour:
   _bulletSpeed: .5
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClip: {fileID: 0}
+  _bulletCollideClip: {fileID: 0}
   _headObject: {fileID: 11400004}
   _shootSpeed: .300000012
 --- !u!114 &11400004

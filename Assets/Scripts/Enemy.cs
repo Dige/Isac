@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Assets.Scripts;
 using UnityEngine;
 
@@ -14,11 +15,35 @@ public class Enemy : CharacterBase
         set { _movementStyle = value; }
     }
 
+    [SerializeField]
+    private float _wanderClipRepeatDelay;
+    public float WanderingClipRepeatDelay
+    {
+        get { return _wanderClipRepeatDelay; }
+        set { _wanderClipRepeatDelay = value; }
+    }
+
+    [SerializeField]
+    private AudioClip _wanderClip;
+    public AudioClip WanderingClip
+    {
+        get { return _wanderClip; }
+        set { _wanderClip = value; }
+    }
 
     public override void Start()
     {
         base.Start();
         _player = GameObject.FindGameObjectWithTag("Player");
+
+        if (_wanderClipRepeatDelay > 0.0f)
+            StartCoroutine(PlayWanderingClip());
+    }
+
+    public IEnumerator PlayWanderingClip()
+    {
+        audio.PlayOneShot(WanderingClip);
+        yield return new WaitForSeconds(WanderingClipRepeatDelay);
     }
 
     protected override void HandleMovement(Vector3 movement)

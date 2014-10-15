@@ -22,7 +22,18 @@ namespace Assets.Scripts
         public int Health
         {
             get { return _health; }
-            set { _health = value; }
+            set
+            {
+                if (value < _health)
+                {
+                    TakeDamage();
+                }
+                _health = value;
+                if (_health <= 0)
+                {
+                    Die();
+                }
+            }
         }
 
         [SerializeField]
@@ -31,6 +42,22 @@ namespace Assets.Scripts
         {
             get { return _range; }
             set { _range = value; }
+        }
+
+        [SerializeField]
+        private AudioClip _takeDamageClip;
+        public AudioClip TakeDamageClip
+        {
+            get { return _takeDamageClip; }
+            set { _takeDamageClip = value; }
+        }
+
+        [SerializeField]
+        private AudioClip _dieClip;
+        public AudioClip DieClip
+        {
+            get { return _dieClip; }
+            set { _dieClip = value; }
         }
 
         [SerializeField]
@@ -84,6 +111,16 @@ namespace Assets.Scripts
             Animator.enabled = true;
 
             SetAnimationDirection(movement, target, currentPosition);
+        }
+
+        protected virtual void TakeDamage()
+        {
+            audio.PlayOneShot(_takeDamageClip);
+        }
+
+        protected virtual void Die()
+        {
+            audio.PlayOneShot(_dieClip);
         }
 
         private void SetAnimationDirection(Vector3 movement, Vector3 target, Vector3 currentPosition)

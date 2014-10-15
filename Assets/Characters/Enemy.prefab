@@ -13,6 +13,7 @@ GameObject:
   - 61: {fileID: 6100000}
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   - 82: {fileID: 8200000}
   m_Layer: 10
   m_Name: Enemy
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.42329454, y: -2.78071713, z: 0}
+  m_LocalPosition: {x: -7.06450272, y: 1.52489471, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -144,10 +145,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
-  _health: 8
+  _health: 4
   _range: 8
+  _takeDamageClip: {fileID: 0}
+  _dieClip: {fileID: 0}
   _mirrorAnimation: 0
   _movementStyle: 0
+  _wanderClipRepeatDelay: 0
+  _wanderClip: {fileID: 0}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2dfc760e0f25674881a19ed6c07ba37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletSpeed: .5
+  _bulletPrefab: {fileID: 0}
+  _shootClip: {fileID: 0}
+  _bulletCollideClip: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

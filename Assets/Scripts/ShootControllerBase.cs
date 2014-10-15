@@ -29,6 +29,14 @@ namespace Assets.Scripts
             set { _shootClip = value; }
         }
 
+        [SerializeField]
+        private AudioClip _bulletCollideClip;
+        public AudioClip BulletCollideClip
+        {
+            get { return _bulletCollideClip; }
+            set { _bulletCollideClip = value; }
+        }
+
         public virtual void Start()
         {
 

@@ -2,8 +2,25 @@
 
 namespace Assets.Scripts
 {
+    [RequireComponent(typeof(AudioSource))]
     public abstract class ItemBase : MonoBehaviour
     {
+        [SerializeField]
+        private AudioClip _spawnClip;
+        public AudioClip SpawnClip
+        {
+            get { return _spawnClip; }
+            set { _spawnClip = value; }
+        }
+
+        [SerializeField]
+        private AudioClip _pickUpClip;
+        public AudioClip PickUpClip
+        {
+            get { return _pickUpClip; }
+            set { _pickUpClip = value; }
+        }
+
         protected GameObject Player;
 
         public virtual void Start()
@@ -21,6 +38,9 @@ namespace Assets.Scripts
             }
         }
 
-        protected abstract void OnPickUp();
+        protected virtual void OnPickUp()
+        {
+            audio.PlayOneShot(_pickUpClip);
+        }
     }
 }
