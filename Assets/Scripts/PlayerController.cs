@@ -179,7 +179,7 @@ public class PlayerController : CharacterControllerBase
                 if (!_isShooting)
                     _headObject.sprite = _headFront;
             }
-            else if (Input.GetKey("a"))
+            if (Input.GetKey("a"))
             {
                 movement += new Vector3(-1, 0, 0);
                 if (!_isShooting)
