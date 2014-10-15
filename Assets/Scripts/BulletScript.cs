@@ -10,7 +10,7 @@ public class BulletScript : MonoBehaviour {
         GameObject o = collision.gameObject;
         if (o.CompareTag("Enemy"))
         {
-            o.GetComponentInParent<EnemyController>().Health--;
+            o.GetComponentInParent<Enemy>().Health--;
         }
         Destroy(gameObject);
     }
@@ -20,7 +20,7 @@ public class BulletScript : MonoBehaviour {
     {
         _start = new Vector2(transform.position.x, transform.position.y);
         GameObject p = GameObject.FindWithTag("Player");
-        PlayerController pc = p.GetComponent<PlayerController>();
+        Player pc = p.GetComponent<Player>();
         range = pc.Range;
     }
 	public void Update () {

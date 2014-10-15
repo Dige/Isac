@@ -14,7 +14,7 @@ namespace Assets.Scripts.Items
 
         protected override void OnPickUp()
         {
-            Player.GetComponent<PlayerController>().BulletSpeed += BulletSpeedAddition;
+            Player.GetComponent<PlayerShootController>().BulletSpeed += BulletSpeedAddition;
         }
     }
 }

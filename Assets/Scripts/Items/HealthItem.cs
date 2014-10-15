@@ -13,6 +13,6 @@ public class HealthItem : ItemBase {
 
     protected override void OnPickUp()
     {
-        Player.GetComponent<PlayerController>().Health += HealthAddition;
+        Player.GetComponent<Player>().Health += HealthAddition;
     }
 }

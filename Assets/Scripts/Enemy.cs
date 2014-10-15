@@ -2,7 +2,7 @@
 using Assets.Scripts;
 using UnityEngine;
 
-public class EnemyController : CharacterControllerBase
+public class Enemy : CharacterBase
 {
     private GameObject _player;
 
@@ -24,11 +24,6 @@ public class EnemyController : CharacterControllerBase
     protected override void HandleMovement(Vector3 movement)
     {
         transform.Translate(movement);
-    }
-
-    protected override void HandleShooting()
-    {
-
     }
 
     protected override Vector3 DetermineMovement()
