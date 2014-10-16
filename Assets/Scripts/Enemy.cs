@@ -24,8 +24,8 @@ public class Enemy : CharacterBase
     }
 
     [SerializeField]
-    private AudioClip _wanderClip;
-    public AudioClip WanderingClip
+    private AudioSource _wanderClip;
+    public AudioSource WanderingClip
     {
         get { return _wanderClip; }
         set { _wanderClip = value; }
@@ -42,7 +42,7 @@ public class Enemy : CharacterBase
 
     public IEnumerator PlayWanderingClip()
     {
-        audio.PlayOneShot(WanderingClip);
+        WanderingClip.Play();
         yield return new WaitForSeconds(WanderingClipRepeatDelay);
     }
 
