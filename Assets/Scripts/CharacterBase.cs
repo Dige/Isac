@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts
 {
-    [RequireComponent(typeof(AudioSource), typeof(Animator))]
+    [RequireComponent(typeof(Animator))]
     public abstract class CharacterBase : MonoBehaviour
     {
         [SerializeField]
@@ -45,16 +45,16 @@ namespace Assets.Scripts
         }
 
         [SerializeField]
-        private AudioClip _takeDamageClip;
-        public AudioClip TakeDamageClip
+        private AudioSource _takeDamageClip;
+        public AudioSource TakeDamageClip
         {
             get { return _takeDamageClip; }
             set { _takeDamageClip = value; }
         }
 
         [SerializeField]
-        private AudioClip _dieClip;
-        public AudioClip DieClip
+        private AudioSource _dieClip;
+        public AudioSource DieClip
         {
             get { return _dieClip; }
             set { _dieClip = value; }
@@ -115,12 +115,12 @@ namespace Assets.Scripts
 
         protected virtual void TakeDamage()
         {
-            audio.PlayOneShot(_takeDamageClip);
+            _takeDamageClip.Play();
         }
 
         protected virtual void Die()
         {
-            audio.PlayOneShot(_dieClip);
+           _dieClip.Play();
         }
 
         private void SetAnimationDirection(Vector3 movement, Vector3 target, Vector3 currentPosition)

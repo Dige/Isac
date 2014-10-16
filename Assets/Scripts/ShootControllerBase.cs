@@ -2,7 +2,6 @@
 
 namespace Assets.Scripts
 {
-    [RequireComponent(typeof(AudioSource))]
     public abstract class ShootControllerBase : MonoBehaviour
     {
         [SerializeField]
@@ -22,16 +21,16 @@ namespace Assets.Scripts
         }
 
         [SerializeField]
-        private AudioClip _shootClip;
-        public AudioClip ShootClip
+        private AudioSource _shootClip;
+        public AudioSource ShootClip
         {
             get { return _shootClip; }
             set { _shootClip = value; }
         }
 
         [SerializeField]
-        private AudioClip _bulletCollideClip;
-        public AudioClip BulletCollideClip
+        private AudioSource _bulletCollideClip;
+        public AudioSource BulletCollideClip
         {
             get { return _bulletCollideClip; }
             set { _bulletCollideClip = value; }
