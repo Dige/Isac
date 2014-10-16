@@ -10,7 +10,9 @@ GameObject:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
   - 95: {fileID: 9500000}
-  m_Layer: 0
+  - 114: {fileID: 11400000}
+  - 61: {fileID: 6100000}
+  m_Layer: 12
   m_Name: Basic Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,6 +31,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6100000
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 2.92000008, y: 2.43000007}
+  m_Center: {x: 0, y: -.379999995}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -44,6 +57,19 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac0ede2f9278684cb75d2ac94b8350f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _doorOpenClip: {fileID: 0}
+  _doorCloseClip: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
