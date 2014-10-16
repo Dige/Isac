@@ -104,8 +104,8 @@ MonoBehaviour:
   _numberOfRooms: 5
   _numberOfTreasureRooms: 0
   _roomPrefabs:
-  - {fileID: 100000, guid: c7ecfa70cc4d9be4facf8cef76b022e4, type: 2}
-  _firstRoom: {fileID: 100000, guid: c7ecfa70cc4d9be4facf8cef76b022e4, type: 2}
+  - {fileID: 11400000, guid: c7ecfa70cc4d9be4facf8cef76b022e4, type: 2}
+  _firstRoom: {fileID: 11400000, guid: c7ecfa70cc4d9be4facf8cef76b022e4, type: 2}
 --- !u!4 &813620058
 Transform:
   m_ObjectHideFlags: 0
