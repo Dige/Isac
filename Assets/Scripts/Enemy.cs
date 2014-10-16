@@ -60,8 +60,12 @@ public class Enemy : CharacterBase
                 return MoveTowardsPlayer();
             case MovementStyle.AwayFromPlayer:
                 return MoveAwayFromPlayer();
-            case MovementStyle.Random:
+            case MovementStyle.RandomDirection:
                 return MoveRandomly();
+			case MovementStyle.RandomTowardsPlayer:
+				return MoveRandomlyTowardsPlayer();
+			case MovementStyle.Stationary:
+				return Stationary ();
             default:
                 throw new NotImplementedException();
         }
@@ -105,13 +109,32 @@ public class Enemy : CharacterBase
 
     private Vector3 MoveRandomly()
     {
-        return new Vector3();
+		var direction = UnityEngine.Random.insideUnitCircle * 2;
+		var moveDirection = new Vector3 (direction.x, direction.y, 0);
+		moveDirection.Normalize();
+		return moveDirection * MoveSpeed;
     }
+	private Vector3 MoveRandomlyTowardsPlayer()
+	{
+		var currentPosition = transform.position;
+		var moveDirection = _player.transform.position - currentPosition;
+		var direction = UnityEngine.Random.insideUnitCircle * 4f;
+		moveDirection += new Vector3 (direction.x, direction.y, 0);
+		moveDirection.Normalize();
+		return moveDirection*MoveSpeed;
+	}
+
+	private Vector3 Stationary()
+	{
+		return new Vector3 ();
+	}
 }
 
 public enum MovementStyle
 {
     TowardsPlayer,
     AwayFromPlayer,
-    Random
+    RandomDirection,
+	RandomTowardsPlayer,
+	Stationary
 }
