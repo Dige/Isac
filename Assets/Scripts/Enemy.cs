@@ -63,7 +63,7 @@ public class Enemy : CharacterBase
             case MovementStyle.RandomDirection:
                 return MoveRandomly();
 			case MovementStyle.RandomTowardsPlayer:
-				return MoveRandomlyTowardsPlayer();
+				return WanderTowardsPlayer();
 			case MovementStyle.Stationary:
 				return Stationary ();
             default:
@@ -114,7 +114,7 @@ public class Enemy : CharacterBase
 		moveDirection.Normalize();
 		return moveDirection * MoveSpeed;
     }
-	private Vector3 MoveRandomlyTowardsPlayer()
+	private Vector3 WanderTowardsPlayer()
 	{
 		var currentPosition = transform.position;
 		var moveDirection = _player.transform.position - currentPosition;
