@@ -5,6 +5,14 @@ public class BulletScript : MonoBehaviour {
 
     public float range = 20;
 
+	[SerializeField]
+	private AudioSource _bulletHitClip;
+	public AudioSource BulletHitClip
+	{
+		get { return _bulletHitClip; }
+		set { _bulletHitClip = value; }
+	}
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject o = collision.gameObject;
@@ -12,6 +20,7 @@ public class BulletScript : MonoBehaviour {
         {
             o.GetComponentInParent<Enemy>().Health--;
         }
+		//_bulletHitClip.Play ();
         Destroy(gameObject);
     }
     private Vector2 _start;

@@ -115,12 +115,14 @@ namespace Assets.Scripts
 
         protected virtual void TakeDamage()
         {
-            _takeDamageClip.Play();
+            if (_takeDamageClip != null)
+				_takeDamageClip.Play();
         }
 
         protected virtual void Die()
         {
-           _dieClip.Play();
+        	if (_dieClip != null)
+				_dieClip.Play();
         }
 
         private void SetAnimationDirection(Vector3 movement, Vector3 target, Vector3 currentPosition)
