@@ -96,7 +96,11 @@ public class Enemy : CharacterBase
 
     private Vector3 MoveAwayFromPlayer()
     {
-        return new Vector3();
+		// too simple
+		var currentPosition = transform.position;
+		var moveDirection = -(_player.transform.position - currentPosition);
+		moveDirection.Normalize();
+		return moveDirection*MoveSpeed;
     }
 
     private Vector3 MoveRandomly()
