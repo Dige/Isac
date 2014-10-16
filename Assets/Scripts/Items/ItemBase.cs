@@ -4,6 +4,22 @@ namespace Assets.Scripts
 {
     public abstract class ItemBase : MonoBehaviour
     {
+        [SerializeField]
+        private AudioSource _spawnClip;
+        public AudioSource SpawnClip
+        {
+            get { return _spawnClip; }
+            set { _spawnClip = value; }
+        }
+
+        [SerializeField]
+        private AudioSource _pickUpClip;
+        public AudioSource PickUpClip
+        {
+            get { return _pickUpClip; }
+            set { _pickUpClip = value; }
+        }
+
         protected GameObject Player;
 
         public virtual void Start()
@@ -21,6 +37,10 @@ namespace Assets.Scripts
             }
         }
 
-        protected abstract void OnPickUp();
+        protected virtual void OnPickUp()
+        {
+            if (_pickUpClip != null)
+				_pickUpClip.Play();
+        }
     }
 }

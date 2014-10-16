@@ -18,11 +18,11 @@ public class ShowHealth : MonoBehaviour {
         set { _halfHealthTexture = value; }
     }
 
-    private PlayerController _playerCharacter;
+    private Player _playerCharacter;
 
     public void Start()
     {
-        _playerCharacter = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        _playerCharacter = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     public void OnGUI()
