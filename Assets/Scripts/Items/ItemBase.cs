@@ -39,7 +39,8 @@ namespace Assets.Scripts
 
         protected virtual void OnPickUp()
         {
-            _pickUpClip.Play();
+            if (_pickUpClip != null)
+				_pickUpClip.Play();
         }
     }
 }
