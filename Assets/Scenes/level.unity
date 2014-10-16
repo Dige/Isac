@@ -930,6 +930,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
+      propertyPath: _shootClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ae37a808d9db1420f950a0b8e4a066df, type: 3}
+    - target: {fileID: 11400002, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
+      propertyPath: _bulletCollideClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e4df9fcd4b8aa48fd8e5ce592cbf0d7a, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
   m_RootGameObject: {fileID: 1994028636}
@@ -1078,9 +1086,9 @@ AudioSource:
   m_GameObject: {fileID: 851876164}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 138e4b1ce557b4e4ead3044e82c1cd7a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1e9bc37ef894a4de8bf5b37ae9491d11, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .400000006
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2190,7 +2198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
-  _shootClip: {fileID: 0}
-  _bulletCollideClip: {fileID: 0}
+  _shootClip: {fileID: 8300000, guid: ae37a808d9db1420f950a0b8e4a066df, type: 3}
+  _bulletCollideClip: {fileID: 8300000, guid: e4df9fcd4b8aa48fd8e5ce592cbf0d7a, type: 3}
   _headObject: {fileID: 305176394}
   _shootSpeed: .300000012
