@@ -101,7 +101,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Mass: .150000006
-  m_LinearDrag: 5
+  m_LinearDrag: 10
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_FixedAngle: 1
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9495067e66f46c64eaed5075b7e8d68d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 4
+  _moveSpeed: 8.69999981
   _health: 7
   _range: 8
   _takeDamageClip: {fileID: 0}
@@ -286,7 +286,7 @@ MonoBehaviour:
   _shootClip: {fileID: 8200000}
   _bulletCollideClip: {fileID: 8200002}
   _headObject: {fileID: 11400004}
-  _shootSpeed: .300000012
+  _shootSpeed: .349999994
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

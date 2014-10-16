@@ -6,6 +6,8 @@ using UnityEngine;
 public class Enemy : CharacterBase
 {
     private GameObject _player;
+	private Vector3 _randomDirection;
+	private Boolean _turning = false;
 
     [SerializeField] 
     private MovementStyle _movementStyle = MovementStyle.TowardsPlayer;
@@ -40,6 +42,13 @@ public class Enemy : CharacterBase
             StartCoroutine(PlayWanderingClip());
     }
 
+	public override void Update()
+	{
+		base.Update ();
+		StartCoroutine (Turn());
+
+	}
+
     public IEnumerator PlayWanderingClip()
     {
         WanderingClip.Play();
@@ -65,7 +74,7 @@ public class Enemy : CharacterBase
 			case MovementStyle.RandomTowardsPlayer:
 				return WanderTowardsPlayer();
 			case MovementStyle.Stationary:
-				return Stationary ();
+				return Stationary();
             default:
                 throw new NotImplementedException();
         }
@@ -114,14 +123,27 @@ public class Enemy : CharacterBase
 		moveDirection.Normalize();
 		return moveDirection * MoveSpeed;
     }
+
 	private Vector3 WanderTowardsPlayer()
 	{
 		var currentPosition = transform.position;
 		var moveDirection = _player.transform.position - currentPosition;
-		var direction = UnityEngine.Random.insideUnitCircle * 4f;
-		moveDirection += new Vector3 (direction.x, direction.y, 0);
+		moveDirection += _randomDirection;
 		moveDirection.Normalize();
 		return moveDirection*MoveSpeed;
+	}
+
+	IEnumerator Turn()
+	{
+		if (!_turning) 
+		{
+			_turning = true;
+			Vector2 direction = UnityEngine.Random.insideUnitCircle * 4f;
+			_randomDirection = new Vector3 (direction.x, direction.y, 0);
+			Debug.LogWarning("moi2");
+			yield return new WaitForSeconds (20);
+		}
+		_turning = false;
 	}
 
 	private Vector3 Stationary()

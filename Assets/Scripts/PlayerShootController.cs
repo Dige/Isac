@@ -90,7 +90,7 @@ namespace Assets.Scripts
                     TransformHelpers.FlipX(bullet.gameObject);
                 }
                 bullet.AddForce(_shootDirection);
-                bullet.AddForce(_player.Momentum * 0.001f);
+                bullet.AddForce(_player.Momentum * 0.02f);
                 ShootClip.Play();
                 yield return new WaitForSeconds(ShootingSpeed);
             }

@@ -111,7 +111,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
@@ -302,7 +302,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!82 &283167696
 AudioSource:
   m_ObjectHideFlags: 0
@@ -417,6 +417,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 3f37cd3a5037ad042b6801f031988e76, type: 2}
+      propertyPath: _movementStyle
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f37cd3a5037ad042b6801f031988e76, type: 2}
   m_RootGameObject: {fileID: 1655958721}
@@ -526,6 +530,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3f37cd3a5037ad042b6801f031988e76, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 3f37cd3a5037ad042b6801f031988e76, type: 2}
+      propertyPath: _movementStyle
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -861,7 +869,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
 --- !u!82 &692092696
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1075,7 +1083,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!82 &851876170
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1523,7 +1531,7 @@ Transform:
   m_LocalScale: {x: 12.8988266, y: 12.8988266, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &1629323934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,7 +1665,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 288391539933a4aee8f4aab49dea90d8, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 288391539933a4aee8f4aab49dea90d8, type: 2}
@@ -1900,6 +1908,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 3f37cd3a5037ad042b6801f031988e76, type: 2}
+      propertyPath: _movementStyle
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f37cd3a5037ad042b6801f031988e76, type: 2}
   m_RootGameObject: {fileID: 1750572337}
@@ -2140,7 +2152,7 @@ Transform:
   m_LocalScale: {x: 12.8988266, y: 12.8988266, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1001 &1791017119
 Prefab:
   m_ObjectHideFlags: 0
@@ -2222,7 +2234,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3f37cd3a5037ad042b6801f031988e76, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 3f37cd3a5037ad042b6801f031988e76, type: 2}
+      propertyPath: _movementStyle
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f37cd3a5037ad042b6801f031988e76, type: 2}
@@ -2260,7 +2276,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 74298330}
   m_GameObject: {fileID: 1994028636}
   m_Mass: .150000006
-  m_LinearDrag: 5
+  m_LinearDrag: 10
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_FixedAngle: 1
@@ -2292,7 +2308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9495067e66f46c64eaed5075b7e8d68d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 4
+  _moveSpeed: 8.69999981
   _health: 7
   _range: 8
   _takeDamageClip: {fileID: 0}
@@ -2352,7 +2368,7 @@ Transform:
   - {fileID: 305176393}
   - {fileID: 599452300}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
 --- !u!82 &1994028643
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2429,7 +2445,7 @@ MonoBehaviour:
   _shootClip: {fileID: 1994028643}
   _bulletCollideClip: {fileID: 1994028645}
   _headObject: {fileID: 305176394}
-  _shootSpeed: .300000012
+  _shootSpeed: .349999994
 --- !u!82 &1994028645
 AudioSource:
   m_ObjectHideFlags: 0
