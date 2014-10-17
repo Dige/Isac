@@ -99,6 +99,7 @@ namespace Assets.Scripts
             }
 
             var door = (DoorController)Instantiate(room.IsBossRoom ? BossDoorPrefab : DoorPrefab);
+            door.Direction = direction;
             door.transform.parent = transform;
             door.transform.localPosition = position;
             door.transform.rotation = rotation;
