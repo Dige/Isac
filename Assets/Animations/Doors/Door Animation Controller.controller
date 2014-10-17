@@ -132,7 +132,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Open Door
-  m_Speed: .400000006
+  m_Speed: .800000012
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: 870db63420b3ee74daaedaf6fc770857, type: 2}
@@ -177,7 +177,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Close Door
-  m_Speed: -.400000006
+  m_Speed: -.800000012
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: 870db63420b3ee74daaedaf6fc770857, type: 2}
@@ -203,21 +203,21 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110243188}
-      second:
-      - {fileID: 110102686}
-    data:
       first: {fileID: 110283827}
       second:
       - {fileID: 110100247}
+    data:
+      first: {fileID: 110200000}
+      second:
+      - {fileID: 110100000}
     data:
       first: {fileID: 110288118}
       second:
       - {fileID: 110137809}
     data:
-      first: {fileID: 110200000}
+      first: {fileID: 110243188}
       second:
-      - {fileID: 110100000}
+      - {fileID: 110102686}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -24, y: -132, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
