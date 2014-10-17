@@ -40,8 +40,8 @@ public class FloorGenerator : MonoBehaviour {
         set { _firstRoom = value; }
     }
 
-    private const float HorizontalDelta = 16.95f;
-    private const float VerticalDelta = 10.5f;
+    private const float HorizontalDelta = 16f;
+    private const float VerticalDelta = 10f;
 
     private readonly FloorGrid _floorGrid = new FloorGrid(6, 6);
 
@@ -65,31 +65,37 @@ public class FloorGenerator : MonoBehaviour {
 
         while (i < _numberOfRooms)
         {
-            var direction = (RoomCreationDirection)Random.Range(0, 3);
+            var direction = (RoomDirection)Random.Range(0, 3);
             switch (direction)
             {
-                case RoomCreationDirection.North:
+                case RoomDirection.North:
                     coordinates = Tuple.Create(coordinates.Item1, coordinates.Item2 + 1);
                     break;
-                case RoomCreationDirection.East:
+                case RoomDirection.East:
                     coordinates = Tuple.Create(coordinates.Item1 + 1, coordinates.Item2);
                     break;
-                case RoomCreationDirection.South:
+                case RoomDirection.South:
                     coordinates = Tuple.Create(coordinates.Item1, coordinates.Item2 - 1);
                     break;
-                case RoomCreationDirection.West:
+                case RoomDirection.West:
                     coordinates = Tuple.Create(coordinates.Item1  - 1, coordinates.Item2);
                     break;
             }
             if (!_floorGrid.ContainsRoom(coordinates.Item1, coordinates.Item2))
             {
-                previousRoom = CreateRoom(previousRoom, direction);
+                var newRoom = CreateRoom(previousRoom, direction);
+                if (previousRoom != null)
+                {
+                    previousRoom.SetAdjacentRoom(newRoom, direction);
+                }
+                newRoom.SetAdjacentRoom(previousRoom, (RoomDirection)(((int)direction + 2) % 4));
+                previousRoom = newRoom;
                 i++;
             }
         }
     }
 
-    private Room CreateRoom(Room previousRoom, RoomCreationDirection direction)
+    private Room CreateRoom(Room previousRoom, RoomDirection direction)
     {
         var room = (Room)Instantiate(RoomPrefabs.First());
         if (previousRoom != null)
@@ -97,16 +103,16 @@ public class FloorGenerator : MonoBehaviour {
             var position = previousRoom.transform.position;
             switch (direction)
             {
-                case RoomCreationDirection.North:
+                case RoomDirection.North:
                     position.y += VerticalDelta;
                     break;
-                case RoomCreationDirection.East:
+                case RoomDirection.East:
                     position.x += HorizontalDelta;
                     break;
-                case RoomCreationDirection.South:
+                case RoomDirection.South:
                     position.y -= VerticalDelta;
                     break;
-                case RoomCreationDirection.West:
+                case RoomDirection.West:
                     position.x -= HorizontalDelta;
                     break;
             }
@@ -114,36 +120,36 @@ public class FloorGenerator : MonoBehaviour {
         }
         return room;
     }
+}
 
-    private enum RoomCreationDirection
+public class FloorGrid
+{
+    private readonly Room[,] _rooms;
+
+    public FloorGrid(int height, int width)
     {
-        North = 0,
-        East = 1,
-        South = 2,
-        West = 3
+        _rooms = new Room[height, width];
     }
 
-    public class FloorGrid
+    public bool ContainsRoom(int x, int y)
     {
-        private readonly Room[,] _rooms;
-
-        public FloorGrid(int height, int width)
-        {
-            _rooms = new Room[height, width];
-        }
-
-        public bool ContainsRoom(int x, int y)
-        {
-            return _rooms[x, y] != null;
-        }
-
-        public void AddRoom(int x, int y, Room room)
-        {
-            if (ContainsRoom(x, y))
-            {
-                throw new Exception("The cell already contains a room");
-            }
-            _rooms[x, y] = room;
-        }
+        return _rooms[x, y] != null;
     }
+
+    public void AddRoom(int x, int y, Room room)
+    {
+        if (ContainsRoom(x, y))
+        {
+            throw new Exception("The cell already contains a room");
+        }
+        _rooms[x, y] = room;
+    }
+}
+
+public enum RoomDirection
+{
+    North = 0,
+    East = 1,
+    South = 2,
+    West = 3
 }
