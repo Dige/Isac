@@ -40,6 +40,14 @@ public class FloorGenerator : MonoBehaviour {
         set { _firstRoom = value; }
     }
 
+    [SerializeField]
+    private Player _playerPrefab;
+    public Player PlayerPrefab
+    {
+        get { return _playerPrefab; }
+        set { _playerPrefab = value; }
+    }
+
     private const float HorizontalDelta = 16f;
     private const float VerticalDelta = 10f;
 
@@ -49,7 +57,13 @@ public class FloorGenerator : MonoBehaviour {
 	{
 	    Random.seed = DateTime.Now.Second;
 	    GenerateFloorLayout();
+	    AddPlayer();
 	}
+
+    private void AddPlayer()
+    {
+        Instantiate(_playerPrefab);
+    }
 
     private void GenerateFloorLayout()
     {
@@ -58,7 +72,6 @@ public class FloorGenerator : MonoBehaviour {
         var coordinates = Tuple.Create(Random.Range(0, 5), Random.Range(0, 5));
         if (FirstRoom != null)
         {
-            previousRoom = (Room) Instantiate(FirstRoom);
             _floorGrid.AddRoom(coordinates.Item1, coordinates.Item2, previousRoom);
             i++;
         }
@@ -87,12 +100,17 @@ public class FloorGenerator : MonoBehaviour {
                 if (previousRoom != null)
                 {
                     previousRoom.SetAdjacentRoom(newRoom, direction);
+                    newRoom.SetAdjacentRoom(previousRoom, GetOppositeRoomDirection(direction));
                 }
-                newRoom.SetAdjacentRoom(previousRoom, (RoomDirection)(((int)direction + 2) % 4));
                 previousRoom = newRoom;
                 i++;
             }
         }
+    }
+
+    private static RoomDirection GetOppositeRoomDirection(RoomDirection direction)
+    {
+        return (RoomDirection)(((int)direction + 2) % 4);
     }
 
     private Room CreateRoom(Room previousRoom, RoomDirection direction)
