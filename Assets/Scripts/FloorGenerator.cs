@@ -100,30 +100,41 @@ public class FloorGenerator : MonoBehaviour {
             if (Random.Range(0.0f, 1.0f) >= BranchingProbability)
             {
                 Debug.Log("Branching!");
-                var branchLength = Random.Range(1, 3);
-                var previousBranchRoom = previousRoom;
-                var branchCoordinates = coordinates;
-                while (branchLength > 0)
+                numberOfRoomsCreated = CreateBranch(previousRoom, coordinates, numberOfRoomsCreated);
+            }
+            //if (Random.Range(0.0f, 1.0f) >= BranchingProbability*BranchingProbability)
+            //{
+            //    Debug.Log("Branching again!");
+            //    numberOfRoomsCreated = CreateBranch(previousRoom, coordinates, numberOfRoomsCreated);
+            //}
+        }
+    }
+
+    private int CreateBranch(Room previousRoom, Tuple<int, int> coordinates, int numberOfRoomsCreated)
+    {
+        var branchLength = Random.Range(1, 3);
+        var previousBranchRoom = previousRoom;
+        var branchCoordinates = coordinates;
+        while (branchLength > 0)
+        {
+            try
+            {
+                RoomDirection direction = DetermineNextRoomLocation(branchCoordinates);
+                branchCoordinates = DetermineNewCoordinates(direction, branchCoordinates);
+                if (_floorGrid.CanRoomBeAdded(branchCoordinates.Item1, branchCoordinates.Item2))
                 {
-                    try
-                    {
-                        direction = DetermineNextRoomLocation(branchCoordinates);
-                        branchCoordinates = DetermineNewCoordinates(direction, branchCoordinates);
-                        if (_floorGrid.CanRoomBeAdded(branchCoordinates.Item1, branchCoordinates.Item2))
-                        {
-                            previousBranchRoom = AddNewRoom(previousBranchRoom, direction, branchCoordinates);
-                            numberOfRoomsCreated++;
-                        }
-                    }
-                    catch (Exception)
-                    {
-                        Debug.Log("Branching failed :(");
-                        break;
-                    }
-                    branchLength--;
+                    previousBranchRoom = AddNewRoom(previousBranchRoom, direction, branchCoordinates);
+                    numberOfRoomsCreated++;
                 }
             }
+            catch (Exception)
+            {
+                Debug.Log("Branching failed :(");
+                break;
+            }
+            branchLength--;
         }
+        return numberOfRoomsCreated;
     }
 
     private Room CreateFirstRoom(Tuple<int, int> coordinates)
