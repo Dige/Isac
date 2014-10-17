@@ -1,4 +1,5 @@
-﻿using Assets.Scripts;
+﻿using System.Collections;
+using Assets.Scripts;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerShootController))]

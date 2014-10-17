@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
-    [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(Animator), typeof(SpriteRenderer))]
     public abstract class CharacterBase : MonoBehaviour
     {
         [SerializeField]
@@ -16,6 +17,8 @@ namespace Assets.Scripts
         protected bool ShouldMove;
 
         protected Animator Animator;
+
+        protected SpriteRenderer SpriteRenderer;
 
         [SerializeField]
         private int _health = 8;
@@ -71,6 +74,7 @@ namespace Assets.Scripts
         public virtual void Start()
         {
             Animator = GetComponent<Animator>();
+            SpriteRenderer = GetComponent<SpriteRenderer>();
             Animator.enabled = false;
         }
 
@@ -115,8 +119,25 @@ namespace Assets.Scripts
 
         protected virtual void TakeDamage()
         {
+            StartCoroutine(DamageBlink());
             if (_takeDamageClip != null)
 				_takeDamageClip.Play();
+        }
+
+        private IEnumerator DamageBlink()
+        {
+            ChangeSpriteColorRecursively(Color.red);
+            yield return new WaitForSeconds(0.1f);
+            ChangeSpriteColorRecursively(Color.white);
+        }
+
+        private void ChangeSpriteColorRecursively(Color color)
+        {
+            SpriteRenderer.color = color;
+            foreach (var childrenSprite in GetComponentsInChildren<SpriteRenderer>())
+            {
+                childrenSprite.color = color;
+            }
         }
 
         protected virtual void Die()
