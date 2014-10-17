@@ -48,6 +48,14 @@ public class FloorGenerator : MonoBehaviour {
         set { _playerPrefab = value; }
     }
 
+    [SerializeField]
+    private float _branchingProbability = 0.6f;
+    public float BranchingProbability
+    {
+        get { return _branchingProbability; }
+        set { _branchingProbability = value; }
+    }
+
     private const float HorizontalDelta = 16f;
     private const float VerticalDelta = 10f;
 
@@ -56,7 +64,15 @@ public class FloorGenerator : MonoBehaviour {
 	public void Start()
 	{
 	    Random.seed = DateTime.Now.Second;
-	    GenerateFloorLayout();
+	    try
+	    {
+            GenerateFloorLayout();
+	    }
+	    catch (Exception ex)
+	    {
+	        Debug.LogException(ex);
+	    }
+	    
 	    AddPlayer();
 	}
 
@@ -67,45 +83,104 @@ public class FloorGenerator : MonoBehaviour {
 
     private void GenerateFloorLayout()
     {
-        int i = 0;
-        Room previousRoom = null;
-        var coordinates = Tuple.Create(Random.Range(0, 5), Random.Range(0, 5));
+        var coordinates = Tuple.Create(Random.Range(1, 4), Random.Range(1, 4));
+        var previousRoom = CreateFirstRoom(coordinates);
+
+        int numberOfRoomsCreated = 0;
+        while (numberOfRoomsCreated < _numberOfRooms)
+        {
+            var direction = DetermineNextRoomLocation(coordinates);
+            coordinates = DetermineNewCoordinates(direction, coordinates);
+
+            if (_floorGrid.CanRoomBeAdded(coordinates.Item1, coordinates.Item2))
+            {
+                previousRoom = AddNewRoom(previousRoom, direction, coordinates);
+                numberOfRoomsCreated++;
+            }
+            if (Random.Range(0.0f, 1.0f) >= BranchingProbability)
+            {
+                Debug.Log("Branching!");
+                var branchLength = Random.Range(1, 3);
+                var previousBranchRoom = previousRoom;
+                var branchCoordinates = coordinates;
+                while (branchLength > 0)
+                {
+                    try
+                    {
+                        direction = DetermineNextRoomLocation(branchCoordinates);
+                        branchCoordinates = DetermineNewCoordinates(direction, branchCoordinates);
+                        if (_floorGrid.CanRoomBeAdded(branchCoordinates.Item1, branchCoordinates.Item2))
+                        {
+                            previousBranchRoom = AddNewRoom(previousBranchRoom, direction, branchCoordinates);
+                            numberOfRoomsCreated++;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Debug.Log("Branching failed :(");
+                        break;
+                    }
+                    branchLength--;
+                }
+            }
+        }
+    }
+
+    private Room CreateFirstRoom(Tuple<int, int> coordinates)
+    {
+        Room previousRoom;
         if (FirstRoom != null)
         {
+            previousRoom = (Room) Instantiate(FirstRoom);
             _floorGrid.AddRoom(coordinates.Item1, coordinates.Item2, previousRoom);
-            i++;
+        }
+        else
+        {
+            previousRoom = (Room) Instantiate(RoomPrefabs.First());
+            _floorGrid.AddRoom(coordinates.Item1, coordinates.Item2, previousRoom);
+        }
+        return previousRoom;
+    }
+
+    private RoomDirection DetermineNextRoomLocation(Tuple<int, int> coordinates)
+    {
+        var validDirections = _floorGrid.GetValidDirectionsFromRoom(coordinates.Item1, coordinates.Item2).ToList();
+        if (!validDirections.Any())
+        {
+            throw new Exception("Created dead-end :(");
         }
 
-        while (i < _numberOfRooms)
+        return validDirections.ElementAt(Random.Range(0, validDirections.Count()));
+    }
+
+    private Tuple<int, int> DetermineNewCoordinates(RoomDirection direction, Tuple<int, int> previousCoordinates)
+    {
+        switch (direction)
         {
-            var direction = (RoomDirection)Random.Range(0, 3);
-            switch (direction)
-            {
-                case RoomDirection.North:
-                    coordinates = Tuple.Create(coordinates.Item1, coordinates.Item2 + 1);
-                    break;
-                case RoomDirection.East:
-                    coordinates = Tuple.Create(coordinates.Item1 + 1, coordinates.Item2);
-                    break;
-                case RoomDirection.South:
-                    coordinates = Tuple.Create(coordinates.Item1, coordinates.Item2 - 1);
-                    break;
-                case RoomDirection.West:
-                    coordinates = Tuple.Create(coordinates.Item1  - 1, coordinates.Item2);
-                    break;
-            }
-            if (!_floorGrid.ContainsRoom(coordinates.Item1, coordinates.Item2))
-            {
-                var newRoom = CreateRoom(previousRoom, direction);
-                if (previousRoom != null)
-                {
-                    previousRoom.SetAdjacentRoom(newRoom, direction);
-                    newRoom.SetAdjacentRoom(previousRoom, GetOppositeRoomDirection(direction));
-                }
-                previousRoom = newRoom;
-                i++;
-            }
+            case RoomDirection.North:
+                return Tuple.Create(previousCoordinates.Item1, previousCoordinates.Item2 + 1);
+            case RoomDirection.East:
+                return Tuple.Create(previousCoordinates.Item1 + 1, previousCoordinates.Item2);
+            case RoomDirection.South:
+                return Tuple.Create(previousCoordinates.Item1, previousCoordinates.Item2 - 1);
+            case RoomDirection.West:
+                return Tuple.Create(previousCoordinates.Item1 - 1, previousCoordinates.Item2);
+            default:
+                return previousCoordinates;
         }
+    }
+
+    private Room AddNewRoom(Room previousRoom, RoomDirection direction, Tuple<int, int> coordinates)
+    {
+        var newRoom = CreateRoom(previousRoom, direction);
+        if (previousRoom != null)
+        {
+            previousRoom.SetAdjacentRoom(newRoom, direction);
+            newRoom.SetAdjacentRoom(previousRoom, GetOppositeRoomDirection(direction));
+        }
+        _floorGrid.AddRoom(coordinates.Item1, coordinates.Item2, newRoom);
+        previousRoom = newRoom;
+        return previousRoom;
     }
 
     private static RoomDirection GetOppositeRoomDirection(RoomDirection direction)
@@ -144,14 +219,30 @@ public class FloorGrid
 {
     private readonly Room[,] _rooms;
 
+    public int Width { get; private set; }
+    public int Height { get; private set; }
+
     public FloorGrid(int height, int width)
     {
+        Height = height;
+        Width = width;
         _rooms = new Room[height, width];
     }
 
     public bool ContainsRoom(int x, int y)
     {
         return _rooms[x, y] != null;
+    }
+
+    public bool CanRoomBeAdded(int x, int y)
+    {
+        return x > 0 && x < Width && y > 0 && y < Height && !ContainsRoom(x, y);
+    }
+
+    public bool IsDeadEnd(int x, int y)
+    {
+        return !CanRoomBeAdded(x + 1, y) && !CanRoomBeAdded(x - 1, y) && !CanRoomBeAdded(x, y + 1) &&
+               !CanRoomBeAdded(x, y - 1);
     }
 
     public void AddRoom(int x, int y, Room room)
@@ -161,6 +252,43 @@ public class FloorGrid
             throw new Exception("The cell already contains a room");
         }
         _rooms[x, y] = room;
+    }
+
+    public IEnumerable<RoomDirection> GetValidDirectionsFromRoom(int x, int y)
+    {
+        var validDirections = new List<RoomDirection>();
+        if (CanRoomBeAdded(x + 1, y))
+        {
+            validDirections.Add(RoomDirection.East);
+        }
+        if (CanRoomBeAdded(x - 1, y))
+        {
+            validDirections.Add(RoomDirection.West);
+        }
+        if (CanRoomBeAdded(x, y + 1))
+        {
+            validDirections.Add(RoomDirection.North);
+        }
+        if (CanRoomBeAdded(x, y - 1))
+        {
+            validDirections.Add(RoomDirection.South);
+        }
+        return validDirections;
+    }
+
+    //TODO: Do not instantiate rooms until the room is ready
+    public void InstantiateRooms()
+    {
+        for (int i = 0; i < Width; i++)
+        {
+            for (int j = 0; j < Height; j++)
+            {
+                if (_rooms[i, j] != null)
+                {
+                    
+                }
+            }
+        }
     }
 }
 
