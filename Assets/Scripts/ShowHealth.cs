@@ -27,6 +27,11 @@ public class ShowHealth : MonoBehaviour {
 
     public void OnGUI()
     {
+        if (_playerCharacter == null)
+        {
+            return;
+        }
+
         for (int i = 0; i < _playerCharacter.Health / 2; i++)
         {
             GUI.DrawTexture(new Rect(Screen.width - Screen.width / 4 + i*40,30,40,40), _healthTexture, ScaleMode.ScaleToFit);    
