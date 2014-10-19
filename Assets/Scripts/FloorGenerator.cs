@@ -83,16 +83,24 @@ public class FloorGenerator : MonoBehaviour {
 
     private void GenerateFloorLayout()
     {
-        var coordinates = Tuple.Create(Random.Range(1, 4), Random.Range(1, 4));
-        var previousRoom = CreateFirstRoom(coordinates);
+        var coordinates = Tuple.Create(Random.Range(2, 3), Random.Range(2, 3));
+        var firstRoom = CreateFirstRoom(coordinates);
 
-        int numberOfRoomsCreated = 0;
+        //Create branch for the first room
+        int numberOfRoomsCreated = CreateBranch(firstRoom, coordinates, 0);
+        if (Random.Range(0.0f, 1.0f) >= BranchingProbability)
+        {
+            Debug.Log("Branching!");
+            numberOfRoomsCreated = CreateBranch(firstRoom, coordinates, numberOfRoomsCreated);
+        }
+
+        var previousRoom = firstRoom;
         while (numberOfRoomsCreated < _numberOfRooms)
         {
             var direction = DetermineNextRoomLocation(coordinates);
             coordinates = DetermineNewCoordinates(direction, coordinates);
 
-            if (_floorGrid.CanRoomBeAdded(coordinates.Item1, coordinates.Item2))
+            if (_floorGrid.CanRoomBeAdded(coordinates.Item1, coordinates.Item2) && !_floorGrid.IsDeadEnd(coordinates.Item1, coordinates.Item2))
             {
                 previousRoom = AddNewRoom(previousRoom, direction, coordinates);
                 numberOfRoomsCreated++;
@@ -247,7 +255,7 @@ public class FloorGrid
 
     public bool CanRoomBeAdded(int x, int y)
     {
-        return x > 0 && x < Width && y > 0 && y < Height && !ContainsRoom(x, y);
+        return x >= 0 && x < Width && y >= 0 && y < Height && !ContainsRoom(x, y);
     }
 
     public bool IsDeadEnd(int x, int y)
