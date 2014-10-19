@@ -9,3 +9,4 @@
 *.user
 *.userprefs
 *ReSharper*
+Thumb.db*
