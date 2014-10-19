@@ -119,7 +119,7 @@ public class Enemy : CharacterBase
     private Vector3 MoveRandomly()
     {
 		var direction = UnityEngine.Random.insideUnitCircle * 2;
-		var moveDirection = new Vector3 (direction.x, direction.y, 0);
+        var moveDirection = _randomDirection;//new Vector3 (direction.x, direction.y, 0);
 		moveDirection.Normalize();
 		return moveDirection * MoveSpeed;
     }
@@ -140,10 +140,9 @@ public class Enemy : CharacterBase
 			_turning = true;
 			Vector2 direction = UnityEngine.Random.insideUnitCircle * 4f;
 			_randomDirection = new Vector3 (direction.x, direction.y, 0);
-			Debug.LogWarning("moi2");
-			yield return new WaitForSeconds (20);
-		}
-		_turning = false;
+			yield return new WaitForSeconds (0.5f);
+            _turning = false;
+        }
 	}
 
 	private Vector3 Stationary()
