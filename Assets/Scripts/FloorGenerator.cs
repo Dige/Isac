@@ -135,8 +135,10 @@ public class FloorGenerator : MonoBehaviour {
                 {
                     throw new Exception("Everything is ruined", ex);
                 }
-                direction = DetermineNextRoomLocation(_floorGrid.GetCoordinatesForRoom(_mainPath.Peek()));
-                coordinates = _floorGrid.GetCoordinatesForRoom(_mainPath.Peek());
+                previousRoom = _mainPath.Peek();
+                direction = DetermineNextRoomLocation(_floorGrid.GetCoordinatesForRoom(previousRoom));
+                coordinates = _floorGrid.GetCoordinatesForRoom(previousRoom);
+                
             }
             
             coordinates = DetermineNewCoordinates(direction, coordinates);
@@ -159,8 +161,7 @@ public class FloorGenerator : MonoBehaviour {
             //}
         }
 
-        var roomBeforeBoss = _mainPath.Reverse().First(r => _floorGrid.GetValidDirectionsFromRoom(r).Any());
-        CreateBossRoom(roomBeforeBoss, _floorGrid.GetCoordinatesForRoom(roomBeforeBoss));
+        CreateBossRoom(previousRoom, coordinates);
     }
 
     private int CreateBranch(Room previousRoom, RoomCoordinates coordinates, int numberOfRoomsCreated)
