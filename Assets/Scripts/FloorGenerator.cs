@@ -41,6 +41,15 @@ public class FloorGenerator : MonoBehaviour {
     }
 
     [SerializeField]
+    private Room _bossRoom;
+    public Room BossRoom
+    {
+        get { return _bossRoom; }
+        set { _bossRoom = value; }
+    }
+    
+
+    [SerializeField]
     private Player _playerPrefab;
     public Player PlayerPrefab
     {
@@ -105,12 +114,12 @@ public class FloorGenerator : MonoBehaviour {
         }
 
         var previousRoom = firstRoom;
-        while (numberOfRoomsCreated < _numberOfRooms)
+        while (numberOfRoomsCreated < _numberOfRooms-1)
         {
             var direction = DetermineNextRoomLocation(coordinates);
             coordinates = DetermineNewCoordinates(direction, coordinates);
 
-            if (_floorGrid.CanRoomBeAdded(coordinates.Item1, coordinates.Item2) && !_floorGrid.IsDeadEnd(coordinates.Item1, coordinates.Item2))
+            if (!_floorGrid.IsDeadEnd(coordinates.Item1, coordinates.Item2))
             {
                 previousRoom = AddNewRoom(previousRoom, direction, coordinates);
                 numberOfRoomsCreated++;
@@ -126,6 +135,8 @@ public class FloorGenerator : MonoBehaviour {
             //    numberOfRoomsCreated = CreateBranch(previousRoom, coordinates, numberOfRoomsCreated);
             //}
         }
+
+        CreateBossRoom(previousRoom, coordinates);
     }
 
     private int CreateBranch(Room previousRoom, Tuple<int, int> coordinates, int numberOfRoomsCreated)
@@ -199,9 +210,9 @@ public class FloorGenerator : MonoBehaviour {
         }
     }
 
-    private Room AddNewRoom(Room previousRoom, RoomDirection direction, Tuple<int, int> coordinates)
+    private Room AddNewRoom(Room previousRoom, RoomDirection direction, Tuple<int, int> coordinates, bool isBossRoom = false)
     {
-        var newRoom = CreateRoom(previousRoom, direction);
+        var newRoom = CreateRoom(previousRoom, direction, isBossRoom);
         if (previousRoom != null)
         {
             previousRoom.SetAdjacentRoom(newRoom, direction);
@@ -209,14 +220,29 @@ public class FloorGenerator : MonoBehaviour {
         }
         _floorGrid.AddRoom(coordinates.Item1, coordinates.Item2, newRoom);
 
-        var enemyCount = Random.Range(0, 4);
-        for (int i = 0; i <= enemyCount; i++)
+        if (!isBossRoom)
         {
-            newRoom.InstantiateEnemy(EnemyPrefab, new Vector2(Random.Range(-3, 3), Random.Range(-3, 3)));
+            var enemyCount = Random.Range(0, 4);
+            for (int i = 0; i <= enemyCount; i++)
+            {
+                newRoom.InstantiateEnemy(EnemyPrefab, new Vector2(Random.Range(-3, 3), Random.Range(-3, 3)));
+            }
         }
 
         previousRoom = newRoom;
         return previousRoom;
+    }
+
+    private void CreateBossRoom(Room previousRoom, Tuple<int, int> coordinates)
+    {
+        var validDirections = _floorGrid.GetValidDirectionsFromRoom(coordinates.Item1, coordinates.Item2).ToList();
+        if (!validDirections.Any())
+        {
+            throw new Exception("Failed to create boss room.");
+        }
+
+        var direction = validDirections.ElementAt(Random.Range(0, validDirections.Count()));
+        AddNewRoom(previousRoom, direction, DetermineNewCoordinates(direction, coordinates), true);
     }
 
     private static RoomDirection GetOppositeRoomDirection(RoomDirection direction)
@@ -224,9 +250,9 @@ public class FloorGenerator : MonoBehaviour {
         return (RoomDirection)(((int)direction + 2) % 4);
     }
 
-    private Room CreateRoom(Room previousRoom, RoomDirection direction)
+    private Room CreateRoom(Room previousRoom, RoomDirection direction, bool isBossRoom = false)
     {
-        var room = (Room)Instantiate(RoomPrefabs.First());
+        var room = (Room)Instantiate(isBossRoom ? BossRoom : RoomPrefabs.First());
         if (previousRoom != null)
         {
             var position = previousRoom.transform.position;
