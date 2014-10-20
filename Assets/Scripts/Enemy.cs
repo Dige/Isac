@@ -33,6 +33,8 @@ public class Enemy : CharacterBase
         set { _wanderClip = value; }
     }
 
+    public Room OwnerRoom { get; set; }
+
     public override void Start()
     {
         base.Start();
@@ -46,7 +48,6 @@ public class Enemy : CharacterBase
 	{
 		base.Update ();
 		StartCoroutine (Turn());
-
 	}
 
     public IEnumerator PlayWanderingClip()
@@ -97,6 +98,12 @@ public class Enemy : CharacterBase
         {
             Animator.SetInteger("Direction", movement.y > 0 ? 0 : 2);
         }
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+        OwnerRoom.OnEnemyDied(this);
     }
 
     private Vector3 MoveTowardsPlayer()

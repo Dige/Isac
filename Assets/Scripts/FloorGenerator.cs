@@ -56,6 +56,15 @@ public class FloorGenerator : MonoBehaviour {
         set { _branchingProbability = value; }
     }
 
+    [SerializeField]
+    private Enemy _enemyPrefab;
+    public Enemy EnemyPrefab
+    {
+        get { return _enemyPrefab; }
+        set { _enemyPrefab = value; }
+    }
+    
+
     private const float HorizontalDelta = 16f;
     private const float VerticalDelta = 10f;
 
@@ -198,6 +207,13 @@ public class FloorGenerator : MonoBehaviour {
             newRoom.SetAdjacentRoom(previousRoom, GetOppositeRoomDirection(direction));
         }
         _floorGrid.AddRoom(coordinates.Item1, coordinates.Item2, newRoom);
+
+        var enemyCount = Random.Range(0, 4);
+        for (int i = 0; i <= enemyCount; i++)
+        {
+            newRoom.InstantiateEnemy(EnemyPrefab, new Vector2(-2 + i, 0));
+        }
+
         previousRoom = newRoom;
         return previousRoom;
     }

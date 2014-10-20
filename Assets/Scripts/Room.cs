@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -84,8 +85,15 @@ namespace Assets.Scripts
             set
             {
                 _playerIsInRoom = value;
-                _enemies.ForEach(e => e.enabled = true);
+                StartCoroutine(WakeUpEnemies());
             }
+        }
+
+        IEnumerator WakeUpEnemies()
+        {
+            yield return new WaitForSeconds(0.5f);
+            _enemies.ForEach(e => e.enabled = true);
+            yield return null;
         }
 
         public bool ContainsEnemies { get { return !_enemies.Any(); } }
@@ -132,16 +140,28 @@ namespace Assets.Scripts
             _doors.Add(door);
         }
 
-        public void InstantiateEnemies(Enemy enemyPrefab, Vector2 positionInRoom)
-        {
+        public void InstantiateEnemy(Enemy enemyPrefab, Vector2 positionInRoom)
+        {   
             var enemy = (Enemy) Instantiate(enemyPrefab);
-            enemy.transform.position = positionInRoom;
+            enemy.transform.parent = transform;
+            enemy.transform.localPosition = Vector3.zero + new Vector3(positionInRoom.x, positionInRoom.y, 0);
+            enemy.OwnerRoom = this;
             _enemies.Add(enemy);
             enemy.enabled = false;
         }
 
+        public void OnEnemyDied(Enemy enemy)
+        {
+            _enemies.Remove(enemy);
+            if (!_enemies.Any())
+            {
+                _doors.ForEach(d => d.IsOpen = true);
+            }
+        }
+
         public void OnPlayerEntersRoom(Player player)
         {
+            PlayerIsInRoom = true;
             if (ContainsEnemies)
             {
                 _doors.ForEach(d => d.IsOpen = false);

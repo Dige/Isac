@@ -119,7 +119,6 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             IsOpen = false;
-        }
-            
+        }  
     }
 }
