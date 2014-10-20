@@ -103,6 +103,7 @@ namespace Assets.Scripts
             door.transform.parent = transform;
             door.transform.localPosition = position;
             door.transform.rotation = rotation;
+            door.OwnerRoom = this;
         }
     }
 }

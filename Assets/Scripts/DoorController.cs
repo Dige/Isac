@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Assets.Scripts;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -20,6 +21,8 @@ public class DoorController : MonoBehaviour
         get { return _doorCloseClip; }
         set { _doorCloseClip = value; }
     }
+
+    public Room OwnerRoom { get; set; }
 
     public RoomDirection Direction { get; set; }
 
