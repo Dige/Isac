@@ -23,14 +23,18 @@ public class Door : MonoBehaviour
     }
 
     [SerializeField]
-    private bool _isOpen;
+    private bool? _isOpen;
     public bool IsOpen
     {
-        get { return _isOpen; }
+        get { return _isOpen.HasValue && _isOpen.Value; }
         set
         {
-            if (value != _isOpen)
+            if (!_isOpen.HasValue || value != _isOpen)
             {
+                if (_animator == null)  
+                {
+                    _animator = GetComponent<Animator>();
+                }
                 if (value)
                 {
                     _animator.SetInteger("Is Open", 1);
@@ -38,6 +42,7 @@ public class Door : MonoBehaviour
                     {
                         DoorOpenClip.Play();
                     }
+                    Wall.enabled = false;
                 }
                 else
                 {
@@ -46,11 +51,14 @@ public class Door : MonoBehaviour
                     {
                         DoorCloseClip.Play();
                     }
+                    Wall.enabled = true;
                 }
                 _isOpen = value;
             }
         }
     }
+
+    public BoxCollider2D Wall { get; set; }
 
     public Room OwnerRoom { get; set; }
     public Room ConnectingRoom { get; set; }
@@ -74,7 +82,7 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             var player = other.gameObject.GetComponent<Player>();
-            IsOpen = true;
+            //IsOpen = true;
 
             var cameraMovement = new Vector2();
             var playerMovement = new Vector3();
@@ -118,7 +126,7 @@ public class Door : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            IsOpen = false;
+            //IsOpen = false;
         }  
     }
 }

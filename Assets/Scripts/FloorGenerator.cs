@@ -70,7 +70,7 @@ public class FloorGenerator : MonoBehaviour {
 
     private readonly FloorGrid _floorGrid = new FloorGrid(6, 6);
 
-	public void Start()
+	public void Awake()
 	{
 	    Random.seed = DateTime.Now.Second;
 	    try
@@ -88,6 +88,7 @@ public class FloorGenerator : MonoBehaviour {
     private void AddPlayer()
     {
         Instantiate(_playerPrefab);
+        _floorGrid.FirstRoom.OnPlayerEntersRoom(_playerPrefab);
     }
 
     private void GenerateFloorLayout()
@@ -211,7 +212,7 @@ public class FloorGenerator : MonoBehaviour {
         var enemyCount = Random.Range(0, 4);
         for (int i = 0; i <= enemyCount; i++)
         {
-            newRoom.InstantiateEnemy(EnemyPrefab, new Vector2(-2 + i, 0));
+            newRoom.InstantiateEnemy(EnemyPrefab, new Vector2(Random.Range(-3, 3), Random.Range(-3, 3)));
         }
 
         previousRoom = newRoom;
@@ -257,6 +258,8 @@ public class FloorGrid
     public int Width { get; private set; }
     public int Height { get; private set; }
 
+    public Room FirstRoom { get; private set; }
+
     public FloorGrid(int height, int width)
     {
         Height = height;
@@ -285,6 +288,10 @@ public class FloorGrid
         if (ContainsRoom(x, y))
         {
             throw new Exception("The cell already contains a room");
+        }
+        if (FirstRoom == null)
+        {
+            FirstRoom = room;
         }
         _rooms[x, y] = room;
         room.name = string.Format("Room ({0},{1})", x, y);

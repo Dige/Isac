@@ -70,7 +70,6 @@ namespace Assets.Scripts
             set { _westDoorWall = value; }
         }
 
-        [SerializeField]
         private readonly List<Enemy> _enemies = new List<Enemy>(); 
         public List<Enemy> Enemies
         {
@@ -96,7 +95,7 @@ namespace Assets.Scripts
             yield return null;
         }
 
-        public bool ContainsEnemies { get { return !_enemies.Any(); } }
+        public bool ContainsEnemies { get { return _enemies.Count > 0; } }
 
         public void SetAdjacentRoom(Room room, RoomDirection direction)
         {
@@ -108,25 +107,25 @@ namespace Assets.Scripts
                 case RoomDirection.North:
                     position += new Vector3(0, 4);
                     NorthDoor = door;
-                    NorthDoorWall.enabled = false;
+                    door.Wall = NorthDoorWall;
                     break;
                 case RoomDirection.East:
                     position += new Vector3(7, 0);
                     rotation = Quaternion.Euler(0, 0, 270);
                     EastDoor = door;
-                    EastDoorWall.enabled = false;
+                    door.Wall = EastDoorWall;
                     break;
                 case RoomDirection.South:
                     position += new Vector3(0, -4);
                     rotation = Quaternion.Euler(0, 0, 180);
                     SouthDoor = door;
-                    SouthDoorWall.enabled = false;
+                    door.Wall = SouthDoorWall;
                     break;
                 case RoomDirection.West:
                     position += new Vector3(-7, 0);
                     rotation = Quaternion.Euler(0, 0, 90);
                     WestDoor = door;
-                    WestDoorWall.enabled = false;
+                    door.Wall = WestDoorWall;
                     break;
             }
 
@@ -153,7 +152,7 @@ namespace Assets.Scripts
         public void OnEnemyDied(Enemy enemy)
         {
             _enemies.Remove(enemy);
-            if (!_enemies.Any())
+            if (!ContainsEnemies)
             {
                 _doors.ForEach(d => d.IsOpen = true);
             }
@@ -165,6 +164,10 @@ namespace Assets.Scripts
             if (ContainsEnemies)
             {
                 _doors.ForEach(d => d.IsOpen = false);
+            }
+            else
+            {
+                _doors.ForEach(d => d.IsOpen = true);
             }
             player.CurrentRoom = this;
             Debug.Log("Player entered room: " + name);
