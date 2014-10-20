@@ -271,6 +271,7 @@ public class FloorGrid
             throw new Exception("The cell already contains a room");
         }
         _rooms[x, y] = room;
+        room.name = string.Format("Room ({0},{1})", x, y);
     }
 
     public IEnumerable<RoomDirection> GetValidDirectionsFromRoom(int x, int y)

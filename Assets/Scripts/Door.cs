@@ -4,7 +4,7 @@ using Assets.Scripts;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class DoorController : MonoBehaviour
+public class Door : MonoBehaviour
 {
     [SerializeField]
     private AudioSource _doorOpenClip;
@@ -22,7 +22,38 @@ public class DoorController : MonoBehaviour
         set { _doorCloseClip = value; }
     }
 
+    [SerializeField]
+    private bool _isOpen;
+    public bool IsOpen
+    {
+        get { return _isOpen; }
+        set
+        {
+            if (value != _isOpen)
+            {
+                if (value)
+                {
+                    _animator.SetInteger("Is Open", 1);
+                    if (DoorOpenClip != null)
+                    {
+                        DoorOpenClip.Play();
+                    }
+                }
+                else
+                {
+                    _animator.SetInteger("Is Open", 0);
+                    if (DoorCloseClip != null)
+                    {
+                        DoorCloseClip.Play();
+                    }
+                }
+                _isOpen = value;
+            }
+        }
+    }
+
     public Room OwnerRoom { get; set; }
+    public Room ConnectingRoom { get; set; }
 
     public RoomDirection Direction { get; set; }
 
@@ -36,17 +67,14 @@ public class DoorController : MonoBehaviour
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 	}
 
-    private const float PlayerMovement = 2.5f;
+    private const float PlayerMovement = 3.0f;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            _animator.SetInteger("Is Open", 1);
-            if (DoorOpenClip != null)
-            {
-                DoorOpenClip.Play();
-            }
+            var player = other.gameObject.GetComponent<Player>();
+            IsOpen = true;
 
             var cameraMovement = new Vector2();
             var playerMovement = new Vector3();
@@ -70,8 +98,10 @@ public class DoorController : MonoBehaviour
                     break;
             }
 
+            player.rigidbody2D.velocity = Vector2.zero;
             StartCoroutine(MoveCamera(cameraMovement));
             other.transform.Translate(playerMovement);
+            ConnectingRoom.OnPlayerEntersRoom(player);
         } 
     }
 
@@ -88,11 +118,7 @@ public class DoorController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _animator.SetInteger("Is Open", 0);
-            if (DoorCloseClip != null)
-            {
-                DoorCloseClip.Play();
-            }
+            IsOpen = false;
         }
             
     }

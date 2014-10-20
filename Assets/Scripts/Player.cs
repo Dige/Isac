@@ -23,6 +23,8 @@ public class Player : CharacterBase
         set { _headObject = value; }
     }
 
+    public Room CurrentRoom { get; set; }
+
     private PlayerShootController _shootController;
 
     public override void Start()

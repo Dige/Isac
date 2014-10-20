@@ -1,26 +1,29 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts
 {
     public class Room : MonoBehaviour
     {
-        public Room NorthRoom { get; set; }
-        public Room SouthRoom { get; set; }
-        public Room EastRoom { get; set; }
-        public Room WestRoom { get; set; }
+        private readonly List<Door> _doors = new List<Door>();
+
+        public Door NorthDoor { get; private set; }
+        public Door SouthDoor { get; private set; }
+        public Door EastDoor { get; private set; }
+        public Door WestDoor { get; private set; }
 
         [SerializeField]
-        private DoorController _doorPrefab;
-        public DoorController DoorPrefab
+        private Door _doorPrefab;
+        public Door DoorPrefab
         {
             get { return _doorPrefab; }
             set { _doorPrefab = value; }
         }
 
         [SerializeField]
-        private DoorController _bossDoorPrefab;
-        public DoorController BossDoorPrefab
+        private Door _bossDoorPrefab;
+        public Door BossDoorPrefab
         {
             get { return _bossDoorPrefab; }
             set { _bossDoorPrefab = value; }
@@ -66,44 +69,85 @@ namespace Assets.Scripts
             set { _westDoorWall = value; }
         }
 
+        [SerializeField]
+        private readonly List<Enemy> _enemies = new List<Enemy>(); 
+        public List<Enemy> Enemies
+        {
+            get { return _enemies; }
+        }
+
+        [SerializeField]
+        private bool _playerIsInRoom;
+        public bool PlayerIsInRoom
+        {
+            get { return _playerIsInRoom; }
+            set
+            {
+                _playerIsInRoom = value;
+                _enemies.ForEach(e => e.enabled = true);
+            }
+        }
+
+        public bool ContainsEnemies { get { return !_enemies.Any(); } }
 
         public void SetAdjacentRoom(Room room, RoomDirection direction)
         {
             var position = new Vector3();
             var rotation = new Quaternion();
+            var door = (Door)Instantiate(room.IsBossRoom ? BossDoorPrefab : DoorPrefab);
             switch (direction)
             {
                 case RoomDirection.North:
                     position += new Vector3(0, 4);
-                    NorthRoom = room;
+                    NorthDoor = door;
                     NorthDoorWall.enabled = false;
                     break;
                 case RoomDirection.East:
                     position += new Vector3(7, 0);
                     rotation = Quaternion.Euler(0, 0, 270);
-                    EastRoom = room;
+                    EastDoor = door;
                     EastDoorWall.enabled = false;
                     break;
                 case RoomDirection.South:
                     position += new Vector3(0, -4);
                     rotation = Quaternion.Euler(0, 0, 180);
-                    SouthRoom = room;
+                    SouthDoor = door;
                     SouthDoorWall.enabled = false;
                     break;
                 case RoomDirection.West:
                     position += new Vector3(-7, 0);
                     rotation = Quaternion.Euler(0, 0, 90);
-                    WestRoom = room;
+                    WestDoor = door;
                     WestDoorWall.enabled = false;
                     break;
             }
 
-            var door = (DoorController)Instantiate(room.IsBossRoom ? BossDoorPrefab : DoorPrefab);
+            door.ConnectingRoom = room;
             door.Direction = direction;
             door.transform.parent = transform;
             door.transform.localPosition = position;
             door.transform.rotation = rotation;
             door.OwnerRoom = this;
+
+            _doors.Add(door);
+        }
+
+        public void InstantiateEnemies(Enemy enemyPrefab, Vector2 positionInRoom)
+        {
+            var enemy = (Enemy) Instantiate(enemyPrefab);
+            enemy.transform.position = positionInRoom;
+            _enemies.Add(enemy);
+            enemy.enabled = false;
+        }
+
+        public void OnPlayerEntersRoom(Player player)
+        {
+            if (ContainsEnemies)
+            {
+                _doors.ForEach(d => d.IsOpen = false);
+            }
+            player.CurrentRoom = this;
+            Debug.Log("Player entered room: " + name);
         }
     }
 }
