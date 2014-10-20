@@ -101,14 +101,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a20c92bdaceee4db00a797f01898e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _numberOfRooms: 12
+  _numberOfRooms: 10
   _numberOfTreasureRooms: 0
   _roomPrefabs:
   - {fileID: 11400000, guid: c7ecfa70cc4d9be4facf8cef76b022e4, type: 2}
   _firstRoom: {fileID: 11400000, guid: 744331fefa4074a4ba18b2b2609730dc, type: 2}
   _bossRoom: {fileID: 11400000, guid: 250b1ec9be8354f4cb40cfe1e982e938, type: 2}
   _playerPrefab: {fileID: 11400000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
-  _branchingProbability: .600000024
+  _branchingProbability: .699999988
   _enemyPrefab: {fileID: 11400000, guid: 3f37cd3a5037ad042b6801f031988e76, type: 2}
 --- !u!4 &813620058
 Transform:

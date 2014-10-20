@@ -102,12 +102,12 @@ public class FloorGenerator : MonoBehaviour {
 
     private void GenerateFloorLayout()
     {
-        var coordinates = Tuple.Create(Random.Range(2, 3), Random.Range(2, 3));
+        var coordinates = Tuple.Create(Random.Range(1, 4), Random.Range(1, 4));
         var firstRoom = CreateFirstRoom(coordinates);
 
         //Create branch for the first room
         int numberOfRoomsCreated = CreateBranch(firstRoom, coordinates, 0);
-        if (Random.Range(0.0f, 1.0f) >= BranchingProbability)
+        if (Random.Range(0.0f, 1.0f) <= BranchingProbability)
         {
             Debug.Log("Branching!");
             numberOfRoomsCreated = CreateBranch(firstRoom, coordinates, numberOfRoomsCreated);
@@ -124,7 +124,7 @@ public class FloorGenerator : MonoBehaviour {
                 previousRoom = AddNewRoom(previousRoom, direction, coordinates);
                 numberOfRoomsCreated++;
             }
-            if (Random.Range(0.0f, 1.0f) >= BranchingProbability)
+            if (Random.Range(0.0f, 1.0f) <= BranchingProbability)
             {
                 Debug.Log("Branching!");
                 numberOfRoomsCreated = CreateBranch(previousRoom, coordinates, numberOfRoomsCreated);
@@ -141,7 +141,7 @@ public class FloorGenerator : MonoBehaviour {
 
     private int CreateBranch(Room previousRoom, Tuple<int, int> coordinates, int numberOfRoomsCreated)
     {
-        var branchLength = Random.Range(1, 3);
+        var branchLength = Random.Range(1, 4);
         var previousBranchRoom = previousRoom;
         var branchCoordinates = coordinates;
         while (branchLength > 0)
