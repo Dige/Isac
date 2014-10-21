@@ -35,7 +35,7 @@ public class Player : CharacterBase
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.Contains("Enemy"))
+        if (collision.gameObject.name.Contains("Enemy") || collision.gameObject.name.Contains("Bullet") )
         {
             Health--;
         }

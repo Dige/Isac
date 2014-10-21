@@ -9,7 +9,7 @@ public class Enemy : CharacterBase
 	private Vector3 _randomDirection;
 	private bool _turning = false;
 
-    [SerializeField] 
+	[SerializeField] 
     private MovementStyle _movementStyle = MovementStyle.TowardsPlayer;
     public MovementStyle MovementStyle
     {

@@ -6,6 +6,13 @@ public class BulletScript : MonoBehaviour {
 
     public float range = 20;
 
+	[SerializeField]
+	private GameObject _shooter;
+	public GameObject Shooter
+	{
+		set { _shooter = value; }
+		get { return _shooter; }
+	}
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -22,8 +29,8 @@ public class BulletScript : MonoBehaviour {
 
     public void Start()
     {
-		if (this.gameObject.CompareTag ("Enemy")) {
-			this.gameObject.layer = 13;
+		if (Shooter.CompareTag("Enemy")) {
+			transform.gameObject.layer = LayerMask.NameToLayer( "Enemy bullet" );
 		}
 		_start = new Vector2(transform.position.x, transform.position.y);
         GameObject p = GameObject.FindWithTag("Player");

@@ -68,6 +68,7 @@ namespace Assets.Scripts
             while (Input.GetKey(_shootKey))
             {
                 var bullet = (Rigidbody2D)Instantiate(BulletPrefab);
+				bullet.GetComponent<BulletScript>().Shooter = transform.gameObject;
 				bullet.transform.position = transform.position;
                 if (_shootDirection.y > 0)
                 {

@@ -11,7 +11,7 @@ namespace Assets.Scripts
 		private Vector2 _shootDirection;
 		private bool _shooting;
 		private GameObject _player;
-		private bool _canShoot = false;
+		private bool _canShoot = true;
 
 		public override void Start()
 		{
@@ -35,6 +35,7 @@ namespace Assets.Scripts
 			if (!_shooting) {
 				_shooting = true;
 				var bullet = (Rigidbody2D)Instantiate (BulletPrefab);
+				bullet.GetComponent<BulletScript>().Shooter = transform.gameObject;
 				bullet.transform.position = transform.position;
 				if (_shootDirection.y > 0) {
 						bullet.transform.Rotate (0, 0, -90);
@@ -45,7 +46,7 @@ namespace Assets.Scripts
 				}
 				bullet.AddForce (_shootDirection);
 				//ShootClip.Play ();
-				yield return new WaitForSeconds (ShootingSpeed);
+				yield return new WaitForSeconds (ShootingSpeed*3);
 				_shooting = false;
 			}
 		}
