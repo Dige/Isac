@@ -24,6 +24,7 @@ namespace Assets.Scripts
 			base.Start ();
 			_player = GameObject.FindGameObjectWithTag ("Player");
 			_shooting = false;
+
 		}
 
 		public override void Update()
