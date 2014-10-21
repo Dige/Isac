@@ -20,25 +20,19 @@ namespace Assets.Scripts
             set { _pickUpClip = value; }
         }
 
-        protected GameObject Player;
-
-        public virtual void Start()
-        {
-            Player = GameObject.FindGameObjectWithTag("Player");
-        }
-
         public void OnCollisionEnter2D(Collision2D collision)
         {
             GameObject o = collision.gameObject;
             if (o.CompareTag("Player"))
             {
-                OnPickUp();
-                Destroy(gameObject);
+                OnPickUp(o.GetComponent<Player>());
+                //Destroy(gameObject);
             }
         }
 
-        protected virtual void OnPickUp()
+        protected virtual void OnPickUp(Player player)
         {
+            player.OnPickUp(this);
             if (_pickUpClip != null)
 				_pickUpClip.Play();
         }

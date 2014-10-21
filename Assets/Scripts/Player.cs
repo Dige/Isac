@@ -42,6 +42,28 @@ public class Player : CharacterBase
         }
     }
 
+    public void OnPickUp(ItemBase item)
+    {
+        item.enabled = false;
+        StartCoroutine(PlayPickUpAnimation(item));
+    }
+
+    private IEnumerator PlayPickUpAnimation(ItemBase item)
+    {
+        item.transform.parent = transform;
+        item.transform.localPosition = Vector3.zero + new Vector3(0, 1.0f, 0);
+        item.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
+        item.GetComponent<SpriteRenderer>().sortingOrder = 10;
+        Animator.Play("PickUpItem");
+        _headObject.SetHeadDirection(PlayerHeadController.HeadDirection.Down);
+        DisableCharacter();
+        yield return new WaitForSeconds(1f);
+        EnableCharacter();
+        _headObject.SetHeadDirection(PlayerHeadController.HeadDirection.Down);
+        Destroy(item.gameObject);
+        yield return null;
+    }
+
     protected override Vector3 DetermineMovement()
     {
         var movement = new Vector3();
@@ -94,8 +116,20 @@ public class Player : CharacterBase
     {
         base.Die();
         Animator.Play("Die");
+        DisableCharacter();
+    }
+
+    private void DisableCharacter()
+    {
         GunObject.enabled = false;
         HeadObject.GetComponent<SpriteRenderer>().enabled = false;
         rigidbody2D.isKinematic = true;
+    }
+
+    private void EnableCharacter()
+    {
+        GunObject.enabled = true;
+        HeadObject.GetComponent<SpriteRenderer>().enabled = true;
+        rigidbody2D.isKinematic = false;
     }
 }
