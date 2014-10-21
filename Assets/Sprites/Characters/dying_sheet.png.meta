@@ -1,14 +1,17 @@
 fileFormatVersion: 2
-guid: 20547b514f8218d4a895b80999aa0c73
+guid: 9d757b0832c0ca9478697f49e393bd58
 TextureImporter:
   fileIDToRecycleName:
-    21300000: enemy_boss_sheet
-    21300002: enemy_boss_sheet_0
-    21300004: enemy_boss_sheet_1
-    21300006: enemy_boss_sheet_2
-    21300008: enemy_boss_sheet_3
-    21300010: enemy_boss_sheet_4
-    21300012: enemy_boss_sheet_5
+    21300000: dying_sheet
+    21300002: dying_sheet_0
+    21300004: dying_sheet_1
+    21300006: dying_sheet_2
+    21300008: dying_sheet_3
+    21300010: dying_sheet_4
+    21300012: dying_sheet_5
+    21300014: dying_sheet_6
+    21300016: dying_sheet_7
+    21300018: dying_sheet_8
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -44,69 +47,99 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: enemy_boss_sheet_0
+    - name: dying_sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 754
-        height: 642
+        y: 3
+        width: 376
+        height: 315
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: enemy_boss_sheet_1
+    - name: dying_sheet_1
       rect:
         serializedVersion: 2
-        x: 754
-        y: 0
-        width: 754
-        height: 642
+        x: 376
+        y: 3
+        width: 376
+        height: 315
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: enemy_boss_sheet_2
+    - name: dying_sheet_2
       rect:
         serializedVersion: 2
-        x: 1508
-        y: 0
-        width: 754
-        height: 642
+        x: 752
+        y: 3
+        width: 376
+        height: 315
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: enemy_boss_sheet_3
+    - name: dying_sheet_3
       rect:
         serializedVersion: 2
-        x: 2262
-        y: 0
-        width: 754
-        height: 642
+        x: 1128
+        y: 3
+        width: 376
+        height: 315
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: enemy_boss_sheet_4
+    - name: dying_sheet_4
       rect:
         serializedVersion: 2
-        x: 3016
-        y: 0
-        width: 754
-        height: 642
+        x: 1504
+        y: 3
+        width: 376
+        height: 315
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: enemy_boss_sheet_5
+    - name: dying_sheet_5
       rect:
         serializedVersion: 2
-        x: 3770
-        y: 0
-        width: 754
-        height: 642
+        x: 1880
+        y: 3
+        width: 376
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dying_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 2256
+        y: 3
+        width: 376
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dying_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 2632
+        y: 3
+        width: 376
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: dying_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 3008
+        y: 3
+        width: 376
+        height: 315
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
