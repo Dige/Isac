@@ -12,18 +12,9 @@ namespace Assets.Scripts
 		private bool _shooting;
 		private GameObject _player;
 
-		[SerializeField]
-		private Enemy _thisEnemy;
-		public Enemy ThisEnemy
-		{
-			get { return _thisEnemy; }
-			set { _thisEnemy = value; }
-		}
-
 		public override void Start()
 		{
 			base.Start ();
-			ThisEnemy = this.GetComponentInParent<Enemy> ();
 			_player = GameObject.FindGameObjectWithTag ("Player");
 			_shooting = false;
 		}

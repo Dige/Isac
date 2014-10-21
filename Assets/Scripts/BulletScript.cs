@@ -6,6 +6,7 @@ public class BulletScript : MonoBehaviour {
 
     public float range = 20;
 
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject o = collision.gameObject;
@@ -21,7 +22,10 @@ public class BulletScript : MonoBehaviour {
 
     public void Start()
     {
-        _start = new Vector2(transform.position.x, transform.position.y);
+		if (this.gameObject.CompareTag ("Enemy")) {
+			this.gameObject.layer = 13;
+		}
+		_start = new Vector2(transform.position.x, transform.position.y);
         GameObject p = GameObject.FindWithTag("Player");
         Player pc = p.GetComponent<Player>();
         range = pc.Range;
