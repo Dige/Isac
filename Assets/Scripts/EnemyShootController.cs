@@ -11,6 +11,7 @@ namespace Assets.Scripts
 		private Vector2 _shootDirection;
 		private bool _shooting;
 		private GameObject _player;
+		private bool _canShoot = false;
 
 		public override void Start()
 		{
@@ -51,11 +52,15 @@ namespace Assets.Scripts
 		
 		private bool CanShootPlayer()
 		{
-			_shootDirection = - (transform.position - _player.transform.position);
-			//_shootDirection = Vector3.zero - _player.transform.position;
-			_shootDirection.Normalize();
-			_shootDirection.Scale(new Vector2(BulletSpeed,BulletSpeed));
-			return true;
+			if (_canShoot) 
+			{
+				_shootDirection = - (transform.position - _player.transform.position);
+				//_shootDirection = Vector3.zero - _player.transform.position;
+				_shootDirection.Normalize ();
+				_shootDirection.Scale (new Vector2 (BulletSpeed, BulletSpeed));
+				return true;
+			}
+			return false;
 		}
 	}
 }
