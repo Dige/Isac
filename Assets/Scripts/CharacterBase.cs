@@ -73,7 +73,7 @@ namespace Assets.Scripts
             set { _mirrorAnimation = value; }
         }
 
-        public virtual void Start()
+        public virtual void Awake()
         {
             Animator = GetComponent<Animator>();
             SpriteRenderer = GetComponent<SpriteRenderer>();

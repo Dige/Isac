@@ -7,7 +7,7 @@ public class Enemy : CharacterBase
 {
     private GameObject _player;
 	private Vector3 _randomDirection;
-	private Boolean _turning = false;
+	private bool _turning = false;
 
     [SerializeField] 
     private MovementStyle _movementStyle = MovementStyle.TowardsPlayer;
@@ -35,9 +35,8 @@ public class Enemy : CharacterBase
 
     public Room OwnerRoom { get; set; }
 
-    public override void Start()
+    public void Start()
     {
-        base.Start();
         _player = GameObject.FindGameObjectWithTag("Player");
 
         if (_wanderClipRepeatDelay > 0.0f)
@@ -125,8 +124,7 @@ public class Enemy : CharacterBase
 
     private Vector3 MoveRandomly()
     {
-		var direction = UnityEngine.Random.insideUnitCircle * 2;
-        var moveDirection = _randomDirection;//new Vector3 (direction.x, direction.y, 0);
+		var moveDirection = _randomDirection;
 		moveDirection.Normalize();
 		return moveDirection * MoveSpeed;
     }

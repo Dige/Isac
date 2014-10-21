@@ -28,9 +28,8 @@ public class Player : CharacterBase
 
     private PlayerShootController _shootController;
 
-    public override void Start()
+    public void Start()
     {
-        base.Start();
         _shootController = GetComponent<PlayerShootController>();
     }
 
