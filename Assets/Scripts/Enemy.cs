@@ -53,6 +53,7 @@ public class Enemy : CharacterBase
 			case 1:
 				MovementStyle = MovementStyle.RandomDirection;
 				gameObject.GetComponent<EnemyShootController>().CanShoot = false;
+				Flying();
 				break;
 			case 2:
 				MovementStyle = MovementStyle.TowardsPlayer;
@@ -135,6 +136,11 @@ public class Enemy : CharacterBase
         base.Die();
         OwnerRoom.OnEnemyDied(this);
     }
+
+	private void Flying()
+	{
+		transform.gameObject.layer = LayerMask.NameToLayer ("Flying enemy");
+	}
 
     private Vector3 MoveTowardsPlayer()
     {
