@@ -224,7 +224,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 4196223499
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1c479469c5a205845bd47dee7132eb02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -312,9 +312,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
-  _bulletPrefab: {fileID: 0}
+  _shootSpeed: .300000012
+  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClip: {fileID: 0}
   _bulletCollideClip: {fileID: 0}
+  _canShoot: 1
 --- !u!1001 &300079882
 Prefab:
   m_ObjectHideFlags: 0
@@ -885,7 +887,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 4196223499
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1c479469c5a205845bd47dee7132eb02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -973,9 +975,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
-  _bulletPrefab: {fileID: 0}
+  _shootSpeed: .300000012
+  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClip: {fileID: 0}
   _bulletCollideClip: {fileID: 0}
+  _canShoot: 1
 --- !u!1 &775086729
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,7 +2086,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 4196223499
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1c479469c5a205845bd47dee7132eb02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2170,9 +2174,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
-  _bulletPrefab: {fileID: 0}
+  _shootSpeed: .300000012
+  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClip: {fileID: 0}
   _bulletCollideClip: {fileID: 0}
+  _canShoot: 1
 --- !u!1001 &1685967464
 Prefab:
   m_ObjectHideFlags: 0
@@ -2327,7 +2333,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 4196223499
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1c479469c5a205845bd47dee7132eb02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2415,9 +2421,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
-  _bulletPrefab: {fileID: 0}
+  _shootSpeed: .300000012
+  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClip: {fileID: 0}
   _bulletCollideClip: {fileID: 0}
+  _canShoot: 1
 --- !u!1 &1782517555
 GameObject:
   m_ObjectHideFlags: 0
@@ -2469,10 +2477,10 @@ GameObject:
   - 95: {fileID: 1994028640}
   - 114: {fileID: 1994028639}
   - 114: {fileID: 1994028644}
-  - 61: {fileID: 1994028638}
   - 50: {fileID: 1994028637}
   - 82: {fileID: 1994028643}
   - 82: {fileID: 1994028645}
+  - 58: {fileID: 1994028638}
   m_Layer: 9
   m_Name: Character
   m_TagString: Player
@@ -2496,18 +2504,18 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!61 &1994028638
-BoxCollider2D:
+--- !u!58 &1994028638
+CircleCollider2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6100000, guid: c760a6803e7caac4a88b2795a1fad999,
+  m_PrefabParentObject: {fileID: 5800000, guid: c760a6803e7caac4a88b2795a1fad999,
     type: 2}
   m_PrefabInternal: {fileID: 74298330}
   m_GameObject: {fileID: 1994028636}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 2, y: 2}
-  m_Center: {x: .0599999987, y: -.74000001}
+  m_Radius: .819999993
+  m_Center: {x: .150000006, y: -1.13999999}
 --- !u!114 &1994028639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2653,11 +2661,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
+  _shootSpeed: .349999994
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClip: {fileID: 1994028643}
   _bulletCollideClip: {fileID: 1994028645}
   _headObject: {fileID: 305176394}
-  _shootSpeed: .349999994
 --- !u!82 &1994028645
 AudioSource:
   m_ObjectHideFlags: 0
