@@ -1,11 +1,70 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
     public class EnemyShootController : ShootControllerBase
     {
-    }
+		private Vector2 _shootDirection;
+		private bool _shooting;
+		private GameObject _player;
+
+		[SerializeField]
+		private Enemy _thisEnemy;
+		public Enemy ThisEnemy
+		{
+			get { return _thisEnemy; }
+			set { _thisEnemy = value; }
+		}
+
+		public override void Start()
+		{
+			base.Start ();
+			ThisEnemy = this.GetComponentInParent<Enemy> ();
+			_player = GameObject.FindGameObjectWithTag ("Player");
+			_shooting = false;
+		}
+
+		public override void Update()
+		{
+			base.Update ();
+
+			if (CanShootPlayer ()) 
+			{
+				StartCoroutine(Shoot());
+			}
+		}
+
+		IEnumerator Shoot()
+		{
+			if (!_shooting) {
+				_shooting = true;
+				var bullet = (Rigidbody2D)Instantiate (BulletPrefab);
+				bullet.transform.position = transform.position;
+				if (_shootDirection.y > 0) {
+						bullet.transform.Rotate (0, 0, -90);
+				} else if (_shootDirection.y < 0) {
+						bullet.transform.Rotate (0, 0, 90);
+				} else if (_shootDirection.x > 0) {
+						TransformHelpers.FlipX (bullet.gameObject);
+				}
+				bullet.AddForce (_shootDirection);
+				//ShootClip.Play ();
+				yield return new WaitForSeconds (ShootingSpeed);
+				_shooting = false;
+			}
+		}
+		
+		private bool CanShootPlayer()
+		{
+			_shootDirection = - (transform.position - _player.transform.position);
+			//_shootDirection = Vector3.zero - _player.transform.position;
+			_shootDirection.Normalize();
+			_shootDirection.Scale(new Vector2(BulletSpeed,BulletSpeed));
+			return true;
+		}
+	}
 }

@@ -14,14 +14,6 @@ namespace Assets.Scripts
             set { _headObject = value; }
         }
 
-        [SerializeField]
-        private float _shootSpeed = 0.3f;
-        public float ShootingSpeed
-        {
-            get { return _shootSpeed; }
-            set { _shootSpeed = value; }
-        }
-
         public bool IsShooting { get; private set; }
         private KeyCode _shootKey;
         private Vector2 _shootDirection;
@@ -76,7 +68,7 @@ namespace Assets.Scripts
             while (Input.GetKey(_shootKey))
             {
                 var bullet = (Rigidbody2D)Instantiate(BulletPrefab);
-                bullet.transform.position = transform.position;
+				bullet.transform.position = transform.position;
                 if (_shootDirection.y > 0)
                 {
                     bullet.transform.Rotate(0, 0, -90);

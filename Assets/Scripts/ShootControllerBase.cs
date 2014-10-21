@@ -12,6 +12,14 @@ namespace Assets.Scripts
             set { _bulletSpeed = value; }
         }
 
+		[SerializeField]
+		private float _shootSpeed = 0.3f;
+		public float ShootingSpeed
+		{
+			get { return _shootSpeed; }
+			set { _shootSpeed = value; }
+		}
+
         [SerializeField]
         private Rigidbody2D _bulletPrefab;
         public Rigidbody2D BulletPrefab
@@ -36,7 +44,7 @@ namespace Assets.Scripts
             set { _bulletCollideClip = value; }
         }
 
-        public virtual void Start()
+		public virtual void Start()
         {
 
         }
