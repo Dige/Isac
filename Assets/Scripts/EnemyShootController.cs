@@ -11,8 +11,14 @@ namespace Assets.Scripts
 		private Vector2 _shootDirection;
 		private bool _shooting;
 		private GameObject _player;
-		private bool _canShoot = true;
 
+		[SerializeField]
+		private bool _canShoot = true;
+		public bool CanShoot 
+		{
+			set { _canShoot = value; }
+			get { return _canShoot; }
+		}
 		public override void Start()
 		{
 			base.Start ();

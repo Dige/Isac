@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections;
 using Assets.Scripts;
 using UnityEngine;
@@ -148,6 +149,16 @@ public class Enemy : CharacterBase
 			yield return new WaitForSeconds (0.5f);
             _turning = false;
         }
+	}
+
+	public void Enable()
+	{
+		GetComponents<MonoBehaviour>().ToList().ForEach(e => e.enabled = true);
+	}
+
+	public void Disable()
+	{
+		GetComponents<MonoBehaviour>().ToList().ForEach(e => e.enabled = false);
 	}
 
 	private Vector3 Stationary()

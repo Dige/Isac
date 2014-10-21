@@ -91,7 +91,7 @@ namespace Assets.Scripts
         IEnumerator WakeUpEnemies()
         {
             yield return new WaitForSeconds(0.5f);
-            _enemies.ForEach(e => e.enabled = true);
+            _enemies.ForEach(e => e.Enable());
             yield return null;
         }
 
@@ -146,7 +146,7 @@ namespace Assets.Scripts
             enemy.transform.localPosition = Vector3.zero + new Vector3(positionInRoom.x, positionInRoom.y, 0);
             enemy.OwnerRoom = this;
             _enemies.Add(enemy);
-            enemy.enabled = false;
+            enemy.Disable();
         }
 
         public void OnEnemyDied(Enemy enemy)
