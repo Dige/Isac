@@ -565,7 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adc18f3f83c0b64b9e13224e882196a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _doorPrefab: {fileID: 11400000, guid: 36bdf857c960d4b4785c3043dc06251f, type: 2}
+  _doorPrefab: {fileID: 11400000, guid: 68d56c64275958245a3073c32d98da8f, type: 2}
   _bossDoorPrefab: {fileID: 11400000, guid: 68d56c64275958245a3073c32d98da8f, type: 2}
   _isBossRoom: 1
   _northDoorWall: {fileID: 6100022}
@@ -593,7 +593,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d9585dcc4bc015f499d26ed504a18e20, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 33d82093ec4b5514788ed25faeb29f75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200002
 SpriteRenderer:
