@@ -125,8 +125,7 @@ public class Enemy : CharacterBase
 
     private Vector3 MoveRandomly()
     {
-		var direction = UnityEngine.Random.insideUnitCircle * 2;
-        var moveDirection = _randomDirection;//new Vector3 (direction.x, direction.y, 0);
+		var moveDirection = _randomDirection;
 		moveDirection.Normalize();
 		return moveDirection * MoveSpeed;
     }
