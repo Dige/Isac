@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts;
-using Assets.Scripts.Helpers;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -72,7 +71,14 @@ public class FloorGenerator : MonoBehaviour {
         get { return _enemyPrefab; }
         set { _enemyPrefab = value; }
     }
-    
+
+    [SerializeField]
+    private List<GameObject> _obstacleLayouts = new List<GameObject>();
+    public List<GameObject> ObstacleLayouts
+    {
+        get { return _obstacleLayouts; }
+    }
+
 
     private const float HorizontalDelta = 16f;
     private const float VerticalDelta = 10f;
@@ -299,6 +305,14 @@ public class FloorGenerator : MonoBehaviour {
             }
             room.transform.position = position;
         }
+
+        if (!isBossRoom)
+        {
+            var obstacleLayout = (GameObject)Instantiate(_obstacleLayouts.ElementAt(Random.Range(0, _obstacleLayouts.Count)));
+            obstacleLayout.transform.parent = room.transform;
+            obstacleLayout.transform.localPosition = Vector3.zero;
+        }
+
         return room;
     }
 }

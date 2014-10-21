@@ -110,6 +110,9 @@ MonoBehaviour:
   _playerPrefab: {fileID: 11400000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
   _branchingProbability: .699999988
   _enemyPrefab: {fileID: 11400000, guid: 3f37cd3a5037ad042b6801f031988e76, type: 2}
+  _obstacleLayouts:
+  - {fileID: 100000, guid: 8df70993843e7884bac3b972b1bd61be, type: 2}
+  - {fileID: 100016, guid: e6be752160427a74ea331a668ccad08a, type: 2}
 --- !u!4 &813620058
 Transform:
   m_ObjectHideFlags: 0
