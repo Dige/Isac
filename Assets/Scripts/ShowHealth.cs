@@ -32,14 +32,17 @@ public class ShowHealth : MonoBehaviour {
             return;
         }
 
+        var heartWidth = Screen.width/20;
+        var heartHeight = Screen.height/20;
+
         for (int i = 0; i < _playerCharacter.Health / 2; i++)
         {
-            GUI.DrawTexture(new Rect(Screen.width - Screen.width / 4 + i*40,30,40,40), _healthTexture, ScaleMode.ScaleToFit);    
+            GUI.DrawTexture(new Rect(Screen.width - Screen.width / 4 + i * heartWidth, Screen.height / 10.0f, heartWidth, heartHeight), _healthTexture, ScaleMode.ScaleToFit);
         }
 
         if (_playerCharacter.Health % 2 == 1)
         {
-            GUI.DrawTexture(new Rect(Screen.width - Screen.width / 4 + _playerCharacter.Health / 2 * 40, 30, 40, 40), _halfHealthTexture, ScaleMode.ScaleToFit);
+            GUI.DrawTexture(new Rect(Screen.width - Screen.width / 4 + _playerCharacter.Health / 2 * heartWidth, Screen.height / 10.0f, heartWidth, heartHeight), _halfHealthTexture, ScaleMode.ScaleToFit);
         }
     }
 }
