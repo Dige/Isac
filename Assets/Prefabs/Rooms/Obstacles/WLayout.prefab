@@ -409,7 +409,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyLayouts:
-  - {fileID: 0}
   - {fileID: 100000, guid: 8c8721990adc74cb48cea3137ff12ff5, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:

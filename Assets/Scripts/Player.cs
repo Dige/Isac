@@ -96,6 +96,8 @@ public class Player : CharacterBase
                 headDirection = PlayerHeadController.HeadDirection.Right;
             }
 
+			movement.Normalize();
+
             if (!_shootController.IsShooting)
             {
                 _headObject.SetHeadDirection(headDirection);
