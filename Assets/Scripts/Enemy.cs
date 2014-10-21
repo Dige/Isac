@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections;
 using Assets.Scripts;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Enemy : CharacterBase
 {
@@ -42,6 +43,35 @@ public class Enemy : CharacterBase
 
         if (_wanderClipRepeatDelay > 0.0f)
             StartCoroutine(PlayWanderingClip());
+		var rnd = (int)(Random.value * 5);
+		switch (rnd)
+		{
+			case 0:
+				MovementStyle = MovementStyle.Stationary;
+				gameObject.GetComponent<EnemyShootController>().CanShoot = true;
+				break;
+			case 1:
+				MovementStyle = MovementStyle.RandomDirection;
+				gameObject.GetComponent<EnemyShootController>().CanShoot = false;
+				break;
+			case 2:
+				MovementStyle = MovementStyle.TowardsPlayer;
+				gameObject.GetComponent<EnemyShootController>().CanShoot = false;
+				break;
+			case 3:
+				MovementStyle = MovementStyle.RandomTowardsPlayer;
+				gameObject.GetComponent<EnemyShootController>().CanShoot = true;
+				break;
+			case 4:
+				MovementStyle = MovementStyle.RandomTowardsPlayer;
+				gameObject.GetComponent<EnemyShootController>().CanShoot = false;
+				break;
+			case 5:
+				MovementStyle = MovementStyle.AwayFromPlayer;
+				gameObject.GetComponent<EnemyShootController>().CanShoot = false;
+				break;
+		}
+
     }
 
 	public override void Update()
