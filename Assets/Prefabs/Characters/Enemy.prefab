@@ -169,7 +169,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClip: {fileID: 0}
   _bulletCollideClip: {fileID: 0}
-  _thisEnemy: {fileID: 0}
+  _canShoot: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -188,7 +188,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 531106395
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1c479469c5a205845bd47dee7132eb02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

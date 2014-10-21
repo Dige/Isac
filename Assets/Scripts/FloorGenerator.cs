@@ -251,14 +251,14 @@ public class FloorGenerator : MonoBehaviour {
         }
         _floorGrid.AddRoom(coordinates.X, coordinates.Y, newRoom);
 
-        if (!isBossRoom)
+        /*if (!isBossRoom)
         {
-            var enemyCount = Random.Range(0, 4);
+            var enemyCount = Random.Range(0, 0);
             for (int i = 0; i <= enemyCount; i++)
             {
                 newRoom.InstantiateEnemy(EnemyPrefab, new Vector2(Random.Range(-3, 3), Random.Range(-3, 3)));
             }
-        }
+        }*/
 
         previousRoom = newRoom;
         return previousRoom;
@@ -306,11 +306,18 @@ public class FloorGenerator : MonoBehaviour {
             room.transform.position = position;
         }
 
-        if (!isBossRoom)
+        if (!isBossRoom || !FirstRoom)
         {
             var obstacleLayout = (GameObject)Instantiate(_obstacleLayouts.ElementAt(Random.Range(0, _obstacleLayouts.Count)));
-            obstacleLayout.transform.parent = room.transform;
+			obstacleLayout.transform.parent = room.transform;
             obstacleLayout.transform.localPosition = Vector3.zero;
+
+			var enemyLayouts = obstacleLayout.GetComponent<EnemyLayout>().EnemyLayouts;
+			var enemyLayout = (GameObject)Instantiate (enemyLayouts.ElementAt(Random.Range(0, enemyLayouts.Count)));
+			//enemyLayout.transform.localPosition = Vector3.zero;
+			enemyLayout.transform.parent = room.transform;
+			var enemies = enemyLayout.GetComponentsInChildren<Enemy>().ToList();
+			enemies.ForEach(e => room.AddEnemy(e, e.transform.position));
         }
 
         return room;

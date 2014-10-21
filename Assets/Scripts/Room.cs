@@ -70,10 +70,11 @@ namespace Assets.Scripts
             set { _westDoorWall = value; }
         }
 
-        private readonly List<Enemy> _enemies = new List<Enemy>(); 
+        private List<Enemy> _enemies = new List<Enemy>(); 
         public List<Enemy> Enemies
         {
             get { return _enemies; }
+			set { _enemies = value; }
         }
 
         [SerializeField]
@@ -149,9 +150,18 @@ namespace Assets.Scripts
             enemy.Disable();
         }
 
-        public void OnEnemyDied(Enemy enemy)
-        {
-            _enemies.Remove(enemy);
+		public void AddEnemy(Enemy enemy, Vector2 positionInRoom)
+		{   
+			enemy.transform.parent = transform;
+			enemy.transform.localPosition = Vector3.zero + new Vector3(positionInRoom.x, positionInRoom.y, 0);
+			enemy.OwnerRoom = this;
+			_enemies.Add(enemy);
+			enemy.Disable();
+		}
+
+		public void OnEnemyDied(Enemy enemy)
+		{
+			_enemies.Remove(enemy);
             if (!ContainsEnemies)
             {
                 _doors.ForEach(d => d.IsOpen = true);

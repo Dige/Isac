@@ -192,8 +192,10 @@ public class Enemy : CharacterBase
 		GetComponents<MonoBehaviour>().ToList().ForEach(e => e.enabled = true);
 	}
 
-	public void Disable()
+	public void Disable(Room room = null)
 	{
+		if (room != null)
+			OwnerRoom =room;
 		GetComponents<MonoBehaviour>().ToList().ForEach(e => e.enabled = false);
 	}
 
