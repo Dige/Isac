@@ -39,6 +39,8 @@ namespace Assets.Scripts
             }
         }
 
+        public bool IsDead { get { return _health <= 0; } }
+
         [SerializeField]
         private int _range = 8;
         public int Range
