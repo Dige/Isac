@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using Assets.Scripts;
 using UnityEngine;
 
@@ -45,7 +46,7 @@ public class Player : CharacterBase
     {
         var movement = new Vector3();
 
-        if (InputHelpers.IsAnyKeyDown("w", "s", "a", "d"))
+        if (!IsDead && InputHelpers.IsAnyKeyDown("w", "s", "a", "d"))
         {
             ShouldMove = true;
             GunObject.enabled = false;
@@ -87,5 +88,14 @@ public class Player : CharacterBase
     {
         Momentum = movement * MoveSpeed;
         gameObject.rigidbody2D.AddForce(Momentum);
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+        Animator.Play("Die");
+        GunObject.enabled = false;
+        HeadObject.GetComponent<SpriteRenderer>().enabled = false;
+        rigidbody2D.isKinematic = true;
     }
 }
