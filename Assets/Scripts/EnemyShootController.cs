@@ -24,6 +24,8 @@ namespace Assets.Scripts
 			base.Start ();
 			_player = GameObject.FindGameObjectWithTag ("Player");
 			_shooting = false;
+            BulletSpeed = 0.3f;
+            ShootingSpeed = 1f;
 
 		}
 
