@@ -1,0 +1,191 @@
+fileFormatVersion: 2
+guid: 980917f85c5fab949bbd617d80424527
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: boss_spider_die
+    21300002: boss_spider_die_0
+    21300004: boss_spider_die_1
+    21300006: boss_spider_die_2
+    21300008: boss_spider_die_3
+    21300010: boss_spider_die_4
+    21300012: boss_spider_die_5
+    21300014: boss_spider_die_6
+    21300016: boss_spider_die_7
+    21300018: boss_spider_die_8
+    21300020: boss_spider_die_9
+    21300022: boss_spider_die_10
+    21300024: boss_spider_die_11
+    21300026: boss_spider_die_12
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: boss_spider_die_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1262
+        width: 603
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss_spider_die_1
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 1262
+        width: 603
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss_spider_die_2
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 1262
+        width: 603
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss_spider_die_3
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 1262
+        width: 603
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss_spider_die_4
+      rect:
+        serializedVersion: 2
+        x: 2412
+        y: 1262
+        width: 603
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss_spider_die_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 631
+        width: 603
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss_spider_die_6
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 631
+        width: 603
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss_spider_die_7
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 631
+        width: 603
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss_spider_die_8
+      rect:
+        serializedVersion: 2
+        x: 1809
+        y: 631
+        width: 603
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss_spider_die_9
+      rect:
+        serializedVersion: 2
+        x: 2412
+        y: 631
+        width: 603
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss_spider_die_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 603
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss_spider_die_11
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 0
+        width: 603
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boss_spider_die_12
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 0
+        width: 603
+        height: 631
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
