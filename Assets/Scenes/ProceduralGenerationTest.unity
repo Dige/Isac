@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a20c92bdaceee4db00a797f01898e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _numberOfRooms: 14
+  _numberOfRooms: 12
   _numberOfTreasureRooms: 0
   _roomPrefabs:
   - {fileID: 11400000, guid: c7ecfa70cc4d9be4facf8cef76b022e4, type: 2}

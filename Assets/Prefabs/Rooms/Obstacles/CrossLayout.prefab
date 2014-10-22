@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200002}
   - 61: {fileID: 6100002}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 212: {fileID: 21200004}
   - 61: {fileID: 6100004}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - 4: {fileID: 400006}
   - 212: {fileID: 21200006}
   - 61: {fileID: 6100006}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - 4: {fileID: 400008}
   - 212: {fileID: 21200008}
   - 61: {fileID: 6100008}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - 4: {fileID: 400010}
   - 212: {fileID: 21200010}
   - 61: {fileID: 6100010}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - 4: {fileID: 400012}
   - 212: {fileID: 21200012}
   - 61: {fileID: 6100012}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - 4: {fileID: 400014}
   - 212: {fileID: 21200014}
   - 61: {fileID: 6100014}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
