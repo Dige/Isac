@@ -33,12 +33,36 @@ public class BulletScript : MonoBehaviour {
 			transform.gameObject.layer = LayerMask.NameToLayer( "Enemy bullet" );
 		}
 		_start = new Vector2(transform.position.x, transform.position.y);
-        GameObject p = GameObject.FindWithTag("Player");
-        Player pc = p.GetComponent<Player>();
+        var p = GameObject.FindWithTag("Player");
+        var pc = p.GetComponent<Player>();
         range = pc.Range;
     }
-	public void Update () {
-	    if ( Mathf.Abs(_start.x - transform.position.x) > range || Mathf.Abs(_start.y -transform.position.y) > range )
+
+    private bool _isFading;
+
+    private IEnumerator Fade()
+    {
+        for (float f = 1f; f >= 0; f -= 0.1f)
+        {
+            Color c = GetComponent<SpriteRenderer>().material.color;
+            c.a = f;
+            renderer.material.color = c;
+            yield return null;
+        }
+    }
+
+	public void Update ()
+	{
+	    var xDistance = Mathf.Abs(_start.x - transform.position.x);
+	    var yDistance = Mathf.Abs(_start.y - transform.position.y);
+
+	    if (!_isFading && (xDistance > range*0.8 || yDistance > range*0.8))
+	    {
+	        _isFading = true;
+	        StartCoroutine(Fade());
+	    }
+
+	    if ( xDistance > range || yDistance > range )
 	    {
 	        Destroy(gameObject);
 	    }
