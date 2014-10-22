@@ -251,15 +251,6 @@ public class FloorGenerator : MonoBehaviour {
         }
         _floorGrid.AddRoom(coordinates.X, coordinates.Y, newRoom);
 
-        /*if (!isBossRoom)
-        {
-            var enemyCount = Random.Range(0, 0);
-            for (int i = 0; i <= enemyCount; i++)
-            {
-                newRoom.InstantiateEnemy(EnemyPrefab, new Vector2(Random.Range(-3, 3), Random.Range(-3, 3)));
-            }
-        }*/
-
         previousRoom = newRoom;
         return previousRoom;
     }
@@ -428,7 +419,7 @@ public class FloorGrid
         {
             for (int j = 0; j < Height; j++)
             {
-                if (_rooms[i, j] != room)
+                if (_rooms[i, j] == room)
                 {
                     return new RoomCoordinates(i, j);
                 }
