@@ -1,8 +1,14 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 87ba90a173abe4246b89e9dbc133ac63
 TextureImporter:
   fileIDToRecycleName:
     21300000: Map_sprite
+=======
+guid: 9df10c14ca4545a4da26becd35c031d9
+TextureImporter:
+  fileIDToRecycleName: {}
+>>>>>>> dd0ca806a7f65167ea881004f3b3bd592d857158
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

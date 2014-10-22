@@ -1,8 +1,14 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: a99ecdd39cb86984ca92654d6596c52b
 TextureImporter:
   fileIDToRecycleName:
     21300000: Treasure_icon
+=======
+guid: ad0109e3e82d52a4b9666cbb5c71120f
+TextureImporter:
+  fileIDToRecycleName: {}
+>>>>>>> dd0ca806a7f65167ea881004f3b3bd592d857158
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
