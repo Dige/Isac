@@ -35,6 +35,7 @@ namespace Assets.Scripts
 
 			if (CanShootPlayer ()) 
 			{
+                GetComponent<Animator>().SetBool("Shooting", true);
 				StartCoroutine(Shoot());
 			}
 		}
@@ -57,6 +58,7 @@ namespace Assets.Scripts
 				//ShootClip.Play ();
 				yield return new WaitForSeconds (ShootingSpeed*3);
 				_shooting = false;
+                GetComponent<Animator>().SetBool("Shooting", false);
 			}
 		}
 		
