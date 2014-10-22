@@ -118,7 +118,14 @@ public class Player : CharacterBase
         base.Die();
         Animator.Play("Die");
         DisableCharacter();
+		StartCoroutine (Restart());
     }
+
+	IEnumerator Restart()
+	{
+		yield return new WaitForSeconds (1.8f);
+		Application.LoadLevel (Application.loadedLevel);
+	}
 
     private void DisableCharacter()
     {
