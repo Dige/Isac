@@ -5,6 +5,7 @@ using Assets.Scripts;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(EnemyShootController), typeof(BoxCollider2D))]
 public class Enemy : CharacterBase
 {
     private GameObject _player;
