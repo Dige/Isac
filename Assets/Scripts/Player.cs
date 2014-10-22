@@ -27,6 +27,7 @@ public class Player : CharacterBase
     public Room CurrentRoom { get; set; }
 
     private PlayerShootController _shootController;
+	private bool _invulnerable = false;
 
     public void Start()
     {
@@ -120,6 +121,21 @@ public class Player : CharacterBase
         DisableCharacter();
 		StartCoroutine (Restart());
     }
+
+	protected override void TakeDamage()
+	{
+		if (!_invulnerable) {
+				base.TakeDamage ();
+				StartCoroutine (BeInvulnerable ());
+		}
+	}
+
+	IEnumerator BeInvulnerable()
+	{
+		_invulnerable = true;
+		yield return new WaitForSeconds (0.2f);
+		_invulnerable = false;
+	}
 
 	IEnumerator Restart()
 	{

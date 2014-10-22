@@ -1,6 +1,7 @@
 /Temp
 /obj
 /library
+*.DS_Store
 *.csproj
 *.unityproj
 *.sln
