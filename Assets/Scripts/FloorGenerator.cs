@@ -84,7 +84,6 @@ public class FloorGenerator : MonoBehaviour {
     private const float VerticalDelta = 10f;
 
     private readonly FloorGrid _floorGrid = new FloorGrid(6, 6);
-    private readonly Stack<Room> _mainPath = new Stack<Room>();
 
 	public void Awake()
 	{
@@ -122,7 +121,6 @@ public class FloorGenerator : MonoBehaviour {
         }
 
         var previousRoom = firstRoom;
-        _mainPath.Push(firstRoom);
         while (numberOfRoomsCreated < _numberOfRooms-1)
         {
             RoomDirection direction;
@@ -132,16 +130,12 @@ public class FloorGenerator : MonoBehaviour {
             }
             catch (Exception ex)
             {
-                _mainPath.Pop();
-                while (_mainPath.Any() && !_floorGrid.GetValidDirectionsFromRoom(_floorGrid.GetCoordinatesForRoom(_mainPath.Peek())).Any())
-                {
-                    _mainPath.Pop();
-                }
-                if (_mainPath.Count == 0)
+                previousRoom =
+                    _floorGrid.Rooms.FirstOrDefault(r => _floorGrid.GetValidDirectionsFromRoom(r).Any());
+                if (previousRoom == null)
                 {
                     throw new Exception("Everything is ruined", ex);
                 }
-                previousRoom = _mainPath.Peek();
                 direction = DetermineNextRoomLocation(_floorGrid.GetCoordinatesForRoom(previousRoom));
                 coordinates = _floorGrid.GetCoordinatesForRoom(previousRoom);
                 
@@ -152,10 +146,9 @@ public class FloorGenerator : MonoBehaviour {
             if (!_floorGrid.IsDeadEnd(coordinates.X, coordinates.Y))
             {
                 previousRoom = AddNewRoom(previousRoom, direction, coordinates);
-                _mainPath.Push(previousRoom);
                 numberOfRoomsCreated++;
             }
-            if (Random.Range(0.0f, 1.0f) <= BranchingProbability)
+            if (numberOfRoomsCreated < _numberOfRooms-1 &&  Random.Range(0.0f, 1.0f) <= BranchingProbability)
             {
                 Debug.Log("Branching!");
                 numberOfRoomsCreated = CreateBranch(previousRoom, coordinates, numberOfRoomsCreated);
@@ -166,7 +159,13 @@ public class FloorGenerator : MonoBehaviour {
             //    numberOfRoomsCreated = CreateBranch(previousRoom, coordinates, numberOfRoomsCreated);
             //}
         }
-
+        if (!_floorGrid.GetValidDirectionsFromRoom(previousRoom).Any())
+        {
+            previousRoom =
+                _floorGrid.Rooms.FirstOrDefault(
+                    r => r != firstRoom && _floorGrid.GetValidDirectionsFromRoom(r).Any());
+            coordinates = _floorGrid.GetCoordinatesForRoom(previousRoom);
+        }
         CreateBossRoom(previousRoom, coordinates);
     }
 
@@ -319,6 +318,9 @@ public class FloorGrid
 {
     private readonly Room[,] _rooms;
 
+    private readonly List<Room> _roomList = new List<Room>();
+    public IEnumerable<Room> Rooms { get { return _roomList; } } 
+
     public int Width { get; private set; }
     public int Height { get; private set; }
 
@@ -374,6 +376,7 @@ public class FloorGrid
         }
         _rooms[x, y] = room;
         room.name = string.Format((room.IsBossRoom ? "Boss" : "") +"Room ({0},{1})", x, y);
+        _roomList.Add(room);
     }
 
     public void AddRoom(RoomCoordinates coordinates, Room room)
