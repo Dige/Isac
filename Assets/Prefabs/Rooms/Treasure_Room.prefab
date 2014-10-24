@@ -523,6 +523,8 @@ MonoBehaviour:
   _roomType: 3
   _doorPrefab: {fileID: 11400000, guid: 36bdf857c960d4b4785c3043dc06251f, type: 2}
   _bossDoorPrefab: {fileID: 11400000, guid: 68d56c64275958245a3073c32d98da8f, type: 2}
+  _treasureRoomDoorPrefab: {fileID: 11400000, guid: e03073ac8afb70d40a46dc178a5590b6,
+    type: 2}
   _northDoorWall: {fileID: 6100022}
   _southDoorWall: {fileID: 6100020}
   _eastDoorWall: {fileID: 6100018}

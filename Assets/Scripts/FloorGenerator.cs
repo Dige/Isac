@@ -91,6 +91,7 @@ public class FloorGenerator : MonoBehaviour {
     private const float VerticalDelta = 10f;
 
     private readonly FloorGrid _floorGrid = new FloorGrid(6, 6);
+    public FloorGrid Grid { get { return _floorGrid; } }
 
 	public void Awake()
 	{

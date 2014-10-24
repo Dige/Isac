@@ -91,6 +91,8 @@ namespace Assets.Scripts
 			set { _enemies = value; }
         }
 
+        public bool PlayerHasVisitedRoom { get; private set; }
+
         [SerializeField]
         private bool _playerIsInRoom;
         public bool PlayerIsInRoom
@@ -99,7 +101,12 @@ namespace Assets.Scripts
             set
             {
                 _playerIsInRoom = value;
-                StartCoroutine(WakeUpEnemies());
+                if (value)
+                {
+                    PlayerHasVisitedRoom = true;
+                    StartCoroutine(WakeUpEnemies());
+                }
+               
             }
         }
 
