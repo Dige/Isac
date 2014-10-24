@@ -520,9 +520,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adc18f3f83c0b64b9e13224e882196a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _roomType: 0
   _doorPrefab: {fileID: 11400000, guid: 36bdf857c960d4b4785c3043dc06251f, type: 2}
   _bossDoorPrefab: {fileID: 11400000, guid: 36bdf857c960d4b4785c3043dc06251f, type: 2}
-  _isBossRoom: 0
   _northDoorWall: {fileID: 6100022}
   _southDoorWall: {fileID: 6100020}
   _eastDoorWall: {fileID: 6100018}
