@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -36,6 +37,14 @@ namespace Assets.Scripts
         {
             get { return _bossDoorPrefab; }
             set { _bossDoorPrefab = value; }
+        }
+
+        [SerializeField]
+        private Door _treasureRoomDoorPrefab;
+        public Door TreasureRoomDoorPrefab
+        {
+            get { return _treasureRoomDoorPrefab; }
+            set { _treasureRoomDoorPrefab = value; }
         }
 
         public bool IsBossRoom
@@ -107,7 +116,44 @@ namespace Assets.Scripts
         {
             var position = new Vector3();
             var rotation = new Quaternion();
-            var door = (Door)Instantiate(room.IsBossRoom ? BossDoorPrefab : DoorPrefab);
+            Door doorPrefab = DoorPrefab;
+            if (RoomType == RoomType.NormalRoom || RoomType == RoomType.StartRoom)
+            {
+                switch (room.RoomType)
+                {
+                    case RoomType.StartRoom:
+                        doorPrefab = DoorPrefab;
+                        break;
+                    case RoomType.NormalRoom:
+                        doorPrefab = DoorPrefab;
+                        break;
+                    case RoomType.BossRoom:
+                        doorPrefab = BossDoorPrefab;
+                        break;
+                    case RoomType.TreasureRoom:
+                        doorPrefab = TreasureRoomDoorPrefab;
+                        break;
+                    case RoomType.SecretRoom:
+                        doorPrefab = DoorPrefab;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+            else if (RoomType == RoomType.BossRoom)
+            {
+                doorPrefab = BossDoorPrefab;
+            }
+            else if (RoomType == RoomType.TreasureRoom)
+            {
+                doorPrefab = TreasureRoomDoorPrefab;
+            }
+            else if (RoomType == RoomType.SecretRoom)
+            {
+                doorPrefab = DoorPrefab;
+            }
+
+            var door = (Door)Instantiate(doorPrefab);
             switch (direction)
             {
                 case RoomDirection.North:
