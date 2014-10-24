@@ -1,4 +1,5 @@
-﻿using Assets.Scripts;
+﻿using System.Linq;
+using Assets.Scripts;
 using UnityEngine;
 
 public class ShowMap : MonoBehaviour 
@@ -55,23 +56,26 @@ public class ShowMap : MonoBehaviour
         var leftPadding = Screen.width/8;
         var topPadding = Screen.height/7;
 
-        var iconWidth = Screen.width / 20;
-        var iconHeight = Screen.height / 20;
+        var iconWidth = Screen.width / 19;
+        var iconHeight = Screen.height / 19;
 
 
-        foreach (var room in _floorGrid.Rooms)
+        foreach (var room in _floorGrid.Rooms.Where(r => r.IsVisibleOnMap))
         {
-            if (room.PlayerIsInRoom)
+            GUI.DrawTexture(
+                new Rect(leftPadding + room.X*roomWidth, topPadding + -room.Y*roomHeight, roomWidth*2, roomHeight*2),
+                room.PlayerIsInRoom ? PlayerInRoomTexture : RoomTexture, ScaleMode.ScaleToFit);
+            if (room.RoomType == RoomType.BossRoom)
             {
                 GUI.DrawTexture(
-                    new Rect(leftPadding + room.X*roomWidth, topPadding + -room.Y*roomHeight, roomWidth*2, roomHeight*2),
-                    PlayerInRoomTexture, ScaleMode.ScaleToFit);
+                    new Rect(leftPadding + room.X*roomWidth + roomWidth/2, topPadding + -room.Y*roomHeight, iconHeight, iconWidth),
+                    BossRoomIcon, ScaleMode.ScaleToFit);
             }
-            else
+            else if (room.RoomType == RoomType.TreasureRoom)
             {
                 GUI.DrawTexture(
-                    new Rect(leftPadding + room.X*roomWidth, topPadding + -room.Y*roomHeight, roomWidth*2, roomHeight*2),
-                    RoomTexture, ScaleMode.ScaleToFit);
+                    new Rect(leftPadding + room.X*roomWidth + roomWidth/2, topPadding + -room.Y*roomHeight, iconHeight, iconWidth),
+                    TreasureRoomIcon, ScaleMode.ScaleToFit);
             }
         }
     }

@@ -94,7 +94,7 @@ namespace Assets.Scripts
 			set { _enemies = value; }
         }
 
-        public bool PlayerHasVisitedRoom { get; private set; }
+        public bool IsVisibleOnMap { get; set; }
 
         [SerializeField]
         private bool _playerIsInRoom;
@@ -106,7 +106,24 @@ namespace Assets.Scripts
                 _playerIsInRoom = value;
                 if (value)
                 {
-                    PlayerHasVisitedRoom = true;
+                    IsVisibleOnMap = true;
+                    if (NorthDoor != null)
+                    {
+                        NorthDoor.ConnectingRoom.IsVisibleOnMap = true;
+                    }
+                    if (SouthDoor != null)
+                    {
+                        SouthDoor.ConnectingRoom.IsVisibleOnMap = true;
+                    }
+                    if (WestDoor != null)
+                    {
+                        WestDoor.ConnectingRoom.IsVisibleOnMap = true;
+                    }
+                    if (EastDoor != null)
+                    {
+                        EastDoor.ConnectingRoom.IsVisibleOnMap = true;
+                    }
+
                     StartCoroutine(WakeUpEnemies());
                 }
                
