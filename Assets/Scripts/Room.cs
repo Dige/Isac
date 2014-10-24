@@ -15,6 +15,14 @@ namespace Assets.Scripts
         public Door WestDoor { get; private set; }
 
         [SerializeField]
+        private RoomType _roomType = RoomType.NormalRoom;
+        public RoomType RoomType
+        {
+            get { return _roomType; }
+            set { _roomType = value; }
+        }
+
+        [SerializeField]
         private Door _doorPrefab;
         public Door DoorPrefab
         {
@@ -30,12 +38,9 @@ namespace Assets.Scripts
             set { _bossDoorPrefab = value; }
         }
 
-        [SerializeField]
-        private bool _isBossRoom;
         public bool IsBossRoom
         {
-            get { return _isBossRoom; }
-            set { _isBossRoom = value; }
+            get { return RoomType == RoomType.BossRoom; }
         }
 
         [SerializeField]
@@ -183,4 +188,13 @@ namespace Assets.Scripts
             Debug.Log("Player entered room: " + name);
         }
     }
+}
+
+public enum RoomType
+{
+    StartRoom,
+    NormalRoom,
+    BossRoom,
+    TreasureRoom,
+    SecretRoom
 }

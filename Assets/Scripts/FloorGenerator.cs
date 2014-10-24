@@ -46,7 +46,14 @@ public class FloorGenerator : MonoBehaviour {
         get { return _bossRoom; }
         set { _bossRoom = value; }
     }
-    
+
+    [SerializeField]
+    private Room _treasureRoom;
+    public Room TreasureRoom
+    {
+        get { return _treasureRoom; }
+        set { _treasureRoom = value; }
+    }
 
     [SerializeField]
     private Player _playerPrefab;
@@ -375,7 +382,7 @@ public class FloorGrid
             FirstRoom = room;
         }
         _rooms[x, y] = room;
-        room.name = string.Format((room.IsBossRoom ? "Boss" : "") +"Room ({0},{1})", x, y);
+        room.name = string.Format(room.RoomType +" ({0},{1})", x, y);
         _roomList.Add(room);
     }
 
