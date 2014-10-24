@@ -59,12 +59,12 @@ public class ShowMap : MonoBehaviour
         var iconWidth = Screen.width / 19;
         var iconHeight = Screen.height / 19;
 
-
         foreach (var room in _floorGrid.Rooms.Where(r => r.IsVisibleOnMap))
         {
             GUI.DrawTexture(
                 new Rect(leftPadding + room.X*roomWidth, topPadding + -room.Y*roomHeight, roomWidth*2, roomHeight*2),
                 room.PlayerIsInRoom ? PlayerInRoomTexture : RoomTexture, ScaleMode.ScaleToFit);
+
             if (room.RoomType == RoomType.BossRoom)
             {
                 GUI.DrawTexture(
