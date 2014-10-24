@@ -95,6 +95,7 @@ namespace Assets.Scripts
         }
 
         public bool IsVisibleOnMap { get; set; }
+        public bool PlayerHasVisited { get; private set; }
 
         [SerializeField]
         private bool _playerIsInRoom;
@@ -106,6 +107,7 @@ namespace Assets.Scripts
                 _playerIsInRoom = value;
                 if (value)
                 {
+                    PlayerHasVisited = true;
                     IsVisibleOnMap = true;
                     if (NorthDoor != null)
                     {
