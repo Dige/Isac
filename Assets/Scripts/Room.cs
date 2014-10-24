@@ -15,6 +15,9 @@ namespace Assets.Scripts
         public Door EastDoor { get; private set; }
         public Door WestDoor { get; private set; }
 
+        public int X { get; set; }
+        public int Y { get; set; }
+
         [SerializeField]
         private RoomType _roomType = RoomType.NormalRoom;
         public RoomType RoomType

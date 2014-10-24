@@ -109,6 +109,7 @@ public class Door : MonoBehaviour
             player.rigidbody2D.velocity = Vector2.zero;
             StartCoroutine(MoveCamera(cameraMovement));
             other.transform.Translate(playerMovement);
+            OwnerRoom.PlayerIsInRoom = false;
             ConnectingRoom.OnPlayerEntersRoom(player);
         } 
     }

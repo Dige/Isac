@@ -336,6 +336,7 @@ GameObject:
   - 4: {fileID: 1335113746}
   - 131: {fileID: 1335113745}
   - 114: {fileID: 1335113744}
+  - 114: {fileID: 1335113747}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -389,6 +390,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1335113747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1335113743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49883e02790a4ef4a9b93d28df954f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _roomTexture: {fileID: 2800000, guid: 7d94e439fc11b4f4198741e99a97770d, type: 3}
+  _playerInRoomTexture: {fileID: 2800000, guid: b766cd62e8c48554caaf99803a9b4aef,
+    type: 3}
+  _treasureRoomIcon: {fileID: 2800000, guid: a99ecdd39cb86984ca92654d6596c52b, type: 3}
+  _bossRoomIcon: {fileID: 2800000, guid: 7d49f583eed41df4b9770aa70be7495e, type: 3}
 --- !u!1001 &2143902055
 Prefab:
   m_ObjectHideFlags: 0

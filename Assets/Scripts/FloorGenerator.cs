@@ -419,6 +419,8 @@ public class FloorGrid
         _rooms[x, y] = room;
         room.name = string.Format(room.RoomType +" ({0},{1})", x, y);
         _roomList.Add(room);
+        room.X = x;
+        room.Y = y;
     }
 
     public void AddRoom(RoomCoordinates coordinates, Room room)
