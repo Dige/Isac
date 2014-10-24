@@ -1,14 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 690746c456e4aab4f8c4b1c560a3048d
 TextureImporter:
   fileIDToRecycleName:
     21300000: Enemy_bullet_sprite
-=======
-guid: cc5bb4655bcd934458ac70422395b77a
-TextureImporter:
-  fileIDToRecycleName: {}
->>>>>>> dd0ca806a7f65167ea881004f3b3bd592d857158
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

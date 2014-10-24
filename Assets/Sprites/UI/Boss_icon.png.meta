@@ -1,14 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 7d49f583eed41df4b9770aa70be7495e
 TextureImporter:
   fileIDToRecycleName:
     21300000: Boss_icon
-=======
-guid: 380b434082641714cb83d09e0b54a84f
-TextureImporter:
-  fileIDToRecycleName: {}
->>>>>>> dd0ca806a7f65167ea881004f3b3bd592d857158
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
