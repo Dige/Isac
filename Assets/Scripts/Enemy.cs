@@ -5,7 +5,7 @@ using Assets.Scripts;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(EnemyShootController), typeof(BoxCollider2D))]
+[RequireComponent(typeof(EnemyShootController), typeof(CircleCollider2D))]
 public class Enemy : CharacterBase
 {
     private GameObject _player;
@@ -44,35 +44,38 @@ public class Enemy : CharacterBase
 
         if (_wanderClipRepeatDelay > 0.0f)
             StartCoroutine(PlayWanderingClip());
-		var rnd = (int)(Random.value * 5);
-		switch (rnd)
-		{
-			case 0:
-				MovementStyle = MovementStyle.Stationary;
-				gameObject.GetComponent<EnemyShootController>().CanShoot = true;
-				break;
-			case 1:
-				MovementStyle = MovementStyle.RandomDirection;
-				gameObject.GetComponent<EnemyShootController>().CanShoot = false;
-				Flying();
-				break;
-			case 2:
-				MovementStyle = MovementStyle.TowardsPlayer;
-				gameObject.GetComponent<EnemyShootController>().CanShoot = false;
-				break;
-			case 3:
-				MovementStyle = MovementStyle.RandomTowardsPlayer;
-				gameObject.GetComponent<EnemyShootController>().CanShoot = true;
-				break;
-			case 4:
-				MovementStyle = MovementStyle.RandomTowardsPlayer;
-				gameObject.GetComponent<EnemyShootController>().CanShoot = false;
-				break;
-			case 5:
-				MovementStyle = MovementStyle.AwayFromPlayer;
-				gameObject.GetComponent<EnemyShootController>().CanShoot = false;
-				break;
-		}
+        if (MovementStyle == MovementStyle.RandomStyle)
+        {
+            var rnd = (int)(Random.value * 5);
+            switch (rnd)
+            {
+                case 0:
+                    MovementStyle = MovementStyle.Stationary;
+                    gameObject.GetComponent<EnemyShootController>().CanShoot = true;
+                    break;
+                case 1:
+                    MovementStyle = MovementStyle.RandomDirection;
+                    gameObject.GetComponent<EnemyShootController>().CanShoot = false;
+                    Flying();
+                    break;
+                case 2:
+                    MovementStyle = MovementStyle.TowardsPlayer;
+                    gameObject.GetComponent<EnemyShootController>().CanShoot = false;
+                    break;
+                case 3:
+                    MovementStyle = MovementStyle.RandomTowardsPlayer;
+                    gameObject.GetComponent<EnemyShootController>().CanShoot = true;
+                    break;
+                case 4:
+                    MovementStyle = MovementStyle.RandomTowardsPlayer;
+                    gameObject.GetComponent<EnemyShootController>().CanShoot = false;
+                    break;
+                case 5:
+                    MovementStyle = MovementStyle.AwayFromPlayer;
+                    gameObject.GetComponent<EnemyShootController>().CanShoot = false;
+                    break;
+            }
+        }
 
     }
 
@@ -90,7 +93,8 @@ public class Enemy : CharacterBase
 
     protected override void HandleMovement(Vector3 movement)
     {
-        transform.Translate(movement);
+        if (Health > 0)
+            transform.Translate(movement);
     }
 
     protected override Vector3 DetermineMovement()
@@ -136,6 +140,16 @@ public class Enemy : CharacterBase
     {
         base.Die();
         OwnerRoom.OnEnemyDied(this);
+        Disable();
+        StartCoroutine(ReallyDie());
+    }
+
+    IEnumerator ReallyDie()
+    {
+        Animator.Play("Die");     
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        yield return new WaitForSeconds(0.2f);
+        Destroy(gameObject);
     }
 
 	private void Flying()
@@ -145,6 +159,7 @@ public class Enemy : CharacterBase
 
     private Vector3 MoveTowardsPlayer()
     {
+        // could use some pathing, boo no navigationmesh for 2D
         var currentPosition = transform.position;
         var moveDirection = _player.transform.position - currentPosition;
         moveDirection.Normalize();
@@ -212,5 +227,6 @@ public enum MovementStyle
     AwayFromPlayer,
     RandomDirection,
 	RandomTowardsPlayer,
-	Stationary
+	Stationary,
+    RandomStyle
 }
