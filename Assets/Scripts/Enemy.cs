@@ -11,6 +11,7 @@ public class Enemy : CharacterBase
     private GameObject _player;
 	private Vector3 _randomDirection;
 	private bool _turning = false;
+    private bool _jumping = false;
 
 	[SerializeField] 
     private MovementStyle _movementStyle = MovementStyle.TowardsPlayer;
@@ -102,6 +103,8 @@ public class Enemy : CharacterBase
         ShouldMove = true;
         switch (MovementStyle)
         {
+            case MovementStyle.JumpToPlayer:
+                return JumpToPlayer();
             case MovementStyle.TowardsPlayer:
                 return MoveTowardsPlayer();
             case MovementStyle.AwayFromPlayer:
@@ -156,6 +159,32 @@ public class Enemy : CharacterBase
 	{
 		transform.gameObject.layer = LayerMask.NameToLayer ("Flying enemy");
 	}
+
+    private Vector3 JumpToPlayer()
+    {
+        var currentPosition = transform.position;
+        var playerPosition = _player.transform.position;
+        if (_jumping)
+        {
+            
+        }
+        else 
+        {
+
+        }
+        return 
+    }
+
+    IEnumerator Jump()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+    }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(UnityEngine.Random.Range(1,2));
+    }
+
 
     private Vector3 MoveTowardsPlayer()
     {
@@ -223,6 +252,7 @@ public class Enemy : CharacterBase
 
 public enum MovementStyle
 {
+    JumpToPlayer,
     TowardsPlayer,
     AwayFromPlayer,
     RandomDirection,
