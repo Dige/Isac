@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -19,6 +20,11 @@ namespace Assets.Scripts
             get { return _pickUpClip; }
             set { _pickUpClip = value; }
         }
+
+        [HideInInspector]
+        public float MinSpawnPitch = -3.0f;
+        [HideInInspector]
+        public float MaxSpawnPitch = 3.0f;
 
         [SerializeField]
         private bool _isInstantEffect;
@@ -62,5 +68,18 @@ namespace Assets.Scripts
         }
 
         public abstract void UseItem(Player player);
+    }
+
+    [CustomEditor(typeof(ItemBase), true)]
+    public class ItemEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            var item = (ItemBase)target;
+            EditorGUILayout.LabelField("Min Spawn Pitch:", item.MinSpawnPitch.ToString());
+            EditorGUILayout.LabelField("Max Spawn Pitch:", item.MaxSpawnPitch.ToString());
+            EditorGUILayout.MinMaxSlider(new GUIContent("Spawn Pitch Range"), ref item.MinSpawnPitch, ref item.MaxSpawnPitch, -3.0f, 3.0f);
+        }
     }
 }
