@@ -69,6 +69,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _roomTexture: {fileID: 2800000, guid: 7d94e439fc11b4f4198741e99a97770d, type: 3}
+  _unvisitedRoomTexture: {fileID: 2800000, guid: 234d53d3f54e35f4da15d42c0bfa516d,
+    type: 3}
   _playerInRoomTexture: {fileID: 2800000, guid: b766cd62e8c48554caaf99803a9b4aef,
     type: 3}
   _treasureRoomIcon: {fileID: 2800000, guid: a99ecdd39cb86984ca92654d6596c52b, type: 3}

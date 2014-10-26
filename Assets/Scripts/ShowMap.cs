@@ -13,6 +13,15 @@ public class ShowMap : MonoBehaviour
     }
 
     [SerializeField]
+    private Texture2D _unvisitedRoomTexture;
+    public Texture2D UnvisitedRoomTexture
+    {
+        get { return _unvisitedRoomTexture; }
+        set { _unvisitedRoomTexture = value; }
+    }
+
+
+    [SerializeField]
     private Texture2D _playerInRoomTexture;
     public Texture2D PlayerInRoomTexture
     {
@@ -61,9 +70,10 @@ public class ShowMap : MonoBehaviour
 
         foreach (var room in _floorGrid.Rooms.Where(r => r.IsVisibleOnMap))
         {
+            var roomTexture = room.PlayerHasVisited ? RoomTexture : UnvisitedRoomTexture;
             GUI.DrawTexture(
                 new Rect(leftPadding + room.X*roomWidth, topPadding + -room.Y*roomHeight, roomWidth*2, roomHeight*2),
-                room.PlayerIsInRoom ? PlayerInRoomTexture : RoomTexture, ScaleMode.ScaleToFit);
+                room.PlayerIsInRoom ? PlayerInRoomTexture : roomTexture, ScaleMode.ScaleToFit);
 
             if (room.RoomType == RoomType.BossRoom)
             {
