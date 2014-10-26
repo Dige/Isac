@@ -1,4 +1,7 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -58,12 +61,16 @@ namespace Assets.Scripts
         }
 
         [SerializeField]
-        private AudioSource _takeDamageClip;
-        public AudioSource TakeDamageClip
+        private List<AudioSource> _takeDamageClips = new List<AudioSource>(1);
+        public List<AudioSource> TakeDamageClips
         {
-            get { return _takeDamageClip; }
-            set { _takeDamageClip = value; }
+            get { return _takeDamageClips; }
         }
+
+        [HideInInspector]
+        public float MinDamagedPitch = -3.0f;
+        [HideInInspector]
+        public float MaxDamagedPitch = 3.0f;
 
         [SerializeField]
         private AudioSource _dieClip;
@@ -72,6 +79,11 @@ namespace Assets.Scripts
             get { return _dieClip; }
             set { _dieClip = value; }
         }
+
+        [HideInInspector]
+        public float MinDiePitch = -3.0f;
+        [HideInInspector]
+        public float MaxDiePitch = 3.0f;
 
         [SerializeField]
         private bool _mirrorAnimation;
@@ -122,11 +134,18 @@ namespace Assets.Scripts
             SetAnimationDirection(movement, target, currentPosition);
         }
 
+
+
         protected virtual void TakeDamage()
         {
             StartCoroutine(DamageBlink());
-            if (_takeDamageClip != null)
-				_takeDamageClip.Play();
+            if (_takeDamageClips.Any())
+            {
+                var clipToPlay = _takeDamageClips[Random.Range(0, _takeDamageClips.Count)];
+                clipToPlay.pitch = Random.Range(MinDamagedPitch, MaxDamagedPitch);
+                clipToPlay.Play();
+            }
+				
         }
 
         private IEnumerator DamageBlink()
@@ -147,8 +166,12 @@ namespace Assets.Scripts
 
         protected virtual void Die()
         {
-        	if (_dieClip != null)
-				_dieClip.Play();
+            if (_dieClip != null)
+            {
+                _dieClip.pitch = Random.Range(MinDiePitch, MaxDiePitch);
+                _dieClip.Play();
+            }
+				
         }
 
         private void SetAnimationDirection(Vector3 movement, Vector3 target, Vector3 currentPosition)
@@ -182,6 +205,22 @@ namespace Assets.Scripts
                     }
                 }
             }
+        }
+    }
+
+    [CustomEditor(typeof(CharacterBase), true)]
+    public class CharacterEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            var character = (CharacterBase)target;
+            EditorGUILayout.LabelField("Min Damaged Pitch:", character.MinDamagedPitch.ToString());
+            EditorGUILayout.LabelField("Max Damaged Pitch:", character.MaxDamagedPitch.ToString());
+            EditorGUILayout.MinMaxSlider(new GUIContent("Damaged Pitch Range"), ref character.MinDamagedPitch, ref character.MaxDamagedPitch, -3.0f, 3.0f);
+            EditorGUILayout.LabelField("Min Die Pitch:", character.MinDamagedPitch.ToString());
+            EditorGUILayout.LabelField("Max Die Pitch:", character.MaxDamagedPitch.ToString());
+            EditorGUILayout.MinMaxSlider(new GUIContent("Die Pitch Range"), ref character.MinDiePitch, ref character.MaxDiePitch, -3.0f, 3.0f);
         }
     }
 }
