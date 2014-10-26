@@ -36,6 +36,21 @@ public class Player : CharacterBase
         _shootController = GetComponent<PlayerShootController>();
     }
 
+    public override void Update()
+    {
+        base.Update();
+        HandleItemUse();
+    }
+
+    private void HandleItemUse()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && CurrentItem != null)
+        {
+            CurrentItem.UseItem(this);
+            Destroy(CurrentItem.gameObject);
+        }
+    }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name.Contains("Enemy") || collision.gameObject.name.Contains("Bullet") )
