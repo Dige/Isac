@@ -174,7 +174,7 @@ MonoBehaviour:
   _pickUpClip: {fileID: 8200000}
   MinSpawnPitch: -3
   MaxSpawnPitch: 3
-  _isInstantEffect: 0
+  _isInstantEffect: 1
   _healthAddition: 2
 --- !u!212 &21200000
 SpriteRenderer:

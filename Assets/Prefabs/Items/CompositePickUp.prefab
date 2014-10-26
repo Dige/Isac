@@ -173,6 +173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnClip: {fileID: 8200000}
   _pickUpClip: {fileID: 8200002}
+  MinSpawnPitch: -3
+  MaxSpawnPitch: 3
   _isInstantEffect: 0
   _bulletSpeedAddition: .5
 --- !u!114 &11400002
@@ -188,7 +190,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnClip: {fileID: 0}
   _pickUpClip: {fileID: 0}
-  _isInstantEffect: 0
+  MinSpawnPitch: -3
+  MaxSpawnPitch: 3
+  _isInstantEffect: 1
   _healthAddition: 2
 --- !u!212 &21200000
 SpriteRenderer:

@@ -36,10 +36,13 @@ public class BulletScript : MonoBehaviour {
         }
 		Destroy(gameObject);
     }
+
     private Vector2 _start;
 
     public void Start()
     {
+        GetComponent<BoxCollider2D>().enabled = false;
+        StartCoroutine(RemoveInvulnerability());
 		if (Shooter.CompareTag("Enemy")) {
 			transform.gameObject.layer = LayerMask.NameToLayer( "Enemy bullet" );
 		}
@@ -47,6 +50,12 @@ public class BulletScript : MonoBehaviour {
         var p = GameObject.FindWithTag("Player");
         var pc = p.GetComponent<Player>();
         range = pc.Range;
+    }
+
+    private IEnumerator RemoveInvulnerability()
+    {
+        yield return new WaitForSeconds(0.05f);
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 
     private bool _isFading;
