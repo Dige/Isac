@@ -123,7 +123,7 @@ public class Enemy : CharacterBase
 
     protected override void HandleAnimation(Vector3 movement)
     {
-        if (movement == Vector3.zero)
+        if (MovementStyle != MovementStyle.JumpToPlayer && movement == Vector3.zero)
         {
             Animator.enabled = false;
             return;
@@ -163,7 +163,6 @@ public class Enemy : CharacterBase
 
     private Vector3 JumpToPlayer()
     {
-        Animator.SetBool("Jumping", true);
         var currentPosition = transform.position;
         var playerPosition = _player.transform.position;
         if (_jumping && !_inAir)
@@ -183,6 +182,7 @@ public class Enemy : CharacterBase
 
     IEnumerator Jump()
     {
+        Animator.SetBool("Jumping", true);
         _jumping = false;
         yield return new WaitForSeconds(1.5f);
         _inAir = true;
