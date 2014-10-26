@@ -25,11 +25,11 @@ GameObject:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200000}
   - 95: {fileID: 9500000}
-  - 61: {fileID: 6100000}
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
   - 82: {fileID: 8200000}
+  - 58: {fileID: 5800006}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -47,11 +47,11 @@ GameObject:
   - 4: {fileID: 400004}
   - 212: {fileID: 21200002}
   - 95: {fileID: 9500002}
-  - 61: {fileID: 6100002}
   - 50: {fileID: 5000002}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400004}
   - 82: {fileID: 8200002}
+  - 58: {fileID: 5800000}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -69,11 +69,11 @@ GameObject:
   - 4: {fileID: 400006}
   - 212: {fileID: 21200004}
   - 95: {fileID: 9500004}
-  - 61: {fileID: 6100004}
   - 50: {fileID: 5000004}
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400008}
   - 82: {fileID: 8200004}
+  - 58: {fileID: 5800004}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -91,11 +91,11 @@ GameObject:
   - 4: {fileID: 400008}
   - 212: {fileID: 21200006}
   - 95: {fileID: 9500006}
-  - 61: {fileID: 6100006}
   - 50: {fileID: 5000006}
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400012}
   - 82: {fileID: 8200006}
+  - 58: {fileID: 5800002}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -227,19 +227,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!61 &6100000
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: .540000021, y: .540000021}
-  m_Center: {x: 0, y: -.129999995}
---- !u!61 &6100002
-BoxCollider2D:
+--- !u!58 &5800000
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -247,21 +236,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .540000021, y: .540000021}
+  m_Radius: .25999999
   m_Center: {x: 0, y: -.129999995}
---- !u!61 &6100004
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: .540000021, y: .540000021}
-  m_Center: {x: 0, y: -.129999995}
---- !u!61 &6100006
-BoxCollider2D:
+--- !u!58 &5800002
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -269,7 +247,29 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .540000021, y: .540000021}
+  m_Radius: .25999999
+  m_Center: {x: 0, y: -.129999995}
+--- !u!58 &5800004
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: .25999999
+  m_Center: {x: 0, y: -.129999995}
+--- !u!58 &5800006
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: .25999999
   m_Center: {x: 0, y: -.129999995}
 --- !u!82 &8200000
 AudioSource:
