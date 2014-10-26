@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Helpers;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -245,7 +246,26 @@ namespace Assets.Scripts
             if (!ContainsEnemies)
             {
                 _doors.ForEach(d => d.IsOpen = true);
+                SpawnItem();
             }
+        }
+
+        private void SpawnItem()
+        {
+            if (RoomType != RoomType.NormalRoom)
+            {
+                return;
+            }
+            var spawner = GetComponentInChildren<ItemSpawner>();
+            if (spawner != null)
+            {
+                spawner.Spawn();
+            }
+            else
+            {
+                Debug.LogError("Item Spawner missing");
+            }
+
         }
 
         public void OnPlayerEntersRoom(Player player)
