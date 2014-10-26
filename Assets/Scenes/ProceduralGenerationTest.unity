@@ -330,13 +330,15 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: ad1bf6a16d406f1488cb4568e6c4fc40, type: 2}
-  m_PrefabInternal: {fileID: 2143902055}
+  m_PrefabInternal: {fileID: 1462273767}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1335113746}
   - 131: {fileID: 1335113745}
   - 114: {fileID: 1335113744}
   - 114: {fileID: 1335113747}
+  - 114: {fileID: 1335113748}
+  - 114: {fileID: 1335113749}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -349,7 +351,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: ad1bf6a16d406f1488cb4568e6c4fc40,
     type: 2}
-  m_PrefabInternal: {fileID: 2143902055}
+  m_PrefabInternal: {fileID: 1462273767}
   m_GameObject: {fileID: 1335113743}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -364,7 +366,7 @@ GUITexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 13100000, guid: ad1bf6a16d406f1488cb4568e6c4fc40,
     type: 2}
-  m_PrefabInternal: {fileID: 2143902055}
+  m_PrefabInternal: {fileID: 1462273767}
   m_GameObject: {fileID: 1335113743}
   m_Enabled: 1
   m_Texture: {fileID: 2800000, guid: 1e5cdc374883d5f46bc1d98b6df85a52, type: 3}
@@ -383,7 +385,7 @@ GUITexture:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: ad1bf6a16d406f1488cb4568e6c4fc40, type: 2}
-  m_PrefabInternal: {fileID: 2143902055}
+  m_PrefabInternal: {fileID: 1462273767}
   m_GameObject: {fileID: 1335113743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .5, y: .899999976, z: 0}
@@ -394,8 +396,9 @@ Transform:
 --- !u!114 &1335113747
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 11400004, guid: ad1bf6a16d406f1488cb4568e6c4fc40,
+    type: 2}
+  m_PrefabInternal: {fileID: 1462273767}
   m_GameObject: {fileID: 1335113743}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -407,7 +410,31 @@ MonoBehaviour:
     type: 3}
   _treasureRoomIcon: {fileID: 2800000, guid: a99ecdd39cb86984ca92654d6596c52b, type: 3}
   _bossRoomIcon: {fileID: 2800000, guid: 7d49f583eed41df4b9770aa70be7495e, type: 3}
---- !u!1001 &2143902055
+--- !u!114 &1335113748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: ad1bf6a16d406f1488cb4568e6c4fc40,
+    type: 2}
+  m_PrefabInternal: {fileID: 1462273767}
+  m_GameObject: {fileID: 1335113743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea97d032cbc79d64896a78ce9357c9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1335113749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: ad1bf6a16d406f1488cb4568e6c4fc40,
+    type: 2}
+  m_PrefabInternal: {fileID: 1462273767}
+  m_GameObject: {fileID: 1335113743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9cd2e5fd93f5644ac10a246a1f0d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1462273767
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -446,14 +473,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 13100000, guid: ad1bf6a16d406f1488cb4568e6c4fc40, type: 2}
-      propertyPath: m_Texture
-      value: 
-      objectReference: {fileID: 2800000, guid: 1e5cdc374883d5f46bc1d98b6df85a52, type: 3}
-    - target: {fileID: 11400000, guid: ad1bf6a16d406f1488cb4568e6c4fc40, type: 2}
-      propertyPath: _emptyHealthTexture
-      value: 
-      objectReference: {fileID: 2800000, guid: 2d1f2fa07c98c1842b0768eae05be8ef, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad1bf6a16d406f1488cb4568e6c4fc40, type: 2}
   m_RootGameObject: {fileID: 1335113743}
