@@ -254,12 +254,20 @@ namespace Assets.Scripts
             if (ContainsEnemies)
             {
                 _doors.ForEach(d => d.IsOpen = false);
-                _doors.First().DoorOpenClip.Play();
+                var doorOpenClip = _doors.First().DoorOpenClip;
+                if (doorOpenClip != null)
+                {
+                    doorOpenClip.Play();
+                }
             }
             else
             {
                 _doors.ForEach(d => d.IsOpen = true);
-                _doors.First().DoorCloseClip.Play();
+                var doorCloseClip = _doors.First().DoorCloseClip;
+                if (doorCloseClip != null)
+                {
+                    doorCloseClip.Play();
+                }
             }
             player.CurrentRoom = this;
             Debug.Log("Player entered room: " + name);
