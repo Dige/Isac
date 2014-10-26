@@ -171,7 +171,7 @@ public class FloorGenerator : MonoBehaviour {
         {
             var validRooms = _floorGrid.Rooms.Where(
                 r => r != firstRoom && _floorGrid.GetValidDirectionsFromRoom(r).Any()).ToList();
-            previousRoom = validRooms.ElementAt(Random.Range(0, validRooms.Count-1));
+            previousRoom = validRooms.ElementAt(Random.Range(0, validRooms.Count));
 
             coordinates = _floorGrid.GetCoordinatesForRoom(previousRoom);
         }
@@ -182,7 +182,7 @@ public class FloorGenerator : MonoBehaviour {
         {
             var validRooms = _floorGrid.Rooms.Where(
                 r => r.RoomType == RoomType.NormalRoom && _floorGrid.GetValidDirectionsFromRoom(r).Any()).ToList();
-            previousRoom = validRooms.ElementAt(Random.Range(0, validRooms.Count - 1));
+            previousRoom = validRooms.ElementAt(Random.Range(0, validRooms.Count));
 
             coordinates = _floorGrid.GetCoordinatesForRoom(previousRoom);
         }

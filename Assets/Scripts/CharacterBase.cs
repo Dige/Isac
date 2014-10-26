@@ -21,6 +21,14 @@ namespace Assets.Scripts
         protected SpriteRenderer SpriteRenderer;
 
         [SerializeField]
+        private int _maxHealth;
+        public int MaxHealth
+        {
+            get { return _maxHealth; }
+            set { _maxHealth = value; }
+        }
+
+        [SerializeField]
         private int _health = 8;
         public int Health
         {
