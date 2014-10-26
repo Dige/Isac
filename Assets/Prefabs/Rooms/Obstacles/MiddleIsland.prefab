@@ -247,8 +247,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemPrefabs:
+  - {fileID: 11400000, guid: 9814222918d544448831838efc12ade8, type: 2}
+  - {fileID: 11400000, guid: 6a42198b8700a1749a773377fd0a53be, type: 2}
   - {fileID: 11400002, guid: 8163a02d4186cf64c88603621904f8e6, type: 2}
+  - {fileID: 11400000, guid: c876b04fb74a9d244a77e1570e13584f, type: 2}
+  - {fileID: 11400000, guid: bda55eb7db361414fb5c8afa00d45ba1, type: 2}
+  - {fileID: 11400000, guid: e86503109069754488f023ed23c50f42, type: 2}
   - {fileID: 11400000, guid: 610e077a54937b34b9319035494c83cd, type: 2}
+  - {fileID: 11400000, guid: 575e69a1d0ea74e4a857c8d559abf3eb, type: 2}
+  - {fileID: 11400000, guid: 1418c923d375d9a49a7bdce7a9725d42, type: 2}
+  _spawnOnAwake: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
