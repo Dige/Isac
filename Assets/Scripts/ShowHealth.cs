@@ -18,6 +18,14 @@ public class ShowHealth : MonoBehaviour {
         set { _halfHealthTexture = value; }
     }
 
+    [SerializeField]
+    private Texture2D _emptyHealthTexture;
+    public Texture2D EmptyHealthTexture
+    {
+        get { return _emptyHealthTexture; }
+        set { _emptyHealthTexture = value; }
+    }
+
     private Player _playerCharacter;
 
     public void Start()
@@ -34,8 +42,8 @@ public class ShowHealth : MonoBehaviour {
 
         var heartWidth = Screen.width/20;
         var heartHeight = Screen.height/20;
-
-        for (int i = 0; i < _playerCharacter.Health / 2; i++)
+        int i; 
+        for (i = 0; i < _playerCharacter.Health / 2; i++)
         {
             GUI.DrawTexture(new Rect(Screen.width - Screen.width / 4 + i * heartWidth, Screen.height / 10.0f, heartWidth, heartHeight), _healthTexture, ScaleMode.ScaleToFit);
         }
@@ -43,6 +51,12 @@ public class ShowHealth : MonoBehaviour {
         if (_playerCharacter.Health % 2 == 1)
         {
             GUI.DrawTexture(new Rect(Screen.width - Screen.width / 4 + _playerCharacter.Health / 2 * heartWidth, Screen.height / 10.0f, heartWidth, heartHeight), _halfHealthTexture, ScaleMode.ScaleToFit);
+            i = i + 1;
+        }
+
+        for (; i < _playerCharacter.MaxHealth / 2; i++)
+        {
+            GUI.DrawTexture(new Rect(Screen.width - Screen.width / 4 + i * heartWidth, Screen.height / 10.0f, heartWidth, heartHeight), _emptyHealthTexture, ScaleMode.ScaleToFit);
         }
     }
 }
