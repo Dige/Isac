@@ -196,7 +196,7 @@ public class Enemy : CharacterBase
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(UnityEngine.Random.Range(2,4));
         _jumping = true;
     }
 
