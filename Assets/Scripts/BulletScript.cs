@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using System.Collections;
 using Assets.Scripts;
 
@@ -22,7 +23,14 @@ public class BulletScript : MonoBehaviour {
             o.GetComponentInParent<Enemy>().Health--;
         }
 		GameObject pc = GameObject.FindWithTag ("Player");
-		pc.GetComponent<PlayerShootController>().BulletCollideClip.Play ();
+
+        var shootController = pc.GetComponent<PlayerShootController>();
+        if (shootController.BulletCollideClips.Any())
+        {
+            var clipToPlay = shootController.BulletCollideClips[Random.Range(0, shootController.BulletCollideClips.Count)];
+            clipToPlay.pitch = Random.Range(shootController.MinBulletCollidePitch, shootController.MaxBulletCollidePitch);
+            clipToPlay.Play();
+        }
 		Destroy(gameObject);
     }
     private Vector2 _start;

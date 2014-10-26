@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -84,7 +85,14 @@ namespace Assets.Scripts
                 }
                 bullet.AddForce(_shootDirection);
                 bullet.AddForce(_player.rigidbody2D.GetPointVelocity(_player.transform.position) * 0.02f);
-                ShootClip.Play();
+
+                if (ShootClips.Any())
+                {
+                    var clipToPlay = ShootClips[Random.Range(0, ShootClips.Count)];
+                    clipToPlay.pitch = Random.Range(MinShootPitch, MaxShootPitch);
+                    clipToPlay.Play();
+                }
+
                 yield return new WaitForSeconds(ShootingSpeed);
             }
             IsShooting = false;
