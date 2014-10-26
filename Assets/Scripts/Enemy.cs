@@ -163,7 +163,7 @@ public class Enemy : CharacterBase
 
     private Vector3 JumpToPlayer()
     {
-        Animator.Play("Jump");
+        Animator.SetBool("Jumping", true);
         var currentPosition = transform.position;
         var playerPosition = _player.transform.position;
         if (_jumping && !_inAir)
@@ -191,6 +191,7 @@ public class Enemy : CharacterBase
         transform.position = _player.transform.position;
         yield return new WaitForSeconds(1.5f);
         _inAir = false;
+        Animator.SetBool("Jumping", false);
     }
 
     IEnumerator Wait()
