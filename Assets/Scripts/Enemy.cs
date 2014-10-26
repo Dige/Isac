@@ -148,7 +148,7 @@ public class Enemy : CharacterBase
     {
         Animator.Play("Die");     
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 
