@@ -33,7 +33,16 @@ namespace Assets.Scripts
             get { return _isInstantEffect; }
             set { _isInstantEffect = value; }
         }
-        
+
+        public void Start()
+        {
+            if (SpawnClip != null)
+            {
+                SpawnClip.pitch = Random.Range(MinSpawnPitch, MaxSpawnPitch);
+                SpawnClip.Play();
+            }
+        }
+
 
         public void OnCollisionEnter2D(Collision2D collision)
         {
