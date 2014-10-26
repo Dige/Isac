@@ -39,6 +39,21 @@ namespace Assets.Scripts
             }
         }
 
+        public void Enable()
+        {
+            enabled = true;
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<BoxCollider2D>().enabled = true;
+        }
+
+        public void Disable()
+        {
+            enabled = false;
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
+
+
         private void OnPickUp(Player player)
         {
             player.OnPickUp(this);

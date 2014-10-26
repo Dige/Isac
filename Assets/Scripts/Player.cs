@@ -64,7 +64,12 @@ public class Player : CharacterBase
         
         if (!item.IsInstantEffect)
         {
-            item.enabled = false;
+            if (CurrentItem != null)
+            {
+                CurrentItem.transform.parent = transform.parent;
+                CurrentItem.transform.position = transform.position + new Vector3(1.0f, 0, 0);
+                CurrentItem.Enable();
+            }
             StartCoroutine(PlayPickUpAnimation(item));
             CurrentItem = item;
         }
@@ -87,8 +92,7 @@ public class Player : CharacterBase
         yield return new WaitForSeconds(1f);
         EnableCharacter();
         _headObject.SetHeadDirection(PlayerHeadController.HeadDirection.Down);
-        item.GetComponent<SpriteRenderer>().enabled = false;
-        Destroy(item.GetComponent<BoxCollider2D>());
+        item.Disable();
         yield return null;
     }
 
