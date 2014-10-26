@@ -24,6 +24,8 @@ public class Player : CharacterBase
         set { _headObject = value; }
     }
 
+    public ItemBase CurrentItem { get; private set; }
+
     public Room CurrentRoom { get; set; }
 
     private PlayerShootController _shootController;
@@ -44,14 +46,24 @@ public class Player : CharacterBase
 
     public void OnPickUp(ItemBase item)
     {
-        item.enabled = false;
-        StartCoroutine(PlayPickUpAnimation(item));
+        
+        if (!item.IsInstantEffect)
+        {
+            item.enabled = false;
+            StartCoroutine(PlayPickUpAnimation(item));
+            CurrentItem = item;
+        }
+        else
+        {
+            item.UseItem(this);
+            Destroy(item.gameObject);
+        }
     }
 
     private IEnumerator PlayPickUpAnimation(ItemBase item)
     {
         item.transform.parent = transform;
-        item.transform.localPosition = Vector3.zero + new Vector3(0, 1.0f, 0);
+        item.transform.localPosition = Vector3.zero + new Vector3(0, 3.0f, 0);
         item.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
         item.GetComponent<SpriteRenderer>().sortingOrder = 10;
         Animator.Play("PickUpItem");
@@ -60,7 +72,8 @@ public class Player : CharacterBase
         yield return new WaitForSeconds(1f);
         EnableCharacter();
         _headObject.SetHeadDirection(PlayerHeadController.HeadDirection.Down);
-        Destroy(item.gameObject);
+        item.GetComponent<SpriteRenderer>().enabled = false;
+        Destroy(item.GetComponent<BoxCollider2D>());
         yield return null;
     }
 

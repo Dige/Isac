@@ -20,6 +20,15 @@ namespace Assets.Scripts
             set { _pickUpClip = value; }
         }
 
+        [SerializeField]
+        private bool _isInstantEffect;
+        public bool IsInstantEffect
+        {
+            get { return _isInstantEffect; }
+            set { _isInstantEffect = value; }
+        }
+        
+
         public void OnCollisionEnter2D(Collision2D collision)
         {
             GameObject o = collision.gameObject;
@@ -30,11 +39,13 @@ namespace Assets.Scripts
             }
         }
 
-        protected virtual void OnPickUp(Player player)
+        private void OnPickUp(Player player)
         {
             player.OnPickUp(this);
             if (_pickUpClip != null)
 				_pickUpClip.Play();
         }
+
+        public abstract void UseItem(Player player);
     }
 }
