@@ -14,7 +14,7 @@ public class ItemSpawner : MonoBehaviour
 
 	public void Awake ()
 	{
-	    var item = (ItemBase)Instantiate(_itemPrefabs[Random.Range(0, _itemPrefabs.Count - 1)]);
+	    var item = (ItemBase)Instantiate(_itemPrefabs[Random.Range(0, _itemPrefabs.Count)]);
 	    item.transform.parent = transform;
 	    item.transform.localPosition = Vector3.zero;
 	}
