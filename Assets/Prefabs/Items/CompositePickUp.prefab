@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 61: {fileID: 6100000}
   - 82: {fileID: 8200000}
+  - 82: {fileID: 8200002}
   m_Layer: 13
   m_Name: CompositePickUp
   m_TagString: Untagged
@@ -51,7 +52,65 @@ AudioSource:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 100012716838747a08461b23cfcf08bf, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8200002
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: d28558fe6a6fa409dbb58b3c1e57778e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -112,8 +171,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b740878a3ea69e84e8357df21cdb0a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnClip: {fileID: 0}
-  _pickUpClip: {fileID: 0}
+  _spawnClip: {fileID: 8200000}
+  _pickUpClip: {fileID: 8200002}
+  MinSpawnPitch: -3
+  MaxSpawnPitch: 3
+  _isInstantEffect: 0
   _bulletSpeedAddition: .5
 --- !u!114 &11400002
 MonoBehaviour:
@@ -128,6 +190,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnClip: {fileID: 0}
   _pickUpClip: {fileID: 0}
+  MinSpawnPitch: -3
+  MaxSpawnPitch: 3
+  _isInstantEffect: 1
   _healthAddition: 2
 --- !u!212 &21200000
 SpriteRenderer:

@@ -10,10 +10,10 @@ GameObject:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
   - 95: {fileID: 9500000}
-  - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
-  - 61: {fileID: 6100000}
+  - 114: {fileID: 11400000}
   - 50: {fileID: 5000000}
+  - 58: {fileID: 5800000}
   m_Layer: 11
   m_Name: Enemy_Floaty
   m_TagString: Enemy
@@ -33,8 +33,8 @@ GameObject:
   - 95: {fileID: 9500002}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400006}
-  - 61: {fileID: 6100002}
   - 50: {fileID: 5000002}
+  - 58: {fileID: 5800002}
   m_Layer: 11
   m_Name: Enemy_Floaty
   m_TagString: Enemy
@@ -54,8 +54,8 @@ GameObject:
   - 95: {fileID: 9500004}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400010}
-  - 61: {fileID: 6100004}
   - 50: {fileID: 5000004}
+  - 58: {fileID: 5800004}
   m_Layer: 11
   m_Name: Enemy_Floaty
   m_TagString: Enemy
@@ -73,10 +73,10 @@ GameObject:
   - 4: {fileID: 400006}
   - 212: {fileID: 21200006}
   - 95: {fileID: 9500006}
-  - 114: {fileID: 11400012}
   - 114: {fileID: 11400014}
-  - 61: {fileID: 6100006}
+  - 114: {fileID: 11400012}
   - 50: {fileID: 5000006}
+  - 58: {fileID: 5800006}
   m_Layer: 11
   m_Name: Enemy_Floaty
   m_TagString: Enemy
@@ -106,11 +106,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0664495826, y: -1.94365227, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: .00914347172, y: -.0835469961, z: 0}
+  m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children: []
   m_Father: {fileID: 400008}
-  m_RootOrder: 0
+  m_RootOrder: 3
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -118,11 +118,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.86059022, y: -1.91042721, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: .0690119863, y: -1.93947232, z: 0}
+  m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children: []
   m_Father: {fileID: 400008}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &400004
 Transform:
   m_ObjectHideFlags: 1
@@ -130,11 +130,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.0830621719, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.85426414, y: -1.90205479, z: 0}
+  m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children: []
   m_Father: {fileID: 400008}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &400006
 Transform:
   m_ObjectHideFlags: 1
@@ -142,11 +142,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.86059022, y: -.0498371124, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.84678173, y: -.0386446714, z: 0}
+  m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children: []
   m_Father: {fileID: 400008}
-  m_RootOrder: 3
+  m_RootOrder: 0
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 1
@@ -157,10 +157,10 @@ Transform:
   m_LocalPosition: {x: .963720024, y: 1.24349999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 400000}
-  - {fileID: 400002}
-  - {fileID: 400004}
   - {fileID: 400006}
+  - {fileID: 400004}
+  - {fileID: 400002}
+  - {fileID: 400000}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5000000
@@ -223,8 +223,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!61 &6100000
-BoxCollider2D:
+--- !u!58 &5800000
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -232,10 +232,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 1, y: 1}
-  m_Center: {x: 0, y: 0}
---- !u!61 &6100002
-BoxCollider2D:
+  m_Radius: .479999989
+  m_Center: {x: 0, y: -.360000014}
+--- !u!58 &5800002
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -243,10 +243,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 1, y: 1}
-  m_Center: {x: 0, y: 0}
---- !u!61 &6100004
-BoxCollider2D:
+  m_Radius: .479999989
+  m_Center: {x: 0, y: -.360000014}
+--- !u!58 &5800004
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -254,10 +254,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 1, y: 1}
-  m_Center: {x: 0, y: 0}
---- !u!61 &6100006
-BoxCollider2D:
+  m_Radius: .479999989
+  m_Center: {x: 0, y: -.360000014}
+--- !u!58 &5800006
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -265,8 +265,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 1, y: 1}
-  m_Center: {x: 0, y: 0}
+  m_Radius: .479999989
+  m_Center: {x: 0, y: -.360000014}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -335,26 +335,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6ac6a1d9722d354c9099d0779b867a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: .0500000007
-  _health: 8
-  _range: 8
-  _takeDamageClip: {fileID: 0}
-  _dieClip: {fileID: 0}
-  _mirrorAnimation: 0
-  _movementStyle: 0
-  _wanderClipRepeatDelay: 0
-  _wanderClip: {fileID: 0}
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2dfc760e0f25674881a19ed6c07ba37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -364,6 +344,26 @@ MonoBehaviour:
   _shootClip: {fileID: 0}
   _bulletCollideClip: {fileID: 0}
   _canShoot: 1
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ac6a1d9722d354c9099d0779b867a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: .0500000007
+  _health: 4
+  _range: 8
+  _takeDamageClip: {fileID: 0}
+  _dieClip: {fileID: 0}
+  _mirrorAnimation: 0
+  _movementStyle: 0
+  _wanderClipRepeatDelay: 0
+  _wanderClip: {fileID: 0}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
-  _health: 8
+  _health: 4
   _range: 8
   _takeDamageClip: {fileID: 0}
   _dieClip: {fileID: 0}
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
-  _health: 8
+  _health: 4
   _range: 8
   _takeDamageClip: {fileID: 0}
   _dieClip: {fileID: 0}
@@ -446,26 +446,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 100006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6ac6a1d9722d354c9099d0779b867a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: .0500000007
-  _health: 8
-  _range: 8
-  _takeDamageClip: {fileID: 0}
-  _dieClip: {fileID: 0}
-  _mirrorAnimation: 0
-  _movementStyle: 0
-  _wanderClipRepeatDelay: 0
-  _wanderClip: {fileID: 0}
---- !u!114 &11400014
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2dfc760e0f25674881a19ed6c07ba37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -475,6 +455,26 @@ MonoBehaviour:
   _shootClip: {fileID: 0}
   _bulletCollideClip: {fileID: 0}
   _canShoot: 1
+--- !u!114 &11400014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ac6a1d9722d354c9099d0779b867a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: .0500000007
+  _health: 4
+  _range: 8
+  _takeDamageClip: {fileID: 0}
+  _dieClip: {fileID: 0}
+  _mirrorAnimation: 0
+  _movementStyle: 0
+  _wanderClipRepeatDelay: 0
+  _wanderClip: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scripts
 {
@@ -26,7 +27,6 @@ namespace Assets.Scripts
 			_shooting = false;
             BulletSpeed = 0.3f;
             ShootingSpeed = 1f;
-
 		}
 
 		public override void Update()
@@ -55,7 +55,12 @@ namespace Assets.Scripts
 						TransformHelpers.FlipX (bullet.gameObject);
 				}
 				bullet.AddForce (_shootDirection);
-				//ShootClip.Play ();
+			    if (ShootClips.Any())
+			    {
+			        var clipToPlay = ShootClips[Random.Range(0, ShootClips.Count)];
+			        clipToPlay.pitch = Random.Range(MinShootPitch, MaxShootPitch);
+                    clipToPlay.Play();
+			    }
 				yield return new WaitForSeconds (ShootingSpeed*3);
 				_shooting = false;
                 GetComponent<Animator>().SetBool("Shooting", false);

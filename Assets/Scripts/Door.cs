@@ -38,19 +38,19 @@ public class Door : MonoBehaviour
                 if (value)
                 {
                     _animator.SetInteger("Is Open", 1);
-                    if (DoorOpenClip != null)
-                    {
-                        DoorOpenClip.Play();
-                    }
+                    //if (DoorOpenClip != null)
+                    //{
+                    //    DoorOpenClip.Play();
+                    //}
                     Wall.enabled = false;
                 }
                 else
                 {
                     _animator.SetInteger("Is Open", 0);
-                    if (DoorCloseClip != null)
-                    {
-                        DoorCloseClip.Play();
-                    }
+                    //if (DoorCloseClip != null)
+                    //{
+                    //    DoorCloseClip.Play();
+                    //}
                     Wall.enabled = true;
                 }
                 _isOpen = value;
@@ -109,6 +109,7 @@ public class Door : MonoBehaviour
             player.rigidbody2D.velocity = Vector2.zero;
             StartCoroutine(MoveCamera(cameraMovement));
             other.transform.Translate(playerMovement);
+            OwnerRoom.PlayerIsInRoom = false;
             ConnectingRoom.OnPlayerEntersRoom(player);
         } 
     }

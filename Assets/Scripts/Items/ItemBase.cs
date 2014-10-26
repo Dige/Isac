@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -20,6 +21,29 @@ namespace Assets.Scripts
             set { _pickUpClip = value; }
         }
 
+        [HideInInspector]
+        public float MinSpawnPitch = -3.0f;
+        [HideInInspector]
+        public float MaxSpawnPitch = 3.0f;
+
+        [SerializeField]
+        private bool _isInstantEffect;
+        public bool IsInstantEffect
+        {
+            get { return _isInstantEffect; }
+            set { _isInstantEffect = value; }
+        }
+
+        public void Start()
+        {
+            if (SpawnClip != null)
+            {
+                SpawnClip.pitch = Random.Range(MinSpawnPitch, MaxSpawnPitch);
+                SpawnClip.Play();
+            }
+        }
+
+
         public void OnCollisionEnter2D(Collision2D collision)
         {
             GameObject o = collision.gameObject;
@@ -30,11 +54,41 @@ namespace Assets.Scripts
             }
         }
 
-        protected virtual void OnPickUp(Player player)
+        public void Enable()
         {
-            player.OnPickUp(this);
+            enabled = true;
+            GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<BoxCollider2D>().enabled = true;
+        }
+
+        public void Disable()
+        {
+            enabled = false;
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
+
+
+        private void OnPickUp(Player player)
+        {
             if (_pickUpClip != null)
-				_pickUpClip.Play();
+                _pickUpClip.Play();
+            player.OnPickUp(this);
+        }
+
+        public abstract void UseItem(Player player);
+    }
+
+    [CustomEditor(typeof(ItemBase), true)]
+    public class ItemEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            var item = (ItemBase)target;
+            EditorGUILayout.LabelField("Min Spawn Pitch:", item.MinSpawnPitch.ToString());
+            EditorGUILayout.LabelField("Max Spawn Pitch:", item.MaxSpawnPitch.ToString());
+            EditorGUILayout.MinMaxSlider(new GUIContent("Spawn Pitch Range"), ref item.MinSpawnPitch, ref item.MaxSpawnPitch, -3.0f, 3.0f);
         }
     }
 }

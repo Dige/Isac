@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Helpers;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -13,6 +15,17 @@ namespace Assets.Scripts
         public Door SouthDoor { get; private set; }
         public Door EastDoor { get; private set; }
         public Door WestDoor { get; private set; }
+
+        public int X { get; set; }
+        public int Y { get; set; }
+
+        [SerializeField]
+        private RoomType _roomType = RoomType.NormalRoom;
+        public RoomType RoomType
+        {
+            get { return _roomType; }
+            set { _roomType = value; }
+        }
 
         [SerializeField]
         private Door _doorPrefab;
@@ -31,11 +44,16 @@ namespace Assets.Scripts
         }
 
         [SerializeField]
-        private bool _isBossRoom;
+        private Door _treasureRoomDoorPrefab;
+        public Door TreasureRoomDoorPrefab
+        {
+            get { return _treasureRoomDoorPrefab; }
+            set { _treasureRoomDoorPrefab = value; }
+        }
+
         public bool IsBossRoom
         {
-            get { return _isBossRoom; }
-            set { _isBossRoom = value; }
+            get { return RoomType == RoomType.BossRoom; }
         }
 
         [SerializeField]
@@ -77,6 +95,9 @@ namespace Assets.Scripts
 			set { _enemies = value; }
         }
 
+        public bool IsVisibleOnMap { get; set; }
+        public bool PlayerHasVisited { get; private set; }
+
         [SerializeField]
         private bool _playerIsInRoom;
         public bool PlayerIsInRoom
@@ -85,7 +106,30 @@ namespace Assets.Scripts
             set
             {
                 _playerIsInRoom = value;
-                StartCoroutine(WakeUpEnemies());
+                if (value)
+                {
+                    PlayerHasVisited = true;
+                    IsVisibleOnMap = true;
+                    if (NorthDoor != null)
+                    {
+                        NorthDoor.ConnectingRoom.IsVisibleOnMap = true;
+                    }
+                    if (SouthDoor != null)
+                    {
+                        SouthDoor.ConnectingRoom.IsVisibleOnMap = true;
+                    }
+                    if (WestDoor != null)
+                    {
+                        WestDoor.ConnectingRoom.IsVisibleOnMap = true;
+                    }
+                    if (EastDoor != null)
+                    {
+                        EastDoor.ConnectingRoom.IsVisibleOnMap = true;
+                    }
+
+                    StartCoroutine(WakeUpEnemies());
+                }
+               
             }
         }
 
@@ -102,7 +146,44 @@ namespace Assets.Scripts
         {
             var position = new Vector3();
             var rotation = new Quaternion();
-            var door = (Door)Instantiate(room.IsBossRoom ? BossDoorPrefab : DoorPrefab);
+            Door doorPrefab = DoorPrefab;
+            if (RoomType == RoomType.NormalRoom || RoomType == RoomType.StartRoom)
+            {
+                switch (room.RoomType)
+                {
+                    case RoomType.StartRoom:
+                        doorPrefab = DoorPrefab;
+                        break;
+                    case RoomType.NormalRoom:
+                        doorPrefab = DoorPrefab;
+                        break;
+                    case RoomType.BossRoom:
+                        doorPrefab = BossDoorPrefab;
+                        break;
+                    case RoomType.TreasureRoom:
+                        doorPrefab = TreasureRoomDoorPrefab;
+                        break;
+                    case RoomType.SecretRoom:
+                        doorPrefab = DoorPrefab;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+            else if (RoomType == RoomType.BossRoom)
+            {
+                doorPrefab = BossDoorPrefab;
+            }
+            else if (RoomType == RoomType.TreasureRoom)
+            {
+                doorPrefab = TreasureRoomDoorPrefab;
+            }
+            else if (RoomType == RoomType.SecretRoom)
+            {
+                doorPrefab = DoorPrefab;
+            }
+
+            var door = (Door)Instantiate(doorPrefab);
             switch (direction)
             {
                 case RoomDirection.North:
@@ -165,7 +246,26 @@ namespace Assets.Scripts
             if (!ContainsEnemies)
             {
                 _doors.ForEach(d => d.IsOpen = true);
+                SpawnItem();
             }
+        }
+
+        private void SpawnItem()
+        {
+            if (RoomType != RoomType.NormalRoom)
+            {
+                return;
+            }
+            var spawner = GetComponentInChildren<ItemSpawner>();
+            if (spawner != null)
+            {
+                spawner.Spawn();
+            }
+            else
+            {
+                Debug.LogError("Item Spawner missing");
+            }
+
         }
 
         public void OnPlayerEntersRoom(Player player)
@@ -174,13 +274,32 @@ namespace Assets.Scripts
             if (ContainsEnemies)
             {
                 _doors.ForEach(d => d.IsOpen = false);
+                var doorOpenClip = _doors.First().DoorOpenClip;
+                if (doorOpenClip != null)
+                {
+                    doorOpenClip.Play();
+                }
             }
             else
             {
                 _doors.ForEach(d => d.IsOpen = true);
+                var doorCloseClip = _doors.First().DoorCloseClip;
+                if (doorCloseClip != null)
+                {
+                    doorCloseClip.Play();
+                }
             }
             player.CurrentRoom = this;
             Debug.Log("Player entered room: " + name);
         }
     }
+}
+
+public enum RoomType
+{
+    StartRoom,
+    NormalRoom,
+    BossRoom,
+    TreasureRoom,
+    SecretRoom
 }

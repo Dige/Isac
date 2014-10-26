@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 87ba90a173abe4246b89e9dbc133ac63
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Map_sprite
-=======
-guid: 9df10c14ca4545a4da26becd35c031d9
-TextureImporter:
-  fileIDToRecycleName: {}
->>>>>>> dd0ca806a7f65167ea881004f3b3bd592d857158
+    21300000: Map_sprite_0
+    21300002: Map_sprite_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -32,13 +27,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,6 +44,26 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Map_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 13
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Map_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 13
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

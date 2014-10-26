@@ -11,9 +11,8 @@ public class HealthItem : ItemBase {
         set { _healthAddition = value; }
     }
 
-    protected override void OnPickUp(Player player)
+    public override void UseItem(Player player)
     {
-        base.OnPickUp(player);
         player.GetComponent<Player>().Health += HealthAddition;
     }
 }

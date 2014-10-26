@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using System.Collections;
 using Assets.Scripts;
 
@@ -22,13 +23,22 @@ public class BulletScript : MonoBehaviour {
             o.GetComponentInParent<Enemy>().Health--;
         }
 		GameObject pc = GameObject.FindWithTag ("Player");
-		pc.GetComponent<PlayerShootController>().BulletCollideClip.Play ();
+
+        var shootController = pc.GetComponent<PlayerShootController>();
+        if (shootController.BulletCollideClips.Any())
+        {
+            var clipToPlay = shootController.BulletCollideClips[Random.Range(0, shootController.BulletCollideClips.Count)];
+            clipToPlay.pitch = Random.Range(shootController.MinBulletCollidePitch, shootController.MaxBulletCollidePitch);
+            clipToPlay.Play();
+        }
 		Destroy(gameObject);
     }
     private Vector2 _start;
 
     public void Start()
     {
+        GetComponent<BoxCollider2D>().enabled = false;
+        StartCoroutine(RemoveInvulnerability());
 		if (Shooter.CompareTag("Enemy")) {
 			transform.gameObject.layer = LayerMask.NameToLayer( "Enemy bullet" );
 		}
@@ -36,6 +46,12 @@ public class BulletScript : MonoBehaviour {
         var p = GameObject.FindWithTag("Player");
         var pc = p.GetComponent<Player>();
         range = pc.Range;
+    }
+
+    private IEnumerator RemoveInvulnerability()
+    {
+        yield return new WaitForSeconds(0.05f);
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 
     private bool _isFading;

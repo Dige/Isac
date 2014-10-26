@@ -10,6 +10,9 @@ GameObject:
   - 4: {fileID: 400000}
   - 131: {fileID: 13100000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400004}
+  - 114: {fileID: 11400006}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -42,6 +45,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthTexture: {fileID: 2800000, guid: 0e139e4f4bc6c444cad4676a44742032, type: 3}
   _halfHealthTexture: {fileID: 2800000, guid: 8538978c384a9b04da6f2d77f0fea1b5, type: 3}
+  _emptyHealthTexture: {fileID: 2800000, guid: 2d1f2fa07c98c1842b0768eae05be8ef, type: 3}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9cd2e5fd93f5644ac10a246a1f0d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49883e02790a4ef4a9b93d28df954f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _roomTexture: {fileID: 2800000, guid: 7d94e439fc11b4f4198741e99a97770d, type: 3}
+  _unvisitedRoomTexture: {fileID: 2800000, guid: 234d53d3f54e35f4da15d42c0bfa516d,
+    type: 3}
+  _playerInRoomTexture: {fileID: 2800000, guid: b766cd62e8c48554caaf99803a9b4aef,
+    type: 3}
+  _treasureRoomIcon: {fileID: 2800000, guid: a99ecdd39cb86984ca92654d6596c52b, type: 3}
+  _bossRoomIcon: {fileID: 2800000, guid: 7d49f583eed41df4b9770aa70be7495e, type: 3}
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea97d032cbc79d64896a78ce9357c9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!131 &13100000
 GUITexture:
   m_ObjectHideFlags: 1
@@ -49,7 +93,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: f7e3e9bbd56c63d4bb0d926f29c5185b, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1e5cdc374883d5f46bc1d98b6df85a52, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2

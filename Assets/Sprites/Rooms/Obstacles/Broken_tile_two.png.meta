@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: d074e47452287634e804ca8fcac9b447
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Broken_tile_two
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
