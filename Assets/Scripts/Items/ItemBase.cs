@@ -71,9 +71,9 @@ namespace Assets.Scripts
 
         private void OnPickUp(Player player)
         {
-            player.OnPickUp(this);
             if (_pickUpClip != null)
-				_pickUpClip.Play();
+                _pickUpClip.Play();
+            player.OnPickUp(this);
         }
 
         public abstract void UseItem(Player player);
