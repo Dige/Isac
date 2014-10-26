@@ -12,6 +12,7 @@ public class Enemy : CharacterBase
 	private Vector3 _randomDirection;
 	private bool _turning = false;
     private bool _jumping = false;
+    private bool _inAir = false;
 
 	[SerializeField] 
     private MovementStyle _movementStyle = MovementStyle.TowardsPlayer;
@@ -149,9 +150,9 @@ public class Enemy : CharacterBase
 
     IEnumerator ReallyDie()
     {
-        Animator.Play("Die");
+        Animator.Play("Die");     
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         Destroy(gameObject);
     }
 
@@ -162,27 +163,40 @@ public class Enemy : CharacterBase
 
     private Vector3 JumpToPlayer()
     {
+        Animator.Play("Jump");
         var currentPosition = transform.position;
         var playerPosition = _player.transform.position;
-        if (_jumping)
+        if (_jumping && !_inAir)
         {
-            
+            StartCoroutine(Jump());
+            return Vector3.zero; // currentPosition - playerPosition;
         }
-        else 
+        else if (!_jumping && !_inAir)
         {
-
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.GetComponent<CircleCollider2D>().enabled = true;
+            StartCoroutine(Wait());
+            return Vector3.zero;
         }
-        return 
+        return Vector3.zero;
     }
 
     IEnumerator Jump()
     {
+        _jumping = false;
         yield return new WaitForSeconds(1.5f);
-
+        _inAir = true;
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        transform.position = _player.transform.position;
+        yield return new WaitForSeconds(1.5f);
+        _inAir = false;
     }
+
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(UnityEngine.Random.Range(1,2));
+        yield return new WaitForSeconds(3);
+        _jumping = true;
     }
 
 
@@ -252,11 +266,11 @@ public class Enemy : CharacterBase
 
 public enum MovementStyle
 {
-    JumpToPlayer,
     TowardsPlayer,
     AwayFromPlayer,
     RandomDirection,
 	RandomTowardsPlayer,
 	Stationary,
-    RandomStyle
+    RandomStyle,
+    JumpToPlayer
 }

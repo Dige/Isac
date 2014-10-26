@@ -18,12 +18,15 @@ public class BulletScript : MonoBehaviour {
     public void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject o = collision.gameObject;
-        if (o.CompareTag("Enemy"))
+        GameObject pc = GameObject.FindWithTag("Player");
+        if (o.CompareTag("Enemy") && Shooter.Equals(pc))
         {
             o.GetComponentInParent<Enemy>().Health--;
         }
-		GameObject pc = GameObject.FindWithTag ("Player");
-
+        else if (o.CompareTag("Player") && !Shooter.Equals(pc))
+        {
+            o.GetComponentInParent<Player>().Health--;
+        }
         var shootController = pc.GetComponent<PlayerShootController>();
         if (shootController.BulletCollideClips.Any())
         {
