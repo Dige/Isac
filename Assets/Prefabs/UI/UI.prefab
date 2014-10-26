@@ -42,6 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthTexture: {fileID: 2800000, guid: 0e139e4f4bc6c444cad4676a44742032, type: 3}
   _halfHealthTexture: {fileID: 2800000, guid: 8538978c384a9b04da6f2d77f0fea1b5, type: 3}
+  _emptyHealthTexture: {fileID: 2800000, guid: 2d1f2fa07c98c1842b0768eae05be8ef, type: 3}
 --- !u!131 &13100000
 GUITexture:
   m_ObjectHideFlags: 1

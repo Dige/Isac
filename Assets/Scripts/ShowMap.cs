@@ -13,6 +13,15 @@ public class ShowMap : MonoBehaviour
     }
 
     [SerializeField]
+    private Texture2D _unvisitedRoomTexture;
+    public Texture2D UnvisitedRoomTexture
+    {
+        get { return _unvisitedRoomTexture; }
+        set { _unvisitedRoomTexture = value; }
+    }
+
+
+    [SerializeField]
     private Texture2D _playerInRoomTexture;
     public Texture2D PlayerInRoomTexture
     {
