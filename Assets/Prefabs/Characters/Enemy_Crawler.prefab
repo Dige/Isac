@@ -156,7 +156,7 @@ AudioSource:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9ce77987e81404834a6efdaeff83b352, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -260,7 +260,7 @@ MonoBehaviour:
   _takeDamageClips: []
   MinDamagedPitch: -3
   MaxDamagedPitch: 3
-  _dieClip: {fileID: 0}
+  _dieClip: {fileID: 8200002}
   MinDiePitch: -3
   MaxDiePitch: 3
   _mirrorAnimation: 0
