@@ -1,10 +1,12 @@
 fileFormatVersion: 2
-guid: 3abedd1ddce36124f85559be800471f0
+guid: 0e70ea2f66a21f449abfb5e283313575
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Die_spider_sprite_0
-    21300002: Die_spider_sprite_1
-    21300004: Die_spider_sprite_2
+    21300000: turret_die_sheet
+    21300002: turret_die_sheet_0
+    21300004: turret_die_sheet_1
+    21300006: turret_die_sheet_2
+    21300008: turret_die_sheet_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -46,35 +48,45 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Die_spider_sprite_0
+    - name: turret_die_sheet_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 17
-        width: 86
-        height: 45
+        x: 0
+        y: 0
+        width: 212
+        height: 243
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Die_spider_sprite_1
+    - name: turret_die_sheet_1
       rect:
         serializedVersion: 2
-        x: 117
-        y: 17
-        width: 85
-        height: 52
+        x: 212
+        y: 0
+        width: 212
+        height: 243
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Die_spider_sprite_2
+    - name: turret_die_sheet_2
       rect:
         serializedVersion: 2
-        x: 216
-        y: 8
-        width: 126
-        height: 44
+        x: 424
+        y: 0
+        width: 212
+        height: 243
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: turret_die_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 0
+        width: 212
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

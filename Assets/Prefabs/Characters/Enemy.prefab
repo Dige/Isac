@@ -207,8 +207,12 @@ MonoBehaviour:
   _maxHealth: 0
   _health: 4
   _range: 8
-  _takeDamageClip: {fileID: 0}
+  _takeDamageClips: []
+  MinDamagedPitch: -3
+  MaxDamagedPitch: 3
   _dieClip: {fileID: 0}
+  MinDiePitch: -3
+  MaxDiePitch: 3
   _mirrorAnimation: 0
   _movementStyle: 0
   _wanderClipRepeatDelay: 0
@@ -227,8 +231,12 @@ MonoBehaviour:
   _bulletSpeed: .5
   _shootSpeed: .300000012
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
-  _shootClip: {fileID: 8200000}
-  _bulletCollideClip: {fileID: 8200002}
+  _shootClips: []
+  MinShootPitch: -3
+  MaxShootPitch: 3
+  _bulletCollideClips: []
+  MinBulletCollidePitch: -3
+  MaxBulletCollidePitch: 3
   _canShoot: 1
 --- !u!212 &21200000
 SpriteRenderer:
@@ -249,7 +257,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 1735560919
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1c479469c5a205845bd47dee7132eb02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000

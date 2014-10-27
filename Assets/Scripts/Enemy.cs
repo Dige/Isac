@@ -11,6 +11,8 @@ public class Enemy : CharacterBase
     private GameObject _player;
 	private Vector3 _randomDirection;
 	private bool _turning = false;
+    private bool _jumping = false;
+    private bool _inAir = true;
 
 	[SerializeField] 
     private MovementStyle _movementStyle = MovementStyle.TowardsPlayer;
@@ -102,6 +104,8 @@ public class Enemy : CharacterBase
         ShouldMove = true;
         switch (MovementStyle)
         {
+            case MovementStyle.JumpToPlayer:
+                return JumpToPlayer();
             case MovementStyle.TowardsPlayer:
                 return MoveTowardsPlayer();
             case MovementStyle.AwayFromPlayer:
@@ -119,7 +123,7 @@ public class Enemy : CharacterBase
 
     protected override void HandleAnimation(Vector3 movement)
     {
-        if (movement == Vector3.zero)
+        if (MovementStyle != MovementStyle.JumpToPlayer && movement == Vector3.zero)
         {
             Animator.enabled = false;
             return;
@@ -146,9 +150,9 @@ public class Enemy : CharacterBase
 
     IEnumerator ReallyDie()
     {
-        Animator.Play("Die");
+        Animator.Play("Die");     
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         Destroy(gameObject);
     }
 
@@ -156,6 +160,46 @@ public class Enemy : CharacterBase
 	{
 		transform.gameObject.layer = LayerMask.NameToLayer ("Flying enemy");
 	}
+
+    private Vector3 JumpToPlayer()
+    {
+        if (_jumping && !_inAir)
+        {
+            _jumping = false;
+            StartCoroutine(Jump());
+            return Vector3.zero; // currentPosition - playerPosition;
+        }
+        else if (!_jumping && _inAir)
+        {
+            _inAir = false;
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.GetComponent<CircleCollider2D>().enabled = true;
+            StartCoroutine(Wait());
+            return Vector3.zero;
+        }
+        return Vector3.zero;
+    }
+
+    IEnumerator Jump()
+    {
+        Animator.SetBool("Jumping", true);
+        
+        yield return new WaitForSeconds(0.35f);
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(0.6f);
+        transform.position = _player.transform.position + new Vector3(0.2f, 0, 0);
+        yield return new WaitForSeconds(0.6f);
+        _inAir = true;
+        Animator.SetBool("Jumping", false);
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(UnityEngine.Random.Range(2,4));
+        _jumping = true;
+    }
+
 
     private Vector3 MoveTowardsPlayer()
     {
@@ -228,5 +272,6 @@ public enum MovementStyle
     RandomDirection,
 	RandomTowardsPlayer,
 	Stationary,
-    RandomStyle
+    RandomStyle,
+    JumpToPlayer
 }

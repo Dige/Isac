@@ -7,7 +7,19 @@ AnimatorController:
   m_PrefabInternal: {fileID: 0}
   m_Name: enemy_turret
   serializedVersion: 2
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: Shooting
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Direction
+    m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
@@ -32,8 +44,8 @@ Transition:
   m_TransitionDuration: .0511945225
   m_TransitionOffset: .0204777699
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
+  - m_ConditionMode: 6
+    m_ConditionEvent: Direction
     m_EventTreshold: 0
     m_ExitTime: 1.01023889
   m_Atomic: 1
@@ -52,9 +64,9 @@ Transition:
   m_TransitionDuration: .0614334978
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: Direction
+    m_EventTreshold: 2
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -72,8 +84,8 @@ Transition:
   m_TransitionDuration: .095563069
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
+  - m_ConditionMode: 6
+    m_ConditionEvent: Direction
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -92,9 +104,9 @@ Transition:
   m_TransitionDuration: .0750853047
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: Direction
+    m_EventTreshold: 2
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -112,9 +124,9 @@ Transition:
   m_TransitionDuration: .191126272
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: Direction
+    m_EventTreshold: 3
     m_ExitTime: .938566685
   m_Atomic: 1
   m_Solo: 0
@@ -132,9 +144,9 @@ Transition:
   m_TransitionDuration: .143344775
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: Direction
+    m_EventTreshold: 1
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -152,9 +164,9 @@ Transition:
   m_TransitionDuration: .153583631
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: Direction
+    m_EventTreshold: 1
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -172,9 +184,9 @@ Transition:
   m_TransitionDuration: .0921502262
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: Direction
+    m_EventTreshold: 3
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -192,9 +204,9 @@ Transition:
   m_TransitionDuration: .0614334978
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: Direction
+    m_EventTreshold: 2
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -213,7 +225,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: Shooting
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -233,7 +245,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: Shooting
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -252,9 +264,9 @@ Transition:
   m_TransitionDuration: .143344745
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: Direction
+    m_EventTreshold: 1
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -287,6 +299,21 @@ State:
   - {fileID: 7400000, guid: 5a38dcf1116a66b4b93022a79be943c8, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 24, y: 240, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110242811
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Die
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: e28585f05f7900c4fac14bbd422cf426, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 336, y: 48, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -333,21 +360,16 @@ StateMachine:
   - {fileID: 110265561}
   - {fileID: 110241234}
   - {fileID: 110253889}
+  - {fileID: 110242811}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110253889}
+      first: {fileID: 110200000}
       second:
-      - {fileID: 110163538}
-      - {fileID: 110122689}
-      - {fileID: 110185129}
-    data:
-      first: {fileID: 110241234}
-      second:
-      - {fileID: 110159558}
-      - {fileID: 110115933}
-      - {fileID: 110168870}
+      - {fileID: 110153270}
+      - {fileID: 110112009}
+      - {fileID: 110166336}
     data:
       first: {fileID: 110265561}
       second:
@@ -355,11 +377,20 @@ StateMachine:
       - {fileID: 110154195}
       - {fileID: 110173459}
     data:
-      first: {fileID: 110200000}
+      first: {fileID: 110241234}
       second:
-      - {fileID: 110153270}
-      - {fileID: 110112009}
-      - {fileID: 110166336}
+      - {fileID: 110159558}
+      - {fileID: 110115933}
+      - {fileID: 110168870}
+    data:
+      first: {fileID: 110253889}
+      second:
+      - {fileID: 110163538}
+      - {fileID: 110122689}
+      - {fileID: 110185129}
+    data:
+      first: {fileID: 110242811}
+      second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

@@ -1,7 +1,15 @@
 fileFormatVersion: 2
 guid: 7927f7c0f32353a4cbd9957f833b3fc7
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Spider_walk_sprite_0
+    21300002: Spider_walk_sprite_1
+    21300004: Spider_walk_sprite_2
+    21300006: Spider_walk_sprite_3
+    21300008: Spider_walk_sprite_4
+    21300010: Spider_walk_sprite_5
+    21300012: Spider_walk_sprite_6
+    21300014: Spider_walk_sprite_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -25,13 +33,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +50,86 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Spider_walk_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 124
+        width: 86
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Spider_walk_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 129
+        width: 92
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Spider_walk_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 129
+        width: 93
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Spider_walk_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 133
+        width: 95
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Spider_walk_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 33
+        width: 86
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Spider_walk_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 34
+        width: 92
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Spider_walk_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 39
+        width: 93
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Spider_walk_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 41
+        width: 95
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
