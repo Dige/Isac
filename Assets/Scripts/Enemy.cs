@@ -174,6 +174,7 @@ public class Enemy : CharacterBase
             _inAir = false;
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
             gameObject.GetComponent<CircleCollider2D>().enabled = true;
+
             StartCoroutine(Wait());
             return Vector3.zero;
         }
@@ -196,8 +197,27 @@ public class Enemy : CharacterBase
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(UnityEngine.Random.Range(2,4));
-        _jumping = true;
+        gameObject.GetComponent<EnemyShootController>().BossExplode();
+
+        if (gameObject.GetComponent<EnemyShootController>().Boss && UnityEngine.Random.Range(0, 2) < 1 && (_player.transform.position - transform.position).magnitude < 7)
+        {
+            yield return new WaitForSeconds(UnityEngine.Random.Range(2, 3));
+            gameObject.GetComponent<EnemyShootController>().BossShoot();
+            //_inAir = true;
+            _jumping = true;
+
+        }
+        else if (gameObject.GetComponent<EnemyShootController>().Boss)
+        {
+            yield return new WaitForSeconds(UnityEngine.Random.Range(1, 2));
+            _jumping = true;
+        }
+        else
+        {
+
+            yield return new WaitForSeconds(UnityEngine.Random.Range(2, 4));
+            _jumping = true;
+        }
     }
 
 

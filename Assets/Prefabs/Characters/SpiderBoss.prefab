@@ -46,7 +46,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .75999999, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .400000006, y: .400000006, z: .400000006}
   m_Children:
   - {fileID: 400002}
@@ -234,14 +234,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
   _shootSpeed: .300000012
-  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
+  _bulletPrefab: {fileID: 5000000, guid: d8e000ca28e948446917b8de7d824315, type: 2}
   _shootClips: []
   MinShootPitch: -3
   MaxShootPitch: 3
   _bulletCollideClips: []
   MinBulletCollidePitch: -3
   MaxBulletCollidePitch: 3
-  _canShoot: 1
+  _boss: 1
+  _canShoot: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,8 +255,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
-  _maxHealth: 0
-  _health: 4
+  _maxHealth: 25
+  _health: 25
   _range: 8
   _takeDamageClips: []
   MinDamagedPitch: -3
@@ -264,7 +265,7 @@ MonoBehaviour:
   MinDiePitch: -3
   MaxDiePitch: 3
   _mirrorAnimation: 0
-  _movementStyle: 0
+  _movementStyle: 6
   _wanderClipRepeatDelay: 0
   _wanderClip: {fileID: 0}
 --- !u!212 &21200000
