@@ -98,6 +98,19 @@ namespace Assets.Scripts
         public bool IsVisibleOnMap { get; set; }
         public bool PlayerHasVisited { get; private set; }
 
+        private GameObject _bossBar;
+        public GameObject BossBar
+        {
+            get { return _bossBar; }
+        }
+
+        [SerializeField]
+        private GameObject bossBarPrefab;
+        public GameObject BossBarPrefab
+        {
+            set { _bossBar = value; }
+        }
+
         [SerializeField]
         private bool _playerIsInRoom;
         public bool PlayerIsInRoom
@@ -137,6 +150,11 @@ namespace Assets.Scripts
         {
             yield return new WaitForSeconds(0.5f);
             _enemies.ForEach(e => e.Enable());
+            if (_roomType == RoomType.BossRoom)
+            {
+                _bossBar = (GameObject)Instantiate(bossBarPrefab);
+                _bossBar.transform.position = _bossBar.transform.position + transform.position;
+            }
             yield return null;
         }
 
@@ -246,6 +264,7 @@ namespace Assets.Scripts
             if (!ContainsEnemies)
             {
                 _doors.ForEach(d => d.IsOpen = true);
+                Destroy(_bossBar);
                 SpawnItem();
             }
         }

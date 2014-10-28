@@ -140,6 +140,15 @@ public class Enemy : CharacterBase
         }
     }
 
+    protected override void TakeDamage()
+    {
+        base.TakeDamage();
+        if (gameObject.GetComponent<EnemyShootController>().Boss)
+        {
+            OwnerRoom.BossBar.transform.FindChild("BossHealth").transform.localScale = new Vector3((float)Health / MaxHealth,1,1);
+        }
+    }
+
     protected override void Die()
     {
         base.Die();

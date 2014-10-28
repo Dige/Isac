@@ -96,7 +96,7 @@ namespace Assets.Scripts
             {
                 targets[i] = _player.transform.position + new Vector3(UnityEngine.Random.Range(-1.5f, 1.5f), UnityEngine.Random.Range(-1.5f, 1.5f), 0);
 
-                var shootDirection = targets[i] - positions[i];
+                Vector2 shootDirection = targets[i] - (transform.position + positions[i]);
                 var bullet = (Rigidbody2D)Instantiate(BulletPrefab);
                 bullet.GetComponent<BulletScript>().Shooter = transform.gameObject;
                 bullet.transform.position = transform.position + positions[i];
