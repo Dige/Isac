@@ -236,11 +236,11 @@ MonoBehaviour:
   _shootSpeed: .300000012
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClips: []
-  MinShootPitch: -3
-  MaxShootPitch: 3
+  MinShootPitch: .899999976
+  MaxShootPitch: 1.10000002
   _bulletCollideClips: []
-  MinBulletCollidePitch: -3
-  MaxBulletCollidePitch: 3
+  MinBulletCollidePitch: .899999976
+  MaxBulletCollidePitch: 1.10000002
   _boss: 0
   _canShoot: 1
 --- !u!114 &11400002
@@ -259,11 +259,11 @@ MonoBehaviour:
   _health: 4
   _range: 8
   _takeDamageClips: []
-  MinDamagedPitch: -3
-  MaxDamagedPitch: 3
+  MinDamagedPitch: .899999976
+  MaxDamagedPitch: 1.10000002
   _dieClip: {fileID: 8200000}
-  MinDiePitch: -3
-  MaxDiePitch: 3
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 0
   _movementStyle: 4
   _wanderClipRepeatDelay: 0
