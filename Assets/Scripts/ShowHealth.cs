@@ -65,11 +65,6 @@ public class ShowHealth : MonoBehaviour {
             GUI.DrawTexture(new Rect(left, top, heartWidth, heartHeight), _halfHealthTexture, ScaleMode.ScaleToFit);
             left += heartWidth;
             i++;
-            if (i % 4 == 0)
-            {
-                left = origLeft;
-                top += heartHeight;
-            }
         }
 
         for (; i <= _playerCharacter.MaxHealth / 2; i++)

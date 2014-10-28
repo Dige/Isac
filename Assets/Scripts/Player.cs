@@ -24,6 +24,15 @@ public class Player : CharacterBase
         set { _headObject = value; }
     }
 
+    [SerializeField]
+    private Bomb _bombPrefab;
+    public Bomb BombPrefab
+    {
+        get { return _bombPrefab; }
+        set { _bombPrefab = value; }
+    }
+
+
     public ItemBase CurrentItem { get; private set; }
 
     public Room CurrentRoom { get; set; }

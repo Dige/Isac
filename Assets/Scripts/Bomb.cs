@@ -20,7 +20,7 @@ namespace Assets.Scripts
             yield return new WaitForSeconds(1.5f);
         }
 
-        public void OnTriggerEnter(Collider other)
+        public void OnTriggerEnter2D(Collider2D other)
         {
             if (other.GetComponent<Tile>() != null)
             {
@@ -35,20 +35,20 @@ namespace Assets.Scripts
 
         }
 
-        public void OnTriggerStay(Collider other)
+        public void OnTriggerStay2D(Collider2D other)
         {
             if (other.GetComponent<Tile>() != null)
             {
-                Debug.Log("Tile inside");
+                Debug.Log("Tile stay inside");
             }
             else if (other.tag.Equals("Enemy"))
             {
-                Debug.Log("Enemy Inside");
+                Debug.Log("Enemy stay Inside");
             }
 
         }
 
-        public void OnTriggerExit(Collider other)
+        public void OnTriggerExit2D(Collider2D other)
         {
             if (other.GetComponent<Tile>() != null)
             {
