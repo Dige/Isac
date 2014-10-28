@@ -15,6 +15,16 @@ namespace Assets.Scripts
             set { _damage = value; }
         }
 
+        [SerializeField]
+        private float _detonationTime = 1.5f;
+        public float DetonationTime
+        {
+            get { return _detonationTime; }
+            set { _detonationTime = value; }
+        }
+        
+
+        public AudioSource ExplosionClip;
 
         private readonly List<Enemy> _enemies = new List<Enemy>();
         private readonly List<Tile> _tiles = new List<Tile>(); 
@@ -26,7 +36,9 @@ namespace Assets.Scripts
 
         private IEnumerator Detonate()
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(DetonationTime);
+            if(ExplosionClip != null)
+                ExplosionClip.Play();
             _enemies.ForEach(e => e.Health -= Damage);
             _tiles.ForEach(t => t.Destroy());
             Destroy(gameObject);
