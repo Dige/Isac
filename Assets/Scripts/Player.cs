@@ -47,7 +47,8 @@ public class Player : CharacterBase
         if (Input.GetKeyDown(KeyCode.Space) && CurrentItem != null)
         {
             CurrentItem.UseItem(this);
-            Destroy(CurrentItem.gameObject);
+            if(CurrentItem.IsInstantlyDestroyedAfterUse)
+                Destroy(CurrentItem.gameObject);
         }
     }
 
