@@ -748,8 +748,8 @@ MonoBehaviour:
   MinDamagedPitch: .949999988
   MaxDamagedPitch: 1.04999995
   _dieClip: {fileID: 8200002}
-  MinDiePitch: .026548624
-  MaxDiePitch: .026548624
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 0
   _movementStyle: 0
   _wanderClipRepeatDelay: 0

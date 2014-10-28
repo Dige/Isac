@@ -478,8 +478,8 @@ MonoBehaviour:
   MinDamagedPitch: .980000019
   MaxDamagedPitch: 1.01999998
   _dieClip: {fileID: 8200004}
-  MinDiePitch: -.0265488625
-  MaxDiePitch: -.0265488625
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 1
   _gunObject: {fileID: 21200004}
   _headObject: {fileID: 11400004}
