@@ -534,7 +534,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .963720024, y: 1.24349999, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400030}
@@ -1823,6 +1823,7 @@ MonoBehaviour:
   _bulletCollideClips: []
   MinBulletCollidePitch: -3
   MaxBulletCollidePitch: 3
+  _boss: 0
   _canShoot: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -1869,6 +1870,7 @@ MonoBehaviour:
   _bulletCollideClips: []
   MinBulletCollidePitch: -3
   MaxBulletCollidePitch: 3
+  _boss: 0
   _canShoot: 0
 --- !u!114 &11400006
 MonoBehaviour:
@@ -1940,6 +1942,7 @@ MonoBehaviour:
   _bulletCollideClips: []
   MinBulletCollidePitch: -3
   MaxBulletCollidePitch: 3
+  _boss: 0
   _canShoot: 0
 --- !u!114 &11400012
 MonoBehaviour:
@@ -1986,6 +1989,7 @@ MonoBehaviour:
   _bulletCollideClips: []
   MinBulletCollidePitch: -3
   MaxBulletCollidePitch: 3
+  _boss: 0
   _canShoot: 0
 --- !u!114 &11400016
 MonoBehaviour:
@@ -2032,6 +2036,7 @@ MonoBehaviour:
   _bulletCollideClips: []
   MinBulletCollidePitch: -3
   MaxBulletCollidePitch: 3
+  _boss: 0
   _canShoot: 0
 --- !u!114 &11400020
 MonoBehaviour:
@@ -2078,6 +2083,7 @@ MonoBehaviour:
   _bulletCollideClips: []
   MinBulletCollidePitch: -3
   MaxBulletCollidePitch: 3
+  _boss: 0
   _canShoot: 0
 --- !u!114 &11400024
 MonoBehaviour:
@@ -2124,6 +2130,7 @@ MonoBehaviour:
   _bulletCollideClips: []
   MinBulletCollidePitch: -3
   MaxBulletCollidePitch: 3
+  _boss: 0
   _canShoot: 0
 --- !u!114 &11400028
 MonoBehaviour:
@@ -2145,6 +2152,7 @@ MonoBehaviour:
   _bulletCollideClips: []
   MinBulletCollidePitch: -3
   MaxBulletCollidePitch: 3
+  _boss: 0
   _canShoot: 0
 --- !u!114 &11400030
 MonoBehaviour:

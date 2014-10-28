@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 690746c456e4aab4f8c4b1c560a3048d
+guid: 1658405305551424285026292558f4a4
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Enemy_bullet_sprite
-    21300002: Enemy_bullet_sprite_0
-    21300004: Enemy_bullet_sprite_1
-    21300006: Enemy_bullet_sprite_2
+    21300000: Jumping_spider_damage_sprite_0
+    21300002: Jumping_spider_damage_sprite_1
+    21300004: Jumping_spider_damage_sprite_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -47,35 +46,35 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Enemy_bullet_sprite_0
+    - name: Jumping_spider_damage_sprite_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 10
-        width: 25
-        height: 26
+        x: 37
+        y: 14
+        width: 110
+        height: 59
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Enemy_bullet_sprite_1
+    - name: Jumping_spider_damage_sprite_1
       rect:
         serializedVersion: 2
-        x: 58
-        y: 10
-        width: 26
-        height: 26
+        x: 180
+        y: 15
+        width: 107
+        height: 73
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Enemy_bullet_sprite_2
+    - name: Jumping_spider_damage_sprite_2
       rect:
         serializedVersion: 2
-        x: 106
-        y: 11
-        width: 26
-        height: 25
+        x: 315
+        y: 19
+        width: 110
+        height: 59
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
