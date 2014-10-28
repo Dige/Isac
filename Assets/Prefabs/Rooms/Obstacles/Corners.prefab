@@ -576,9 +576,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
   _shootSpeed: .300000012
-  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
-  _shootClip: {fileID: 0}
-  _bulletCollideClip: {fileID: 0}
+  _bulletPrefab: {fileID: 5000000, guid: c2d1f4bea4666cc439121b66980513ac, type: 2}
+  _shootClips: []
+  MinShootPitch: -3
+  MaxShootPitch: 3
+  _bulletCollideClips: []
+  MinBulletCollidePitch: -3
+  MaxBulletCollidePitch: 3
+  _boss: 0
   _canShoot: 1
 --- !u!114 &11400002
 MonoBehaviour:
@@ -592,10 +597,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
+  _maxHealth: 0
   _health: 4
   _range: 8
-  _takeDamageClip: {fileID: 0}
+  _takeDamageClips: []
+  MinDamagedPitch: -3
+  MaxDamagedPitch: 3
   _dieClip: {fileID: 0}
+  MinDiePitch: -3
+  MaxDiePitch: 3
   _mirrorAnimation: 0
   _movementStyle: 0
   _wanderClipRepeatDelay: 0
@@ -613,9 +623,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
   _shootSpeed: .300000012
-  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
-  _shootClip: {fileID: 0}
-  _bulletCollideClip: {fileID: 0}
+  _bulletPrefab: {fileID: 5000000, guid: c2d1f4bea4666cc439121b66980513ac, type: 2}
+  _shootClips: []
+  MinShootPitch: -3
+  MaxShootPitch: 3
+  _bulletCollideClips: []
+  MinBulletCollidePitch: -3
+  MaxBulletCollidePitch: 3
+  _boss: 0
   _canShoot: 1
 --- !u!114 &11400006
 MonoBehaviour:
@@ -629,10 +644,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
+  _maxHealth: 0
   _health: 4
   _range: 8
-  _takeDamageClip: {fileID: 0}
+  _takeDamageClips: []
+  MinDamagedPitch: -3
+  MaxDamagedPitch: 3
   _dieClip: {fileID: 0}
+  MinDiePitch: -3
+  MaxDiePitch: 3
   _mirrorAnimation: 0
   _movementStyle: 0
   _wanderClipRepeatDelay: 0
@@ -650,9 +670,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
   _shootSpeed: .300000012
-  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
-  _shootClip: {fileID: 0}
-  _bulletCollideClip: {fileID: 0}
+  _bulletPrefab: {fileID: 5000000, guid: c2d1f4bea4666cc439121b66980513ac, type: 2}
+  _shootClips: []
+  MinShootPitch: -3
+  MaxShootPitch: 3
+  _bulletCollideClips: []
+  MinBulletCollidePitch: -3
+  MaxBulletCollidePitch: 3
+  _boss: 0
   _canShoot: 1
 --- !u!114 &11400010
 MonoBehaviour:
@@ -666,10 +691,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
+  _maxHealth: 0
   _health: 4
   _range: 8
-  _takeDamageClip: {fileID: 0}
+  _takeDamageClips: []
+  MinDamagedPitch: -3
+  MaxDamagedPitch: 3
   _dieClip: {fileID: 0}
+  MinDiePitch: -3
+  MaxDiePitch: 3
   _mirrorAnimation: 0
   _movementStyle: 0
   _wanderClipRepeatDelay: 0
@@ -687,9 +717,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
   _shootSpeed: .300000012
-  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
-  _shootClip: {fileID: 0}
-  _bulletCollideClip: {fileID: 0}
+  _bulletPrefab: {fileID: 5000000, guid: c2d1f4bea4666cc439121b66980513ac, type: 2}
+  _shootClips: []
+  MinShootPitch: -3
+  MaxShootPitch: 3
+  _bulletCollideClips: []
+  MinBulletCollidePitch: -3
+  MaxBulletCollidePitch: 3
+  _boss: 0
   _canShoot: 1
 --- !u!114 &11400014
 MonoBehaviour:
@@ -703,10 +738,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
+  _maxHealth: 0
   _health: 4
   _range: 8
-  _takeDamageClip: {fileID: 0}
+  _takeDamageClips: []
+  MinDamagedPitch: -3
+  MaxDamagedPitch: 3
   _dieClip: {fileID: 0}
+  MinDiePitch: -3
+  MaxDiePitch: 3
   _mirrorAnimation: 0
   _movementStyle: 0
   _wanderClipRepeatDelay: 0

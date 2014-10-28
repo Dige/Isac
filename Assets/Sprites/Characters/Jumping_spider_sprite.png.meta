@@ -1,7 +1,13 @@
 fileFormatVersion: 2
 guid: ad2f9da1ca7cfed4ab318b95587a2c05
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Jumping_spider_sprite_0
+    21300002: Jumping_spider_sprite_1
+    21300004: Jumping_spider_sprite_2
+    21300006: Jumping_spider_sprite_3
+    21300008: Jumping_spider_sprite_4
+    21300010: Jumping_spider_sprite_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -42,6 +48,66 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Jumping_spider_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 113
+        height: 163
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jumping_spider_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 0
+        width: 113
+        height: 163
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jumping_spider_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 0
+        width: 113
+        height: 163
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jumping_spider_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 0
+        width: 113
+        height: 163
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jumping_spider_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 0
+        width: 113
+        height: 163
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jumping_spider_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 0
+        width: 104
+        height: 163
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
