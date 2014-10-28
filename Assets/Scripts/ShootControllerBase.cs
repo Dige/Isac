@@ -38,9 +38,7 @@ namespace Assets.Scripts
             set { _shootClips = value; }
         }
 
-        [HideInInspector]
         public float MinShootPitch = -3.0f;
-        [HideInInspector]
         public float MaxShootPitch = 3.0f;
 
         [SerializeField]
@@ -50,9 +48,8 @@ namespace Assets.Scripts
             get { return _bulletCollideClips; }
             set { _bulletCollideClips = value; }
         }
-        [HideInInspector]
+    
         public float MinBulletCollidePitch = -3.0f;
-        [HideInInspector]
         public float MaxBulletCollidePitch = 3.0f;
 
 		public virtual void Start()
