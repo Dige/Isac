@@ -78,9 +78,7 @@ namespace Assets.Scripts
             set { _dieClip = value; }
         }
 
-        [HideInInspector]
         public float MinDiePitch = -3.0f;
-        [HideInInspector]
         public float MaxDiePitch = 3.0f;
 
         [SerializeField]
