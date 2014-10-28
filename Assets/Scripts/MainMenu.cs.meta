@@ -2,7 +2,12 @@ fileFormatVersion: 2
 guid: 76a929027886646c8ae324450dbe319e
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - backGroundTexture: {instanceID: 0}
+  - StartButtonTexture: {instanceID: 0}
+  - QuitButtonTexture: {instanceID: 0}
+  - StartClip: {fileID: 8200000, guid: 54fffeccf21844f74a7a98f9661fd035, type: 2}
+  - QuitClip: {fileID: 8200000, guid: 6c8deef8bc6814bfdb0d0a0449170b57, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

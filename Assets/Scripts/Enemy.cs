@@ -197,7 +197,8 @@ public class Enemy : CharacterBase
 
     IEnumerator Wait()
     {
-        gameObject.GetComponent<EnemyShootController>().BossExplode();
+        if (gameObject.GetComponent<EnemyShootController>().Boss)
+            gameObject.GetComponent<EnemyShootController>().BossExplode();
 
         if (gameObject.GetComponent<EnemyShootController>().Boss && UnityEngine.Random.Range(0, 2) < 1 && (_player.transform.position - transform.position).magnitude < 7)
         {
