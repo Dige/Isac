@@ -42,21 +42,45 @@ public class ShowHealth : MonoBehaviour {
 
         var heartWidth = Screen.width/20;
         var heartHeight = Screen.height/20;
+
+        var origLeft = Screen.width - Screen.width / 4;
+        var left = Screen.width - Screen.width/4;
+        var top = Screen.height/11.0f;
+
         int i; 
-        for (i = 0; i < _playerCharacter.Health / 2; i++)
+        for (i = 1; i <= _playerCharacter.Health / 2; i++)
         {
-            GUI.DrawTexture(new Rect(Screen.width - Screen.width / 4 + i * heartWidth, Screen.height / 10.0f, heartWidth, heartHeight), _healthTexture, ScaleMode.ScaleToFit);
+            GUI.DrawTexture(new Rect(left, top, heartWidth, heartHeight), _healthTexture, ScaleMode.ScaleToFit);
+            left += heartWidth;
+            if (i % 4 == 0)
+            {
+                left = origLeft;
+                top += heartHeight;
+            }
+
         }
 
         if (_playerCharacter.Health % 2 == 1)
         {
-            GUI.DrawTexture(new Rect(Screen.width - Screen.width / 4 + _playerCharacter.Health / 2 * heartWidth, Screen.height / 10.0f, heartWidth, heartHeight), _halfHealthTexture, ScaleMode.ScaleToFit);
-            i = i + 1;
+            GUI.DrawTexture(new Rect(left, top, heartWidth, heartHeight), _halfHealthTexture, ScaleMode.ScaleToFit);
+            left += heartWidth;
+            i++;
+            if (i % 4 == 0)
+            {
+                left = origLeft;
+                top += heartHeight;
+            }
         }
 
-        for (; i < _playerCharacter.MaxHealth / 2; i++)
+        for (; i <= _playerCharacter.MaxHealth / 2; i++)
         {
-            GUI.DrawTexture(new Rect(Screen.width - Screen.width / 4 + i * heartWidth, Screen.height / 10.0f, heartWidth, heartHeight), _emptyHealthTexture, ScaleMode.ScaleToFit);
+            GUI.DrawTexture(new Rect(left, top, heartWidth, heartHeight), _emptyHealthTexture, ScaleMode.ScaleToFit);
+            left += heartWidth;
+            if (i > 0 && i % 4 == 0)
+            {
+                left = origLeft;
+                top += heartHeight;
+            }
         }
     }
 }
