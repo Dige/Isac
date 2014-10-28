@@ -469,6 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 8.69999981
+  _bloodPrefab: []
   _maxHealth: 8
   _health: 8
   _range: 8
@@ -506,6 +507,7 @@ MonoBehaviour:
   MinBulletCollidePitch: .899999976
   MaxBulletCollidePitch: 1.10000002
   _headObject: {fileID: 11400004}
+  _bombPrefab: {fileID: 11400000, guid: d6532fabcbd6cc44ba139d07d4f8dbe0, type: 2}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

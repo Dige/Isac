@@ -24,15 +24,6 @@ public class Player : CharacterBase
         set { _headObject = value; }
     }
 
-    [SerializeField]
-    private Bomb _bombPrefab;
-    public Bomb BombPrefab
-    {
-        get { return _bombPrefab; }
-        set { _bombPrefab = value; }
-    }
-
-
     public ItemBase CurrentItem { get; private set; }
 
     public Room CurrentRoom { get; set; }
@@ -112,7 +103,7 @@ public class Player : CharacterBase
     {
         var movement = new Vector3();
 
-        if (!IsDead && InputHelpers.IsAnyKeyDown("w", "s", "a", "d"))
+        if (!IsDead && InputHelpers.IsAnyKey("w", "s", "a", "d"))
         {
             ShouldMove = true;
             GunObject.enabled = false;

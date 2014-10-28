@@ -7,6 +7,15 @@ namespace Assets.Scripts
     [RequireComponent(typeof(CircleCollider2D), typeof(SpriteRenderer))]
     public class Bomb : MonoBehaviour
     {
+        [SerializeField]
+        private int _damage = 4;
+        public int Damage
+        {
+            get { return _damage; }
+            set { _damage = value; }
+        }
+
+
         private readonly List<Enemy> _enemies = new List<Enemy>();
         private readonly List<Tile> _tiles = new List<Tile>(); 
 
@@ -18,49 +27,33 @@ namespace Assets.Scripts
         private IEnumerator Detonate()
         {
             yield return new WaitForSeconds(1.5f);
+            _enemies.ForEach(e => e.Health -= Damage);
+            _tiles.ForEach(t => t.Destroy());
+            Destroy(gameObject);
         }
 
         public void OnTriggerEnter2D(Collider2D other)
         {
             if (other.GetComponent<Tile>() != null)
             {
-                Debug.Log("Tile inside");
                 _tiles.Add(other.GetComponent<Tile>());
             }
             else if (other.tag.Equals("Enemy"))
             {
-                Debug.Log("Enemy Inside");
                 _enemies.Add(other.GetComponent<Enemy>());
             }
-
-        }
-
-        public void OnTriggerStay2D(Collider2D other)
-        {
-            if (other.GetComponent<Tile>() != null)
-            {
-                Debug.Log("Tile stay inside");
-            }
-            else if (other.tag.Equals("Enemy"))
-            {
-                Debug.Log("Enemy stay Inside");
-            }
-
         }
 
         public void OnTriggerExit2D(Collider2D other)
         {
             if (other.GetComponent<Tile>() != null)
             {
-                Debug.Log("Tile exit");
                 _tiles.Remove(other.GetComponent<Tile>());
             }
             else if (other.tag.Equals("Enemy"))
             {
-                Debug.Log("Enemy exit");
                 _enemies.Remove(other.GetComponent<Enemy>());
             }
-
         }
     }
 }

@@ -15,6 +15,14 @@ namespace Assets.Scripts
             set { _headObject = value; }
         }
 
+        [SerializeField]
+        private Bomb _bombPrefab;
+        public Bomb BombPrefab
+        {
+            get { return _bombPrefab; }
+            set { _bombPrefab = value; }
+        }
+
         public bool IsShooting { get; private set; }
         private KeyCode _shootKey;
         private Vector2 _shootDirection;
@@ -37,7 +45,7 @@ namespace Assets.Scripts
                 return;
             }
 
-            if (InputHelpers.IsAnyKeyDown(KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow))
+            if (InputHelpers.IsAnyKey(KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow))
             {
                 if (Input.GetKey(KeyCode.UpArrow))
                 {
@@ -60,6 +68,11 @@ namespace Assets.Scripts
                     _shootKey = KeyCode.RightArrow;
                 }
                 StartCoroutine(Shoot());
+            }
+            if (InputHelpers.IsAnyKeyDown(KeyCode.LeftShift, KeyCode.RightShift, KeyCode.E))
+            {
+                var bomb = (Bomb) Instantiate(BombPrefab);
+                bomb.transform.position = transform.position;
             }
         }
 
