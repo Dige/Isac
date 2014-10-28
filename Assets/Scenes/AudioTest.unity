@@ -105,7 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a929027886646c8ae324450dbe319e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backGroundTexture: {fileID: 2800000, guid: d9585dcc4bc015f499d26ed504a18e20, type: 3}
+  backGroundTexture: {fileID: 2800000, guid: c20e37d8ed4433248b8349c35a75c5d7, type: 3}
+  StartButtonTexture: {fileID: 2800000, guid: 9435b2af718e7124faa4eb86148851e4, type: 3}
+  QuitButtonTexture: {fileID: 2800000, guid: 5abf9ea4a7a115c45b4c204e8a166d8d, type: 3}
 --- !u!81 &995382950
 AudioListener:
   m_ObjectHideFlags: 0

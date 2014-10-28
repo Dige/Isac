@@ -768,15 +768,16 @@ MonoBehaviour:
   - {fileID: 8200008}
   - {fileID: 8200010}
   - {fileID: 8200012}
-  MinShootPitch: -3
-  MaxShootPitch: 3
+  MinShootPitch: -.0265488625
+  MaxShootPitch: -.0265488625
   _bulletCollideClips:
   - {fileID: 8200014}
   - {fileID: 8200016}
   - {fileID: 8200018}
   - {fileID: 8200020}
-  MinBulletCollidePitch: -3
-  MaxBulletCollidePitch: 3
+  MinBulletCollidePitch: .238937855
+  MaxBulletCollidePitch: .238937855
+  _boss: 0
   _canShoot: 1
 --- !u!212 &21200000
 SpriteRenderer:

@@ -499,12 +499,12 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClips:
   - {fileID: 8200000}
-  MinShootPitch: -3
-  MaxShootPitch: 3
+  MinShootPitch: .0796459615
+  MaxShootPitch: .0796459615
   _bulletCollideClips:
   - {fileID: 8200002}
-  MinBulletCollidePitch: -3
-  MaxBulletCollidePitch: 3
+  MinBulletCollidePitch: .398230076
+  MaxBulletCollidePitch: .398230076
   _headObject: {fileID: 11400004}
 --- !u!114 &11400004
 MonoBehaviour:
