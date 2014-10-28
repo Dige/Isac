@@ -190,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0181624293, y: -.0541775227, z: 0}
+  m_LocalPosition: {x: -.0434696078, y: .0980477333, z: 0}
   m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children:
   - {fileID: 400000}
@@ -215,7 +215,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.84418738, y: -.0265188217, z: 0}
+  m_LocalPosition: {x: -1.93470407, y: .0980477333, z: 0}
   m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children:
   - {fileID: 400004}
@@ -256,7 +256,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .11035794, y: -1.88886881, z: 0}
+  m_LocalPosition: {x: .0591555238, y: -1.89581203, z: 0}
   m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children:
   - {fileID: 400010}
@@ -281,7 +281,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.84418738, y: -1.90730786, z: 0}
+  m_LocalPosition: {x: -1.97868633, y: -1.83716905, z: 0}
   m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children:
   - {fileID: 400014}
@@ -930,11 +930,11 @@ MonoBehaviour:
   _shootSpeed: .300000012
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClips: []
-  MinShootPitch: -3
-  MaxShootPitch: 3
+  MinShootPitch: .899999976
+  MaxShootPitch: 1.10000002
   _bulletCollideClips: []
-  MinBulletCollidePitch: -3
-  MaxBulletCollidePitch: 3
+  MinBulletCollidePitch: .899999976
+  MaxBulletCollidePitch: 1.10000002
   _boss: 0
   _canShoot: 1
 --- !u!114 &11400002
@@ -958,11 +958,11 @@ MonoBehaviour:
   _health: 4
   _range: 8
   _takeDamageClips: []
-  MinDamagedPitch: -3
-  MaxDamagedPitch: 3
+  MinDamagedPitch: .949999988
+  MaxDamagedPitch: 1.04999995
   _dieClip: {fileID: 8200002}
-  MinDiePitch: -3
-  MaxDiePitch: 3
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 0
   _movementStyle: 0
   _wanderClipRepeatDelay: 0
@@ -982,11 +982,11 @@ MonoBehaviour:
   _shootSpeed: .300000012
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClips: []
-  MinShootPitch: -3
-  MaxShootPitch: 3
+  MinShootPitch: .899999976
+  MaxShootPitch: 1.10000002
   _bulletCollideClips: []
-  MinBulletCollidePitch: -3
-  MaxBulletCollidePitch: 3
+  MinBulletCollidePitch: .899999976
+  MaxBulletCollidePitch: 1.10000002
   _boss: 0
   _canShoot: 1
 --- !u!114 &11400006
@@ -1010,11 +1010,11 @@ MonoBehaviour:
   _health: 4
   _range: 8
   _takeDamageClips: []
-  MinDamagedPitch: -3
-  MaxDamagedPitch: 3
+  MinDamagedPitch: .949999988
+  MaxDamagedPitch: 1.04999995
   _dieClip: {fileID: 8200006}
-  MinDiePitch: -3
-  MaxDiePitch: 3
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 0
   _movementStyle: 0
   _wanderClipRepeatDelay: 0
@@ -1034,11 +1034,11 @@ MonoBehaviour:
   _shootSpeed: .300000012
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClips: []
-  MinShootPitch: -3
-  MaxShootPitch: 3
+  MinShootPitch: .899999976
+  MaxShootPitch: 1.10000002
   _bulletCollideClips: []
-  MinBulletCollidePitch: -3
-  MaxBulletCollidePitch: 3
+  MinBulletCollidePitch: .899999976
+  MaxBulletCollidePitch: 1.10000002
   _boss: 0
   _canShoot: 1
 --- !u!114 &11400010
@@ -1062,11 +1062,11 @@ MonoBehaviour:
   _health: 4
   _range: 8
   _takeDamageClips: []
-  MinDamagedPitch: -3
-  MaxDamagedPitch: 3
+  MinDamagedPitch: .949999988
+  MaxDamagedPitch: 1.04999995
   _dieClip: {fileID: 8200010}
-  MinDiePitch: -3
-  MaxDiePitch: 3
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 0
   _movementStyle: 0
   _wanderClipRepeatDelay: 0
@@ -1086,11 +1086,11 @@ MonoBehaviour:
   _shootSpeed: .300000012
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClips: []
-  MinShootPitch: -3
-  MaxShootPitch: 3
+  MinShootPitch: .899999976
+  MaxShootPitch: 1.10000002
   _bulletCollideClips: []
-  MinBulletCollidePitch: -3
-  MaxBulletCollidePitch: 3
+  MinBulletCollidePitch: .899999976
+  MaxBulletCollidePitch: 1.10000002
   _boss: 0
   _canShoot: 1
 --- !u!114 &11400014
@@ -1114,11 +1114,11 @@ MonoBehaviour:
   _health: 4
   _range: 8
   _takeDamageClips: []
-  MinDamagedPitch: -3
-  MaxDamagedPitch: 3
+  MinDamagedPitch: .949999988
+  MaxDamagedPitch: 1.04999995
   _dieClip: {fileID: 8200014}
-  MinDiePitch: -3
-  MaxDiePitch: 3
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 0
   _movementStyle: 0
   _wanderClipRepeatDelay: 0

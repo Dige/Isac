@@ -166,7 +166,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .952715635, y: .919090509, z: 0}
+  m_LocalPosition: {x: 1.06655395, y: 1.30396509, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -178,7 +178,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.08721733, y: -1.03117466, z: 0}
+  m_LocalPosition: {x: -.97374177, y: 1.24676061, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -190,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.930299044, y: 1.18809247, z: 0}
+  m_LocalPosition: {x: 1.02841759, y: -.755398631, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -202,7 +202,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.907882929, y: -.784590244, z: 0}
+  m_LocalPosition: {x: -.954673588, y: -.736330569, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -2978,8 +2978,8 @@ MonoBehaviour:
   MinDamagedPitch: .949999988
   MaxDamagedPitch: 1.04999995
   _dieClip: {fileID: 8200016}
-  MinDiePitch: .026548624
-  MaxDiePitch: .026548624
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 0
   _movementStyle: 0
   _wanderClipRepeatDelay: 0
@@ -3039,8 +3039,8 @@ MonoBehaviour:
   MinDamagedPitch: .949999988
   MaxDamagedPitch: 1.04999995
   _dieClip: {fileID: 8200038}
-  MinDiePitch: .026548624
-  MaxDiePitch: .026548624
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 0
   _movementStyle: 0
   _wanderClipRepeatDelay: 0
@@ -3100,8 +3100,8 @@ MonoBehaviour:
   MinDamagedPitch: .949999988
   MaxDamagedPitch: 1.04999995
   _dieClip: {fileID: 8200060}
-  MinDiePitch: .026548624
-  MaxDiePitch: .026548624
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 0
   _movementStyle: 0
   _wanderClipRepeatDelay: 0
@@ -3161,8 +3161,8 @@ MonoBehaviour:
   MinDamagedPitch: .949999988
   MaxDamagedPitch: 1.04999995
   _dieClip: {fileID: 8200082}
-  MinDiePitch: .026548624
-  MaxDiePitch: .026548624
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 0
   _movementStyle: 0
   _wanderClipRepeatDelay: 0
