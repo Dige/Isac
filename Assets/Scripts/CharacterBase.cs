@@ -67,9 +67,7 @@ namespace Assets.Scripts
             get { return _takeDamageClips; }
         }
 
-        [HideInInspector]
         public float MinDamagedPitch = -3.0f;
-        [HideInInspector]
         public float MaxDamagedPitch = 3.0f;
 
         [SerializeField]

@@ -740,8 +740,8 @@ MonoBehaviour:
   _range: 8
   _takeDamageClips:
   - {fileID: 8200004}
-  MinDamagedPitch: -3
-  MaxDamagedPitch: 3
+  MinDamagedPitch: 0
+  MaxDamagedPitch: 1.33930254
   _dieClip: {fileID: 8200002}
   MinDiePitch: -3
   MaxDiePitch: 3
@@ -768,15 +768,15 @@ MonoBehaviour:
   - {fileID: 8200008}
   - {fileID: 8200010}
   - {fileID: 8200012}
-  MinShootPitch: -.0265488625
-  MaxShootPitch: -.0265488625
+  MinShootPitch: -3
+  MaxShootPitch: 3
   _bulletCollideClips:
   - {fileID: 8200014}
   - {fileID: 8200016}
   - {fileID: 8200018}
   - {fileID: 8200020}
-  MinBulletCollidePitch: .238937855
-  MaxBulletCollidePitch: .238937855
+  MinBulletCollidePitch: -3
+  MaxBulletCollidePitch: 3
   _boss: 0
   _canShoot: 1
 --- !u!212 &21200000

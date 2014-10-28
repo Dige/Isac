@@ -475,8 +475,8 @@ MonoBehaviour:
   _takeDamageClips:
   - {fileID: 8200006}
   - {fileID: 8200008}
-  MinDamagedPitch: -3
-  MaxDamagedPitch: 3
+  MinDamagedPitch: -2.57587194
+  MaxDamagedPitch: -1.81244135
   _dieClip: {fileID: 8200004}
   MinDiePitch: -3
   MaxDiePitch: 3
