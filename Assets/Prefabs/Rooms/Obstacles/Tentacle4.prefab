@@ -190,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0307375193, y: -.0577932596, z: 0}
+  m_LocalPosition: {x: .0181624293, y: -.0541775227, z: 0}
   m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children:
   - {fileID: 400000}
@@ -215,7 +215,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.84778392, y: -.0333968401, z: 0}
+  m_LocalPosition: {x: -1.84418738, y: -.0265188217, z: 0}
   m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children:
   - {fileID: 400004}
@@ -256,7 +256,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0856294036, y: -1.89972043, z: 0}
+  m_LocalPosition: {x: .11035794, y: -1.88886881, z: 0}
   m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children:
   - {fileID: 400010}
@@ -281,7 +281,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.86608112, y: -1.91801763, z: 0}
+  m_LocalPosition: {x: -1.84418738, y: -1.90730786, z: 0}
   m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children:
   - {fileID: 400014}
@@ -400,7 +400,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -457,8 +457,8 @@ AudioSource:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 9ce77987e81404834a6efdaeff83b352, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -516,7 +516,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -573,8 +573,8 @@ AudioSource:
   m_GameObject: {fileID: 100006}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 9ce77987e81404834a6efdaeff83b352, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -632,7 +632,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -689,8 +689,8 @@ AudioSource:
   m_GameObject: {fileID: 100012}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 9ce77987e81404834a6efdaeff83b352, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -748,7 +748,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -805,8 +805,8 @@ AudioSource:
   m_GameObject: {fileID: 100016}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 9ce77987e81404834a6efdaeff83b352, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -928,7 +928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
   _shootSpeed: .300000012
-  _bulletPrefab: {fileID: 5000000, guid: c2d1f4bea4666cc439121b66980513ac, type: 2}
+  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClips: []
   MinShootPitch: -3
   MaxShootPitch: 3
@@ -949,17 +949,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
+  _bloodPrefab:
+  - {fileID: 100000, guid: fc26eeb75d2f5c9429045d1ab4d5456f, type: 2}
+  - {fileID: 100000, guid: 129dbd4250084d34680284c24f5c4f3e, type: 2}
+  - {fileID: 100000, guid: 01635ee5e41f163429bd6ead0df6ce24, type: 2}
+  - {fileID: 100000, guid: f41595ecfc921574f93cf2efa29b2e53, type: 2}
   _maxHealth: 0
   _health: 4
   _range: 8
   _takeDamageClips: []
   MinDamagedPitch: -3
   MaxDamagedPitch: 3
-  _dieClip: {fileID: 0}
+  _dieClip: {fileID: 8200002}
   MinDiePitch: -3
   MaxDiePitch: 3
   _mirrorAnimation: 0
-  _movementStyle: 3
+  _movementStyle: 0
   _wanderClipRepeatDelay: 0
   _wanderClip: {fileID: 0}
 --- !u!114 &11400004
@@ -975,7 +980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
   _shootSpeed: .300000012
-  _bulletPrefab: {fileID: 5000000, guid: c2d1f4bea4666cc439121b66980513ac, type: 2}
+  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClips: []
   MinShootPitch: -3
   MaxShootPitch: 3
@@ -996,17 +1001,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
+  _bloodPrefab:
+  - {fileID: 100000, guid: fc26eeb75d2f5c9429045d1ab4d5456f, type: 2}
+  - {fileID: 100000, guid: 129dbd4250084d34680284c24f5c4f3e, type: 2}
+  - {fileID: 100000, guid: 01635ee5e41f163429bd6ead0df6ce24, type: 2}
+  - {fileID: 100000, guid: f41595ecfc921574f93cf2efa29b2e53, type: 2}
   _maxHealth: 0
   _health: 4
   _range: 8
   _takeDamageClips: []
   MinDamagedPitch: -3
   MaxDamagedPitch: 3
-  _dieClip: {fileID: 0}
+  _dieClip: {fileID: 8200006}
   MinDiePitch: -3
   MaxDiePitch: 3
   _mirrorAnimation: 0
-  _movementStyle: 3
+  _movementStyle: 0
   _wanderClipRepeatDelay: 0
   _wanderClip: {fileID: 0}
 --- !u!114 &11400008
@@ -1022,7 +1032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
   _shootSpeed: .300000012
-  _bulletPrefab: {fileID: 5000000, guid: c2d1f4bea4666cc439121b66980513ac, type: 2}
+  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClips: []
   MinShootPitch: -3
   MaxShootPitch: 3
@@ -1043,17 +1053,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
+  _bloodPrefab:
+  - {fileID: 100000, guid: fc26eeb75d2f5c9429045d1ab4d5456f, type: 2}
+  - {fileID: 100000, guid: 129dbd4250084d34680284c24f5c4f3e, type: 2}
+  - {fileID: 100000, guid: 01635ee5e41f163429bd6ead0df6ce24, type: 2}
+  - {fileID: 100000, guid: f41595ecfc921574f93cf2efa29b2e53, type: 2}
   _maxHealth: 0
   _health: 4
   _range: 8
   _takeDamageClips: []
   MinDamagedPitch: -3
   MaxDamagedPitch: 3
-  _dieClip: {fileID: 0}
+  _dieClip: {fileID: 8200010}
   MinDiePitch: -3
   MaxDiePitch: 3
   _mirrorAnimation: 0
-  _movementStyle: 3
+  _movementStyle: 0
   _wanderClipRepeatDelay: 0
   _wanderClip: {fileID: 0}
 --- !u!114 &11400012
@@ -1069,7 +1084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
   _shootSpeed: .300000012
-  _bulletPrefab: {fileID: 5000000, guid: c2d1f4bea4666cc439121b66980513ac, type: 2}
+  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClips: []
   MinShootPitch: -3
   MaxShootPitch: 3
@@ -1090,17 +1105,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
+  _bloodPrefab:
+  - {fileID: 100000, guid: fc26eeb75d2f5c9429045d1ab4d5456f, type: 2}
+  - {fileID: 100000, guid: 129dbd4250084d34680284c24f5c4f3e, type: 2}
+  - {fileID: 100000, guid: 01635ee5e41f163429bd6ead0df6ce24, type: 2}
+  - {fileID: 100000, guid: f41595ecfc921574f93cf2efa29b2e53, type: 2}
   _maxHealth: 0
   _health: 4
   _range: 8
   _takeDamageClips: []
   MinDamagedPitch: -3
   MaxDamagedPitch: 3
-  _dieClip: {fileID: 0}
+  _dieClip: {fileID: 8200014}
   MinDiePitch: -3
   MaxDiePitch: 3
   _mirrorAnimation: 0
-  _movementStyle: 3
+  _movementStyle: 0
   _wanderClipRepeatDelay: 0
   _wanderClip: {fileID: 0}
 --- !u!212 &21200000

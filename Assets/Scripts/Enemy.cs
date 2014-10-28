@@ -147,6 +147,9 @@ public class Enemy : CharacterBase
         {
             OwnerRoom.BossBar.transform.FindChild("BossHealth").transform.localScale = new Vector3((float)Health / MaxHealth,1,1);
         }
+        var blood = (GameObject)Instantiate(BloodPrefab.ElementAt(UnityEngine.Random.Range(0,BloodPrefab.Count)));
+        blood.transform.position = transform.position;
+        blood.transform.parent = OwnerRoom.transform;
     }
 
     protected override void Die()
