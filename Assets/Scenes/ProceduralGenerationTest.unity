@@ -503,6 +503,7 @@ GameObject:
   - 114: {fileID: 1335113747}
   - 114: {fileID: 1335113748}
   - 114: {fileID: 1335113749}
+  - 114: {fileID: 1335113750}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -598,5 +599,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb9cd2e5fd93f5644ac10a246a1f0d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1335113750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400008, guid: ad1bf6a16d406f1488cb4568e6c4fc40,
+    type: 2}
+  m_PrefabInternal: {fileID: 84840843}
+  m_GameObject: {fileID: 1335113743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04158a7b2b970d249a0dc3c90e19598f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

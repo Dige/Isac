@@ -552,7 +552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemPrefabs:
   - {fileID: 11400000, guid: 9814222918d544448831838efc12ade8, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400002, guid: faae7bb742624584795c417f81aaa358, type: 2}
   _spawnOnAwake: 0
 --- !u!114 &11400004
 MonoBehaviour:
