@@ -265,6 +265,12 @@ namespace Assets.Scripts
             {
                 _doors.ForEach(d => d.IsOpen = true);
                 Destroy(_bossBar);
+                if (_roomType == RoomType.BossRoom)
+                {
+                    var audioSources = GameObject.FindGameObjectWithTag("MainCamera").GetComponents<AudioSource>();
+                    audioSources.ElementAt(1).Stop();
+                    audioSources.ElementAt(2).Play();
+                }
                 SpawnItem();
             }
         }
@@ -289,6 +295,16 @@ namespace Assets.Scripts
 
         public void OnPlayerEntersRoom(Player player)
         {
+            var audioSources = GameObject.FindGameObjectWithTag("MainCamera").GetComponents<AudioSource>();
+
+            if (_roomType == RoomType.BossRoom)
+            {
+                audioSources.ElementAt(0).Stop();
+                audioSources.ElementAt(1).Play();
+            }
+            else
+                if (!audioSources.ElementAt(0).isPlaying)
+                    audioSources.ElementAt(0).Play();
             PlayerIsInRoom = true;
             if (ContainsEnemies)
             {
