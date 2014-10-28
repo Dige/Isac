@@ -49,6 +49,8 @@ public class Player : CharacterBase
             CurrentItem.UseItem(this);
             if(CurrentItem.IsInstantlyDestroyedAfterUse)
                 Destroy(CurrentItem.gameObject);
+
+            CurrentItem = null;
         }
     }
 
