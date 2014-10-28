@@ -23,12 +23,14 @@ namespace Assets.Scripts.Items
 
         private IEnumerator Fly(Player player)
         {
+            player.gameObject.layer = 19;
             var currentRoom = player.CurrentRoom;
             while (player.CurrentRoom == currentRoom)
             {
                 yield return null;
             }
             Destroy(gameObject);
+            player.gameObject.layer = 9;
         }
     }
 }
