@@ -32,6 +32,8 @@ namespace Assets.Scripts
             set { _isInstantEffect = value; }
         }
 
+        public virtual bool IsInstantlyDestroyedAfterUse { get { return true; } }
+
         public void Start()
         {
             if (SpawnClip != null)
