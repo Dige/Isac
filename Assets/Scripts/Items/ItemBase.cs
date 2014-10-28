@@ -21,9 +21,7 @@ namespace Assets.Scripts
             set { _pickUpClip = value; }
         }
 
-        [HideInInspector]
         public float MinSpawnPitch = -3.0f;
-        [HideInInspector]
         public float MaxSpawnPitch = 3.0f;
 
         [SerializeField]
