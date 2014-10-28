@@ -13,6 +13,14 @@ namespace Assets.Scripts
 		private bool _shooting;
 		private GameObject _player;
 
+        [SerializeField]
+        private bool _boss = false;
+        public bool Boss
+        {
+            get { return _boss; }
+            set { _boss = value; }
+        }
+
 		[SerializeField]
 		private bool _canShoot = true;
 		public bool CanShoot 
