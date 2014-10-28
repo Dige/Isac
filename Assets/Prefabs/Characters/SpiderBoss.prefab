@@ -99,7 +99,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 954bafe4ee6904243937d7da117e490a, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -157,7 +157,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: ce0c22e56bd9b4f978b8aa4fc37c69fa, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -234,15 +234,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
   _shootSpeed: .300000012
-  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
+  _bulletPrefab: {fileID: 5000000, guid: d8e000ca28e948446917b8de7d824315, type: 2}
   _shootClips: []
   MinShootPitch: -3
   MaxShootPitch: 3
   _bulletCollideClips: []
   MinBulletCollidePitch: -3
   MaxBulletCollidePitch: 3
-  _boss: 0
-  _canShoot: 1
+  _boss: 1
+  _canShoot: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,8 +255,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
-  _maxHealth: 0
-  _health: 4
+  _maxHealth: 25
+  _health: 25
   _range: 8
   _takeDamageClips: []
   MinDamagedPitch: -3
@@ -265,7 +265,7 @@ MonoBehaviour:
   MinDiePitch: -3
   MaxDiePitch: 3
   _mirrorAnimation: 0
-  _movementStyle: 0
+  _movementStyle: 6
   _wanderClipRepeatDelay: 0
   _wanderClip: {fileID: 0}
 --- !u!212 &21200000
