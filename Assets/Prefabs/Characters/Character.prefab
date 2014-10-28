@@ -355,8 +355,8 @@ MonoBehaviour:
   _health: 8
   _range: 8
   _takeDamageClips: []
-  MinDamagedPitch: -3
-  MaxDamagedPitch: 3
+  MinDamagedPitch: -2.74968719
+  MaxDamagedPitch: 2.09887362
   _dieClip: {fileID: 8200004}
   MinDiePitch: -3
   MaxDiePitch: 3
