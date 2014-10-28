@@ -99,7 +99,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 954bafe4ee6904243937d7da117e490a, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -157,7 +157,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: ce0c22e56bd9b4f978b8aa4fc37c69fa, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -241,6 +241,7 @@ MonoBehaviour:
   _bulletCollideClips: []
   MinBulletCollidePitch: -3
   MaxBulletCollidePitch: 3
+  _boss: 0
   _canShoot: 1
 --- !u!114 &11400002
 MonoBehaviour:
