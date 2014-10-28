@@ -8,6 +8,15 @@ namespace Assets.Scripts
     public class PlayerShootController : ShootControllerBase
     {
         [SerializeField]
+        private int _numberOfBombs;
+        public int NumberofBombs
+        {
+            get { return _numberOfBombs; }
+            set { _numberOfBombs = value; }
+        }
+        
+
+        [SerializeField]
         private PlayerHeadController _headObject;
         public PlayerHeadController HeadObject
         {
@@ -69,10 +78,11 @@ namespace Assets.Scripts
                 }
                 StartCoroutine(Shoot());
             }
-            if (InputHelpers.IsAnyKeyDown(KeyCode.LeftShift, KeyCode.RightShift, KeyCode.E))
+            if (NumberofBombs > 0 && InputHelpers.IsAnyKeyDown(KeyCode.LeftShift, KeyCode.RightShift, KeyCode.E))
             {
                 var bomb = (Bomb) Instantiate(BombPrefab);
                 bomb.transform.position = transform.position;
+                NumberofBombs--;
             }
         }
 
