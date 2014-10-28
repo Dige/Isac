@@ -17,6 +17,14 @@ namespace Assets.Scripts
             set { _moveSpeed = value; }
         }
 
+        [SerializeField]
+        private List<GameObject> _bloodPrefab;
+        public List<GameObject> BloodPrefab
+        {
+            set { _bloodPrefab = value; }
+            get { return _bloodPrefab;  }
+        }
+
         protected bool ShouldMove;
 
         protected Animator Animator;
