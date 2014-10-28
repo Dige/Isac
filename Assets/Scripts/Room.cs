@@ -148,7 +148,7 @@ namespace Assets.Scripts
 
         IEnumerator WakeUpEnemies()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             _enemies.ForEach(e => e.Enable());
             if (_roomType == RoomType.BossRoom)
             {
