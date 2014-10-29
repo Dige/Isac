@@ -531,7 +531,7 @@ MonoBehaviour:
   _eastDoorWall: {fileID: 6100006}
   _westDoorWall: {fileID: 6100016}
   bossBarPrefab: {fileID: 0}
-  _playerIsInRoom: 1
+  _playerIsInRoom: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
