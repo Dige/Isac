@@ -121,9 +121,13 @@ namespace Assets.Scripts
         {
             Vector3 currentPosition = transform.position;
 
-            if (Animator.enabled && gameObject.rigidbody2D.velocity.x < ANIMATION_STOP_VELOCITY && gameObject.rigidbody2D.velocity.x > -ANIMATION_STOP_VELOCITY
-                && gameObject.rigidbody2D.velocity.y < ANIMATION_STOP_VELOCITY && gameObject.rigidbody2D.velocity.y > -ANIMATION_STOP_VELOCITY)
+            if (Animator.enabled 
+			    && gameObject.rigidbody2D.velocity.x < ANIMATION_STOP_VELOCITY 
+			    && gameObject.rigidbody2D.velocity.x > -ANIMATION_STOP_VELOCITY
+                && gameObject.rigidbody2D.velocity.y < ANIMATION_STOP_VELOCITY 
+			    && gameObject.rigidbody2D.velocity.y > -ANIMATION_STOP_VELOCITY)
             {
+				Debug.LogWarning("tastat");
                 Animator.enabled = false;
                 return;
             }
