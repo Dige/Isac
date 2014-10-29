@@ -156,9 +156,10 @@ namespace Assets.Scripts
 
         private IEnumerator DamageBlink()
         {
+            Color c = gameObject.GetComponent<SpriteRenderer>().color;
             ChangeSpriteColorRecursively(Color.red);
             yield return new WaitForSeconds(0.1f);
-            ChangeSpriteColorRecursively(Color.white);
+            ChangeSpriteColorRecursively(c);
         }
 
         private void ChangeSpriteColorRecursively(Color color)

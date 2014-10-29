@@ -24,7 +24,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   - 82: {fileID: 8200006}
   - 82: {fileID: 8200008}
   - 82: {fileID: 8200010}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Enemy_Big_Crawler
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400006}
   - 212: {fileID: 21200004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - 82: {fileID: 8200018}
   - 82: {fileID: 8200020}
   - 82: {fileID: 8200022}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Enemy_Big_Crawler
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400010}
   - 212: {fileID: 21200008}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - 82: {fileID: 8200030}
   - 82: {fileID: 8200032}
   - 82: {fileID: 8200034}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Enemy_Big_Crawler
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400014}
   - 212: {fileID: 21200012}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - 82: {fileID: 8200042}
   - 82: {fileID: 8200044}
   - 82: {fileID: 8200046}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Enemy_Big_Crawler
   m_TagString: Enemy
   m_Icon: {fileID: 0}

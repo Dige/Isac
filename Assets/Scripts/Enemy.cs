@@ -242,7 +242,7 @@ public class Enemy : CharacterBase
 
         if (gameObject.GetComponent<EnemyShootController>().Boss && UnityEngine.Random.Range(0, 2) < 1 && (_player.transform.position - transform.position).magnitude < 7)
         {
-            yield return new WaitForSeconds(UnityEngine.Random.Range(2, 3));
+            yield return new WaitForSeconds(UnityEngine.Random.Range(2.0f, 3.0f));
             gameObject.GetComponent<EnemyShootController>().BossShoot();
             //_inAir = true;
             _jumping = true;
@@ -250,13 +250,13 @@ public class Enemy : CharacterBase
         }
         else if (gameObject.GetComponent<EnemyShootController>().Boss)
         {
-            yield return new WaitForSeconds(UnityEngine.Random.Range(1, 2));
+            yield return new WaitForSeconds(UnityEngine.Random.Range(1.0f, 2.0f));
             _jumping = true;
         }
         else
         {
 
-            yield return new WaitForSeconds(UnityEngine.Random.Range(2, 4));
+            yield return new WaitForSeconds(UnityEngine.Random.Range(2.0f, 4.0f));
             _jumping = true;
         }
     }

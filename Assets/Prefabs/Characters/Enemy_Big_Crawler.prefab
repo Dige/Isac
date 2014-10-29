@@ -20,7 +20,7 @@ GameObject:
   - 82: {fileID: 8200006}
   - 82: {fileID: 8200008}
   - 82: {fileID: 8200010}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Enemy_Big_Crawler
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200002}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

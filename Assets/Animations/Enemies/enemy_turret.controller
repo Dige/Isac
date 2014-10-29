@@ -293,7 +293,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: turret_shooting_down
-  m_Speed: .699999988
+  m_Speed: .349999994
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: 5a38dcf1116a66b4b93022a79be943c8, type: 2}
@@ -338,7 +338,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: turret_shooting_left
-  m_Speed: .699999988
+  m_Speed: .349999994
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: 7ff9e3e0efdc3c84aaec8c6e12755e2c, type: 2}
