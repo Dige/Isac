@@ -270,7 +270,7 @@ MonoBehaviour:
   MinDiePitch: 1
   MaxDiePitch: 1
   _mirrorAnimation: 0
-  _movementStyle: 0
+  _movementStyle: 3
   _wanderClipRepeatDelay: 0
   _wanderClip: {fileID: 0}
 --- !u!212 &21200000
