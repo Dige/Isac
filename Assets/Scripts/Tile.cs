@@ -15,7 +15,7 @@ namespace Assets.Scripts
 
         public void Destroy()
         {
-            Destroy(GetComponent<BoxCollider2D>());
+            GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<SpriteRenderer>().sprite = DestroyedSprites[Random.Range(0, DestroyedSprites.Count)];
         }
     }
