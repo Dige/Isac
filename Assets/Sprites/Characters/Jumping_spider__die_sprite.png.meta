@@ -53,17 +53,17 @@ TextureImporter:
         x: 8
         y: 14
         width: 113
-        height: 64
+        height: 149
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jumping_spider__die_sprite_1
       rect:
         serializedVersion: 2
-        x: 172
+        x: 173
         y: 15
         width: 106
-        height: 64
+        height: 148
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -73,7 +73,7 @@ TextureImporter:
         x: 292
         y: 16
         width: 146
-        height: 64
+        height: 147
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -83,7 +83,7 @@ TextureImporter:
         x: 470
         y: 14
         width: 215
-        height: 64
+        height: 149
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

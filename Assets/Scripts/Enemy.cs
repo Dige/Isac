@@ -178,7 +178,8 @@ public class Enemy : CharacterBase
     IEnumerator ReallyDie()
     {
         Animator.Play("Die");
-        gameObject.GetComponent<EnemyShootController>().BossExplode();
+        if (gameObject.GetComponent<EnemyShootController>().Boss)
+            gameObject.GetComponent<EnemyShootController>().BossExplode();
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         float t = gameObject.GetComponent<EnemyShootController>().Boss ? 1.1f : 0.7f;
         gameObject.GetComponent<EnemyShootController>().enabled = false;
