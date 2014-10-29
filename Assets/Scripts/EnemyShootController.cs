@@ -68,7 +68,7 @@ namespace Assets.Scripts
 					int bossHax = 0;
 					if (Boss)
 						bossHax = 4;
-			        var clipToPlay = ShootClips[Random.Range(4, ShootClips.Count)];
+			        var clipToPlay = ShootClips[Random.Range(bossHax, ShootClips.Count)];
 			        clipToPlay.pitch = Random.Range(MinShootPitch, MaxShootPitch);
                     clipToPlay.Play();
 			    }

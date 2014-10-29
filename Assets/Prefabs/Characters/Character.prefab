@@ -278,7 +278,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: d710748dd8fb5471795af1c48365bf70, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .100000001
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -506,6 +506,7 @@ MonoBehaviour:
   - {fileID: 8200002}
   MinBulletCollidePitch: .899999976
   MaxBulletCollidePitch: 1.10000002
+  _numberOfBombs: 0
   _headObject: {fileID: 11400004}
   _bombPrefab: {fileID: 11400000, guid: d6532fabcbd6cc44ba139d07d4f8dbe0, type: 2}
 --- !u!114 &11400004

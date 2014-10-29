@@ -98,10 +98,10 @@ AudioSource:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 74200c558440d4dcf9044b858a5e7a98, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: .400000006
+  m_Pitch: 2
   Loop: 0
   Mute: 0
   Priority: 128
@@ -158,7 +158,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 9ce77987e81404834a6efdaeff83b352, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .400000006
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -263,12 +263,13 @@ MonoBehaviour:
   _maxHealth: 0
   _health: 4
   _range: 8
-  _takeDamageClips: []
-  MinDamagedPitch: .949999988
-  MaxDamagedPitch: 1.04999995
+  _takeDamageClips:
+  - {fileID: 8200000}
+  MinDamagedPitch: 1.89999998
+  MaxDamagedPitch: 2
   _dieClip: {fileID: 8200002}
-  MinDiePitch: 1
-  MaxDiePitch: 1
+  MinDiePitch: 1.79999995
+  MaxDiePitch: 1.89999998
   _mirrorAnimation: 0
   _movementStyle: 0
   _wanderClipRepeatDelay: 0

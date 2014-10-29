@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 82: {fileID: 8200000}
   m_Layer: 0
-  m_Name: MenuStart
+  m_Name: EnemyMissile2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,9 +36,9 @@ AudioSource:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 0d454e7a2435a48a7a9c13d5f3c56524, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 358cc3938f4814f309d89008b11ac2af, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: .400000006
   m_Pitch: 1
   Loop: 0
   Mute: 0

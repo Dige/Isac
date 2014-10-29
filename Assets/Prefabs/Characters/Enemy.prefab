@@ -14,7 +14,6 @@ GameObject:
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
   - 58: {fileID: 5800000}
-  - 82: {fileID: 8200000}
   - 82: {fileID: 8200002}
   - 82: {fileID: 8200004}
   - 82: {fileID: 8200006}
@@ -70,64 +69,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: .200000003
   m_Center: {x: 0, y: -.189999998}
---- !u!82 &8200000
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: ce0c22e56bd9b4f978b8aa4fc37c69fa, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!82 &8200002
 AudioSource:
   m_ObjectHideFlags: 1
@@ -254,7 +195,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: ce0c22e56bd9b4f978b8aa4fc37c69fa, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .400000006
+  m_Volume: .300000012
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -312,7 +253,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 358cc3938f4814f309d89008b11ac2af, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .400000006
+  m_Volume: .300000012
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -370,7 +311,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: a2fccecb46c634c9c9ed58b39ecc4189, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .400000006
+  m_Volume: .300000012
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -428,7 +369,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: b8ee0729444f64ad98f354e78aeb03fe, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .400000006
+  m_Volume: .300000012
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -486,7 +427,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 56c5296ddb4c84425ab4e2d3faa77725, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .600000024
+  m_Volume: .300000012
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -544,7 +485,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 1fe65417b056e449e88fd8990f8318b8, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .600000024
+  m_Volume: .300000012
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -602,7 +543,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 020985121edcc4c11800f49f84354b42, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .600000024
+  m_Volume: .300000012
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -660,7 +601,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 362b326aa040f4047b3826a5d40dd351, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .600000024
+  m_Volume: .300000012
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -771,15 +712,11 @@ MonoBehaviour:
   _shootClips:
   - {fileID: 8200006}
   - {fileID: 8200008}
-  - {fileID: 8200010}
-  - {fileID: 8200012}
   MinShootPitch: .899999976
   MaxShootPitch: 1.10000002
   _bulletCollideClips:
   - {fileID: 8200014}
   - {fileID: 8200016}
-  - {fileID: 8200018}
-  - {fileID: 8200020}
   MinBulletCollidePitch: .899999976
   MaxBulletCollidePitch: 1.10000002
   _boss: 0
