@@ -139,6 +139,10 @@ public class Player : CharacterBase
                 _headObject.SetHeadDirection(headDirection);
             }       
         }
+        else if(!IsDead)
+        {
+            ShouldMove = false;
+        }
 
         return movement;
     }

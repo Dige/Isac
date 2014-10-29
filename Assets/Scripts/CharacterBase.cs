@@ -128,7 +128,6 @@ namespace Assets.Scripts
 			    && gameObject.rigidbody2D.velocity.y > -ANIMATION_STOP_VELOCITY)
             {
                 Animator.enabled = false;
-                ShouldMove = false;
                 return;
             }
 
