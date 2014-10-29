@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    [RequireComponent(typeof(CircleCollider2D), typeof(SpriteRenderer))]
+    [RequireComponent(typeof(CircleCollider2D), typeof(SpriteRenderer), typeof(Animator))]
     public class Bomb : MonoBehaviour
     {
         [SerializeField]
@@ -36,6 +36,7 @@ namespace Assets.Scripts
 
         private IEnumerator Detonate()
         {
+            GetComponent<Animator>().SetBool("Explode", true);
             yield return new WaitForSeconds(DetonationTime);
             if(ExplosionClip != null)
                 ExplosionClip.Play();
