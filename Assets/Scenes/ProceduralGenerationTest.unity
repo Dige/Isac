@@ -154,7 +154,7 @@ MonoBehaviour:
   _treasureRoom: {fileID: 11400000, guid: 1687394c527a5be46a9b64dc3fcdecfc, type: 2}
   _playerPrefab: {fileID: 11400000, guid: c760a6803e7caac4a88b2795a1fad999, type: 2}
   _branchingProbability: .600000024
-  _enemyPrefab: {fileID: 11400000, guid: 3f37cd3a5037ad042b6801f031988e76, type: 2}
+  _enemyPrefab: {fileID: 0}
   _obstacleLayouts:
   - {fileID: 100000, guid: 8df70993843e7884bac3b972b1bd61be, type: 2}
   - {fileID: 100016, guid: e6be752160427a74ea331a668ccad08a, type: 2}
@@ -253,9 +253,9 @@ AudioSource:
   m_GameObject: {fileID: 893767461}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: afa4b3b8619a54b238e6f32c5da3d6e3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9b491d39328504379916e4c10abb133e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .100000001
+  m_Volume: .0299999993
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -383,7 +383,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: b63903490aac94e5885fb5f96c516b05, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .100000001
+  m_Volume: .0299999993
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -442,7 +442,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 7d4987794aac147dd961c03fc14609fc, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .100000001
+  m_Volume: .0299999993
   m_Pitch: 1
   Loop: 1
   Mute: 0
