@@ -123,14 +123,29 @@ public class Enemy : CharacterBase
 
     protected override void HandleAnimation(Vector3 movement)
     {
-        if (MovementStyle != MovementStyle.JumpToPlayer && movement == Vector3.zero)
+        if ((MovementStyle != MovementStyle.JumpToPlayer && MovementStyle != MovementStyle.Stationary) && movement == Vector3.zero)
         {
             Animator.enabled = false;
             return;
         }
 
         Animator.enabled = true;
-        if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
+        
+		if (MovementStyle == MovementStyle.Stationary)
+		{
+			Vector2 dir = _player.transform.position - transform.position;
+			if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+			{
+				Animator.SetInteger("Direction", dir.x > 0 ? 1 : 3);
+			}
+			else
+			{
+				Animator.SetInteger("Direction", dir.y > 0 ? 0 : 2);
+			}
+			return;
+		}
+
+		if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
         {
             Animator.SetInteger("Direction", movement.x > 0 ? 1 : 3);
         }
