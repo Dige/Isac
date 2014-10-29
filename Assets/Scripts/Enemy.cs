@@ -212,15 +212,6 @@ public class Enemy : CharacterBase
     {
         Animator.SetBool("Jumping", true);
         
-        yield return new WaitForSeconds(0.35f);
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        yield return new WaitForSeconds(0.6f);
-        transform.position = _player.transform.position + new Vector3(0.2f, 0, 0);
-        yield return new WaitForSeconds(0.6f);
-        _inAir = true;
-        Animator.SetBool("Jumping", false);
-
 		var eSC = gameObject.GetComponent<EnemyShootController> ();
 		var ShootClips = eSC.ShootClips;
 		if (ShootClips.Any())
@@ -232,6 +223,16 @@ public class Enemy : CharacterBase
 			clipToPlay.pitch = Random.Range(eSC.MinShootPitch, eSC.MaxShootPitch);
 			clipToPlay.Play();
 		}
+
+		yield return new WaitForSeconds(0.35f);
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(0.6f);
+        transform.position = _player.transform.position + new Vector3(0.2f, 0, 0);
+        yield return new WaitForSeconds(0.6f);
+        _inAir = true;
+        Animator.SetBool("Jumping", false);
+
     }
 
     IEnumerator Wait()
