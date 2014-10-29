@@ -36,9 +36,9 @@ public class Player : CharacterBase
         _shootController = GetComponent<PlayerShootController>();
     }
 
-    public override void Update()
+    public override void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
         HandleItemUse();
     }
 

@@ -103,7 +103,7 @@ namespace Assets.Scripts
             Animator.enabled = false;
         }
 
-        public virtual void Update()
+        public virtual void FixedUpdate()
         {
             var movement = DetermineMovement();
             HandleAnimation(movement);
