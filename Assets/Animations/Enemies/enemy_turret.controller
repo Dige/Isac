@@ -46,7 +46,7 @@ Transition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: Direction
-    m_EventTreshold: 1
+    m_EventTreshold: 0
     m_ExitTime: 1.01023889
   m_Atomic: 1
   m_Solo: 0
@@ -86,7 +86,7 @@ Transition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: Direction
-    m_EventTreshold: 1
+    m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -126,7 +126,7 @@ Transition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: Direction
-    m_EventTreshold: 0
+    m_EventTreshold: 3
     m_ExitTime: .938566685
   m_Atomic: 1
   m_Solo: 0
@@ -146,7 +146,7 @@ Transition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: Direction
-    m_EventTreshold: 3
+    m_EventTreshold: 1
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -166,7 +166,7 @@ Transition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: Direction
-    m_EventTreshold: 3
+    m_EventTreshold: 1
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -186,7 +186,7 @@ Transition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: Direction
-    m_EventTreshold: 0
+    m_EventTreshold: 3
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -206,7 +206,7 @@ Transition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: Direction
-    m_EventTreshold: 2
+    m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -224,9 +224,9 @@ Transition:
   m_TransitionDuration: .133105859
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: Shooting
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: Direction
+    m_EventTreshold: 3
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -244,9 +244,9 @@ Transition:
   m_TransitionDuration: .0665529445
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: Shooting
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: Direction
+    m_EventTreshold: 2
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -283,7 +283,7 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: 3e094f7004778974094905cf4766722c, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: -216, y: 156, z: 0}
+  m_Position: {x: 228, y: 156, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -323,12 +323,12 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: turret_shooting_up
-  m_Speed: .699999988
+  m_Speed: .349999994
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: 4040505d12762e349a3cb9bafe11c21f, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 252, y: 144, z: 0}
+  m_Position: {x: 24, y: 84, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -338,12 +338,12 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: turret_shooting_left
-  m_Speed: .349999994
+  m_Speed: .699999988
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: 7ff9e3e0efdc3c84aaec8c6e12755e2c, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 24, y: 72, z: 0}
+  m_Position: {x: -192, y: 156, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
