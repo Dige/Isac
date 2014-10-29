@@ -190,12 +190,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.63779998, y: 0, z: 0}
+  m_LocalPosition: {x: 1.08151853, y: 1.37086916, z: 0}
   m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children:
   - {fileID: 400000}
   m_Father: {fileID: 400016}
-  m_RootOrder: 3
+  m_RootOrder: 0
 --- !u!4 &400004
 Transform:
   m_ObjectHideFlags: 1
@@ -215,12 +215,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.57710004, y: 0, z: 0}
+  m_LocalPosition: {x: -.897680402, y: 1.40019059, z: 0}
   m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children:
   - {fileID: 400004}
   m_Father: {fileID: 400016}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 1
@@ -240,12 +240,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.63779998, y: -1.57710004, z: 0}
+  m_LocalPosition: {x: 1.1401614, y: -.476383209, z: 0}
   m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children:
   - {fileID: 400008}
   m_Father: {fileID: 400016}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &400012
 Transform:
   m_ObjectHideFlags: 1
@@ -265,12 +265,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.69840002, y: -1.57710004, z: 0}
+  m_LocalPosition: {x: -.883019686, y: -.491043955, z: 0}
   m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children:
   - {fileID: 400012}
   m_Father: {fileID: 400016}
-  m_RootOrder: 0
+  m_RootOrder: 3
 --- !u!4 &400016
 Transform:
   m_ObjectHideFlags: 1
@@ -281,10 +281,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 400014}
-  - {fileID: 400010}
-  - {fileID: 400006}
   - {fileID: 400002}
+  - {fileID: 400006}
+  - {fileID: 400010}
+  - {fileID: 400014}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5000000
@@ -399,8 +399,8 @@ AudioSource:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 954bafe4ee6904243937d7da117e490a, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -458,7 +458,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -515,8 +515,8 @@ AudioSource:
   m_GameObject: {fileID: 100006}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 954bafe4ee6904243937d7da117e490a, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -574,7 +574,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -631,8 +631,8 @@ AudioSource:
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 954bafe4ee6904243937d7da117e490a, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -690,7 +690,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -747,8 +747,8 @@ AudioSource:
   m_GameObject: {fileID: 100014}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 954bafe4ee6904243937d7da117e490a, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -806,7 +806,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -930,11 +930,12 @@ MonoBehaviour:
   _shootSpeed: .300000012
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClips: []
-  MinShootPitch: -3
-  MaxShootPitch: 3
+  MinShootPitch: .899999976
+  MaxShootPitch: 1.10000002
   _bulletCollideClips: []
-  MinBulletCollidePitch: -3
-  MaxBulletCollidePitch: 3
+  MinBulletCollidePitch: .899999976
+  MaxBulletCollidePitch: 1.10000002
+  _boss: 0
   _canShoot: 1
 --- !u!114 &11400002
 MonoBehaviour:
@@ -948,15 +949,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
+  _bloodPrefab:
+  - {fileID: 100000, guid: fc26eeb75d2f5c9429045d1ab4d5456f, type: 2}
+  - {fileID: 100000, guid: 129dbd4250084d34680284c24f5c4f3e, type: 2}
+  - {fileID: 100000, guid: 01635ee5e41f163429bd6ead0df6ce24, type: 2}
+  - {fileID: 100000, guid: f41595ecfc921574f93cf2efa29b2e53, type: 2}
   _maxHealth: 0
   _health: 4
   _range: 8
   _takeDamageClips: []
-  MinDamagedPitch: -3
-  MaxDamagedPitch: 3
-  _dieClip: {fileID: 0}
-  MinDiePitch: -3
-  MaxDiePitch: 3
+  MinDamagedPitch: .899999976
+  MaxDamagedPitch: 1.10000002
+  _dieClip: {fileID: 8200000}
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 0
   _movementStyle: 4
   _wanderClipRepeatDelay: 0
@@ -976,11 +982,12 @@ MonoBehaviour:
   _shootSpeed: .300000012
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClips: []
-  MinShootPitch: -3
-  MaxShootPitch: 3
+  MinShootPitch: .899999976
+  MaxShootPitch: 1.10000002
   _bulletCollideClips: []
-  MinBulletCollidePitch: -3
-  MaxBulletCollidePitch: 3
+  MinBulletCollidePitch: .899999976
+  MaxBulletCollidePitch: 1.10000002
+  _boss: 0
   _canShoot: 1
 --- !u!114 &11400006
 MonoBehaviour:
@@ -994,15 +1001,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
+  _bloodPrefab:
+  - {fileID: 100000, guid: fc26eeb75d2f5c9429045d1ab4d5456f, type: 2}
+  - {fileID: 100000, guid: 129dbd4250084d34680284c24f5c4f3e, type: 2}
+  - {fileID: 100000, guid: 01635ee5e41f163429bd6ead0df6ce24, type: 2}
+  - {fileID: 100000, guid: f41595ecfc921574f93cf2efa29b2e53, type: 2}
   _maxHealth: 0
   _health: 4
   _range: 8
   _takeDamageClips: []
-  MinDamagedPitch: -3
-  MaxDamagedPitch: 3
-  _dieClip: {fileID: 0}
-  MinDiePitch: -3
-  MaxDiePitch: 3
+  MinDamagedPitch: .899999976
+  MaxDamagedPitch: 1.10000002
+  _dieClip: {fileID: 8200004}
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 0
   _movementStyle: 4
   _wanderClipRepeatDelay: 0
@@ -1022,11 +1034,12 @@ MonoBehaviour:
   _shootSpeed: .300000012
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClips: []
-  MinShootPitch: -3
-  MaxShootPitch: 3
+  MinShootPitch: .899999976
+  MaxShootPitch: 1.10000002
   _bulletCollideClips: []
-  MinBulletCollidePitch: -3
-  MaxBulletCollidePitch: 3
+  MinBulletCollidePitch: .899999976
+  MaxBulletCollidePitch: 1.10000002
+  _boss: 0
   _canShoot: 1
 --- !u!114 &11400010
 MonoBehaviour:
@@ -1040,15 +1053,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
+  _bloodPrefab:
+  - {fileID: 100000, guid: fc26eeb75d2f5c9429045d1ab4d5456f, type: 2}
+  - {fileID: 100000, guid: 129dbd4250084d34680284c24f5c4f3e, type: 2}
+  - {fileID: 100000, guid: 01635ee5e41f163429bd6ead0df6ce24, type: 2}
+  - {fileID: 100000, guid: f41595ecfc921574f93cf2efa29b2e53, type: 2}
   _maxHealth: 0
   _health: 4
   _range: 8
   _takeDamageClips: []
-  MinDamagedPitch: -3
-  MaxDamagedPitch: 3
-  _dieClip: {fileID: 0}
-  MinDiePitch: -3
-  MaxDiePitch: 3
+  MinDamagedPitch: .899999976
+  MaxDamagedPitch: 1.10000002
+  _dieClip: {fileID: 8200008}
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 0
   _movementStyle: 4
   _wanderClipRepeatDelay: 0
@@ -1068,11 +1086,12 @@ MonoBehaviour:
   _shootSpeed: .300000012
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClips: []
-  MinShootPitch: -3
-  MaxShootPitch: 3
+  MinShootPitch: .899999976
+  MaxShootPitch: 1.10000002
   _bulletCollideClips: []
-  MinBulletCollidePitch: -3
-  MaxBulletCollidePitch: 3
+  MinBulletCollidePitch: .899999976
+  MaxBulletCollidePitch: 1.10000002
+  _boss: 0
   _canShoot: 1
 --- !u!114 &11400014
 MonoBehaviour:
@@ -1086,15 +1105,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
+  _bloodPrefab:
+  - {fileID: 100000, guid: fc26eeb75d2f5c9429045d1ab4d5456f, type: 2}
+  - {fileID: 100000, guid: 129dbd4250084d34680284c24f5c4f3e, type: 2}
+  - {fileID: 100000, guid: 01635ee5e41f163429bd6ead0df6ce24, type: 2}
+  - {fileID: 100000, guid: f41595ecfc921574f93cf2efa29b2e53, type: 2}
   _maxHealth: 0
   _health: 4
   _range: 8
   _takeDamageClips: []
-  MinDamagedPitch: -3
-  MaxDamagedPitch: 3
-  _dieClip: {fileID: 0}
-  MinDiePitch: -3
-  MaxDiePitch: 3
+  MinDamagedPitch: .899999976
+  MaxDamagedPitch: 1.10000002
+  _dieClip: {fileID: 8200012}
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 0
   _movementStyle: 4
   _wanderClipRepeatDelay: 0

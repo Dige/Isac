@@ -17,6 +17,14 @@ namespace Assets.Scripts
             set { _moveSpeed = value; }
         }
 
+        [SerializeField]
+        private List<GameObject> _bloodPrefab;
+        public List<GameObject> BloodPrefab
+        {
+            set { _bloodPrefab = value; }
+            get { return _bloodPrefab;  }
+        }
+
         protected bool ShouldMove;
 
         protected Animator Animator;
@@ -67,9 +75,7 @@ namespace Assets.Scripts
             get { return _takeDamageClips; }
         }
 
-        [HideInInspector]
         public float MinDamagedPitch = -3.0f;
-        [HideInInspector]
         public float MaxDamagedPitch = 3.0f;
 
         [SerializeField]
@@ -80,9 +86,7 @@ namespace Assets.Scripts
             set { _dieClip = value; }
         }
 
-        [HideInInspector]
         public float MinDiePitch = -3.0f;
-        [HideInInspector]
         public float MaxDiePitch = 3.0f;
 
         [SerializeField]
@@ -218,9 +222,12 @@ namespace Assets.Scripts
             EditorGUILayout.LabelField("Min Damaged Pitch:", character.MinDamagedPitch.ToString());
             EditorGUILayout.LabelField("Max Damaged Pitch:", character.MaxDamagedPitch.ToString());
             EditorGUILayout.MinMaxSlider(new GUIContent("Damaged Pitch Range"), ref character.MinDamagedPitch, ref character.MaxDamagedPitch, -3.0f, 3.0f);
-            EditorGUILayout.LabelField("Min Die Pitch:", character.MinDamagedPitch.ToString());
-            EditorGUILayout.LabelField("Max Die Pitch:", character.MaxDamagedPitch.ToString());
+            EditorGUILayout.LabelField("Min Die Pitch:", character.MinDiePitch.ToString());
+            EditorGUILayout.LabelField("Max Die Pitch:", character.MaxDiePitch.ToString());
             EditorGUILayout.MinMaxSlider(new GUIContent("Die Pitch Range"), ref character.MinDiePitch, ref character.MaxDiePitch, -3.0f, 3.0f);
+
+			if (GUI.changed)
+				EditorUtility.SetDirty(character);
         }
     }
 }

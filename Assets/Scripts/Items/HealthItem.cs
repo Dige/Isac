@@ -13,6 +13,8 @@ public class HealthItem : ItemBase {
 
     public override void UseItem(Player player)
     {
-        player.GetComponent<Player>().Health += HealthAddition;
+        player.Health += HealthAddition;
+        if (player.Health > player.MaxHealth)
+            player.Health = player.MaxHealth;
     }
 }

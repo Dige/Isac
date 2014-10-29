@@ -46,7 +46,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.39772367, y: 1.42812586, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -88,8 +88,8 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .200000003
-  m_Center: {x: 0, y: -.189999998}
+  m_Radius: .340000004
+  m_Center: {x: 0, y: -.370000005}
 --- !u!82 &8200000
 AudioSource:
   m_ObjectHideFlags: 1
@@ -98,8 +98,8 @@ AudioSource:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 196093aab58254302b7f2a4639e9e682, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 9ce77987e81404834a6efdaeff83b352, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -157,7 +157,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: ce0c22e56bd9b4f978b8aa4fc37c69fa, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -236,11 +236,12 @@ MonoBehaviour:
   _shootSpeed: .300000012
   _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
   _shootClips: []
-  MinShootPitch: -3
-  MaxShootPitch: 3
+  MinShootPitch: .899999976
+  MaxShootPitch: 1.10000002
   _bulletCollideClips: []
-  MinBulletCollidePitch: -3
-  MaxBulletCollidePitch: 3
+  MinBulletCollidePitch: .899999976
+  MaxBulletCollidePitch: 1.10000002
+  _boss: 0
   _canShoot: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -254,15 +255,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
+  _bloodPrefab:
+  - {fileID: 100000, guid: fc26eeb75d2f5c9429045d1ab4d5456f, type: 2}
+  - {fileID: 100000, guid: 129dbd4250084d34680284c24f5c4f3e, type: 2}
+  - {fileID: 100000, guid: 01635ee5e41f163429bd6ead0df6ce24, type: 2}
+  - {fileID: 100000, guid: f41595ecfc921574f93cf2efa29b2e53, type: 2}
   _maxHealth: 0
   _health: 4
   _range: 8
   _takeDamageClips: []
-  MinDamagedPitch: -3
-  MaxDamagedPitch: 3
-  _dieClip: {fileID: 0}
-  MinDiePitch: -3
-  MaxDiePitch: 3
+  MinDamagedPitch: .899999976
+  MaxDamagedPitch: 1.10000002
+  _dieClip: {fileID: 8200000}
+  MinDiePitch: 1
+  MaxDiePitch: 1
   _mirrorAnimation: 0
   _movementStyle: 6
   _wanderClipRepeatDelay: 0

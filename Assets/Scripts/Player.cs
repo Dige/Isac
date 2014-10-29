@@ -47,7 +47,10 @@ public class Player : CharacterBase
         if (Input.GetKeyDown(KeyCode.Space) && CurrentItem != null)
         {
             CurrentItem.UseItem(this);
-            Destroy(CurrentItem.gameObject);
+            if(CurrentItem.IsInstantlyDestroyedAfterUse)
+                Destroy(CurrentItem.gameObject);
+
+            CurrentItem = null;
         }
     }
 
@@ -100,7 +103,7 @@ public class Player : CharacterBase
     {
         var movement = new Vector3();
 
-        if (!IsDead && InputHelpers.IsAnyKeyDown("w", "s", "a", "d"))
+        if (!IsDead && InputHelpers.IsAnyKey("w", "s", "a", "d"))
         {
             ShouldMove = true;
             GunObject.enabled = false;

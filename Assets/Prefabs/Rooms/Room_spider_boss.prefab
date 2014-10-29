@@ -530,6 +530,7 @@ MonoBehaviour:
   _southDoorWall: {fileID: 6100020}
   _eastDoorWall: {fileID: 6100018}
   _westDoorWall: {fileID: 6100016}
+  bossBarPrefab: {fileID: 100002, guid: cd78254e37591f543821ffe04bba5d9a, type: 2}
   _playerIsInRoom: 0
 --- !u!114 &11400002
 MonoBehaviour:

@@ -98,6 +98,19 @@ namespace Assets.Scripts
         public bool IsVisibleOnMap { get; set; }
         public bool PlayerHasVisited { get; private set; }
 
+        private GameObject _bossBar;
+        public GameObject BossBar
+        {
+            get { return _bossBar; }
+        }
+
+        [SerializeField]
+        private GameObject bossBarPrefab;
+        public GameObject BossBarPrefab
+        {
+            set { _bossBar = value; }
+        }
+
         [SerializeField]
         private bool _playerIsInRoom;
         public bool PlayerIsInRoom
@@ -135,8 +148,13 @@ namespace Assets.Scripts
 
         IEnumerator WakeUpEnemies()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             _enemies.ForEach(e => e.Enable());
+            if (_roomType == RoomType.BossRoom)
+            {
+                _bossBar = (GameObject)Instantiate(bossBarPrefab);
+                _bossBar.transform.position = _bossBar.transform.position + transform.position;
+            }
             yield return null;
         }
 
@@ -246,6 +264,13 @@ namespace Assets.Scripts
             if (!ContainsEnemies)
             {
                 _doors.ForEach(d => d.IsOpen = true);
+                Destroy(_bossBar);
+                if (_roomType == RoomType.BossRoom)
+                {
+                    var audioSources = GameObject.FindGameObjectWithTag("MainCamera").GetComponents<AudioSource>();
+                    audioSources.ElementAt(1).Stop();
+                    audioSources.ElementAt(2).Play();
+                }
                 SpawnItem();
             }
         }
@@ -270,6 +295,16 @@ namespace Assets.Scripts
 
         public void OnPlayerEntersRoom(Player player)
         {
+            var audioSources = GameObject.FindGameObjectWithTag("MainCamera").GetComponents<AudioSource>();
+
+            if (_roomType == RoomType.BossRoom)
+            {
+                audioSources.ElementAt(0).Stop();
+                audioSources.ElementAt(1).Play();
+            }
+            else
+                if (!audioSources.ElementAt(0).isPlaying)
+                    audioSources.ElementAt(0).Play();
             PlayerIsInRoom = true;
             if (ContainsEnemies)
             {

@@ -52,8 +52,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: fe2eb8165a1004d2fb31a70bd83a6c0d, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: .600000024
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -110,7 +110,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 100012716838747a08461b23cfcf08bf, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -172,8 +172,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnClip: {fileID: 8200002}
   _pickUpClip: {fileID: 8200000}
-  MinSpawnPitch: -3
-  MaxSpawnPitch: 3
+  MinSpawnPitch: 1
+  MaxSpawnPitch: 1
   _isInstantEffect: 1
   _healthAddition: 2
 --- !u!212 &21200000

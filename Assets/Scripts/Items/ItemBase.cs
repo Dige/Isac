@@ -21,9 +21,7 @@ namespace Assets.Scripts
             set { _pickUpClip = value; }
         }
 
-        [HideInInspector]
         public float MinSpawnPitch = -3.0f;
-        [HideInInspector]
         public float MaxSpawnPitch = 3.0f;
 
         [SerializeField]
@@ -33,6 +31,8 @@ namespace Assets.Scripts
             get { return _isInstantEffect; }
             set { _isInstantEffect = value; }
         }
+
+        public virtual bool IsInstantlyDestroyedAfterUse { get { return true; } }
 
         public void Start()
         {
@@ -89,6 +89,9 @@ namespace Assets.Scripts
             EditorGUILayout.LabelField("Min Spawn Pitch:", item.MinSpawnPitch.ToString());
             EditorGUILayout.LabelField("Max Spawn Pitch:", item.MaxSpawnPitch.ToString());
             EditorGUILayout.MinMaxSlider(new GUIContent("Spawn Pitch Range"), ref item.MinSpawnPitch, ref item.MaxSpawnPitch, -3.0f, 3.0f);
+
+			if(GUI.changed)
+				EditorUtility.SetDirty(item);
         }
     }
 }

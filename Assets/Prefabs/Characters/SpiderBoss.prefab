@@ -98,7 +98,7 @@ AudioSource:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 196093aab58254302b7f2a4639e9e682, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 954bafe4ee6904243937d7da117e490a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -234,14 +234,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpeed: .5
   _shootSpeed: .300000012
-  _bulletPrefab: {fileID: 5000000, guid: 3a9615411bf980b4dad779839dc1c91c, type: 2}
+  _bulletPrefab: {fileID: 5000000, guid: d8e000ca28e948446917b8de7d824315, type: 2}
   _shootClips: []
-  MinShootPitch: -3
-  MaxShootPitch: 3
+  MinShootPitch: .899999976
+  MaxShootPitch: 1.10000002
   _bulletCollideClips: []
-  MinBulletCollidePitch: -3
-  MaxBulletCollidePitch: 3
-  _canShoot: 1
+  MinBulletCollidePitch: .899999976
+  MaxBulletCollidePitch: 1.10000002
+  _boss: 1
+  _canShoot: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,17 +255,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: .0500000007
-  _maxHealth: 0
-  _health: 4
+  _bloodPrefab:
+  - {fileID: 100000, guid: fc26eeb75d2f5c9429045d1ab4d5456f, type: 2}
+  - {fileID: 100000, guid: 129dbd4250084d34680284c24f5c4f3e, type: 2}
+  - {fileID: 100000, guid: 01635ee5e41f163429bd6ead0df6ce24, type: 2}
+  - {fileID: 100000, guid: f41595ecfc921574f93cf2efa29b2e53, type: 2}
+  _maxHealth: 25
+  _health: 25
   _range: 8
   _takeDamageClips: []
-  MinDamagedPitch: -3
-  MaxDamagedPitch: 3
-  _dieClip: {fileID: 0}
-  MinDiePitch: -3
-  MaxDiePitch: 3
+  MinDamagedPitch: .699999988
+  MaxDamagedPitch: .800000012
+  _dieClip: {fileID: 8200000}
+  MinDiePitch: .699999988
+  MaxDiePitch: .699999988
   _mirrorAnimation: 0
-  _movementStyle: 0
+  _movementStyle: 6
   _wanderClipRepeatDelay: 0
   _wanderClip: {fileID: 0}
 --- !u!212 &21200000
