@@ -168,7 +168,7 @@ public class Player : CharacterBase
 	IEnumerator BeInvulnerable()
 	{
 		_invulnerable = true;
-		yield return new WaitForSeconds (0.2f);
+		yield return new WaitForSeconds (0.5f);
 		_invulnerable = false;
 	}
 

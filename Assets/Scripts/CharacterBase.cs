@@ -127,7 +127,6 @@ namespace Assets.Scripts
                 && gameObject.rigidbody2D.velocity.y < ANIMATION_STOP_VELOCITY 
 			    && gameObject.rigidbody2D.velocity.y > -ANIMATION_STOP_VELOCITY)
             {
-				Debug.LogWarning("tastat");
                 Animator.enabled = false;
                 return;
             }
