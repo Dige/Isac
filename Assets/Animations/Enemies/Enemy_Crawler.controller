@@ -46,8 +46,8 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: die
-  m_Speed: 1
+  m_Name: Die
+  m_Speed: .5
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: 289daca8646e12c4e86e478997c23728, type: 2}
@@ -71,10 +71,10 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110282258}
+      first: {fileID: 110200000}
       second: []
     data:
-      first: {fileID: 110200000}
+      first: {fileID: 110282258}
       second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}

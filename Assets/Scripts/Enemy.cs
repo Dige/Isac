@@ -158,7 +158,7 @@ public class Enemy : CharacterBase
     protected override void TakeDamage()
     {
         base.TakeDamage();
-        if (gameObject.GetComponent<EnemyShootController>().Boss)
+        if (gameObject.GetComponent<EnemyShootController>().Boss && OwnerRoom.BossBar != null)
         {
             OwnerRoom.BossBar.transform.FindChild("BossHealth").transform.localScale = new Vector3((float)Health / MaxHealth,1,1);
         }
@@ -177,9 +177,12 @@ public class Enemy : CharacterBase
 
     IEnumerator ReallyDie()
     {
-        Animator.Play("Die");     
+        Animator.Play("Die");
+        gameObject.GetComponent<EnemyShootController>().BossExplode();
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(0.2f);
+        float t = gameObject.GetComponent<EnemyShootController>().Boss ? 1.1f : 0.7f;
+        gameObject.GetComponent<EnemyShootController>().enabled = false;
+        yield return new WaitForSeconds(t);
         Destroy(gameObject);
     }
 
@@ -318,6 +321,7 @@ public class Enemy : CharacterBase
 		if (room != null)
 			OwnerRoom =room;
 		GetComponents<MonoBehaviour>().ToList().ForEach(e => e.enabled = false);
+        GetComponent<CircleCollider2D>().enabled = true;
 	}
 
 	private Vector3 Stationary()
