@@ -220,6 +220,18 @@ public class Enemy : CharacterBase
         yield return new WaitForSeconds(0.6f);
         _inAir = true;
         Animator.SetBool("Jumping", false);
+
+		var eSC = gameObject.GetComponent<EnemyShootController> ();
+		var ShootClips = eSC.ShootClips;
+		if (ShootClips.Any())
+		{
+			int bossHax = 0;
+			if (eSC.Boss)
+				bossHax = 4;
+			var clipToPlay = ShootClips[Random.Range(0, ShootClips.Count - bossHax)];
+			clipToPlay.pitch = Random.Range(eSC.MinShootPitch, eSC.MaxShootPitch);
+			clipToPlay.Play();
+		}
     }
 
     IEnumerator Wait()

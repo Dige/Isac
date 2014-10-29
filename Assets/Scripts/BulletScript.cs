@@ -19,15 +19,19 @@ public class BulletScript : MonoBehaviour {
     {
         GameObject o = collision.gameObject;
         GameObject pc = GameObject.FindWithTag("Player");
-        if (o.CompareTag("Enemy") && Shooter.Equals(pc))
+		ShootControllerBase shootController = pc.GetComponent<PlayerShootController>();
+
+		if (o.CompareTag("Enemy") && Shooter.Equals(pc))
         {
             o.GetComponentInParent<Enemy>().Health--;
         }
         else if (o.CompareTag("Player") && !Shooter.Equals(pc))
         {
-            o.GetComponentInParent<Player>().Health--;
+			shootController = o.GetComponent<EnemyShootController>();
+
+			o.GetComponentInParent<Player>().Health--;
         }
-        var shootController = pc.GetComponent<PlayerShootController>();
+        
         if (shootController.BulletCollideClips.Any())
         {
             var clipToPlay = shootController.BulletCollideClips[Random.Range(0, shootController.BulletCollideClips.Count)];

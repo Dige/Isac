@@ -65,7 +65,10 @@ namespace Assets.Scripts
 				bullet.AddForce (_shootDirection);
 			    if (ShootClips.Any())
 			    {
-			        var clipToPlay = ShootClips[Random.Range(0, ShootClips.Count)];
+					int bossHax = 0;
+					if (Boss)
+						bossHax = 4;
+			        var clipToPlay = ShootClips[Random.Range(4, ShootClips.Count)];
 			        clipToPlay.pitch = Random.Range(MinShootPitch, MaxShootPitch);
                     clipToPlay.Play();
 			    }
@@ -107,7 +110,7 @@ namespace Assets.Scripts
             }
             if (ShootClips.Any())
             {
-                var clipToPlay = ShootClips[Random.Range(0, ShootClips.Count)];
+                var clipToPlay = ShootClips[Random.Range(4, ShootClips.Count)];
                 clipToPlay.pitch = Random.Range(MinShootPitch, MaxShootPitch);
                 clipToPlay.Play();
             }
@@ -147,7 +150,7 @@ namespace Assets.Scripts
   
             if (ShootClips.Any())
             {
-                var clipToPlay = ShootClips[Random.Range(0, ShootClips.Count)];
+                var clipToPlay = ShootClips[Random.Range(4, ShootClips.Count)];
                 clipToPlay.pitch = Random.Range(MinShootPitch, MaxShootPitch);
                 clipToPlay.Play();
             }
