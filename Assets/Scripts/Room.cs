@@ -51,6 +51,14 @@ namespace Assets.Scripts
             set { _treasureRoomDoorPrefab = value; }
         }
 
+        [SerializeField]
+        private LevelSwitchDoor _levelSwitchDoorPrefab;
+        public LevelSwitchDoor LevelSwitchDoorPrefab
+        {
+            get { return _levelSwitchDoorPrefab; }
+            set { _levelSwitchDoorPrefab = value; }
+        }
+
         public bool IsBossRoom
         {
             get { return RoomType == RoomType.BossRoom; }
@@ -270,6 +278,9 @@ namespace Assets.Scripts
                     var audioSources = GameObject.FindGameObjectWithTag("MainCamera").GetComponents<AudioSource>();
                     audioSources.ElementAt(1).Stop();
                     audioSources.ElementAt(2).Play();
+                    var d = (LevelSwitchDoor) Instantiate(LevelSwitchDoorPrefab);
+                    d.transform.parent = transform;
+                    d.transform.localPosition = Vector3.zero;
                 }
                 SpawnItem();
             }

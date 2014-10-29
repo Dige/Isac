@@ -45,16 +45,16 @@ public class ShowMap : MonoBehaviour
         set { _bossRoomIcon = value; }
     }
 
-    private FloorGrid _floorGrid;
+    private FloorGenerator _floorGenerator;
 
 	public void Awake()
 	{
-        _floorGrid = GameObject.FindGameObjectWithTag("GameController").GetComponent<FloorGenerator>().Grid;
+        _floorGenerator = GameObject.FindGameObjectWithTag("GameController").GetComponent<FloorGenerator>();
 	}
 
     public void OnGUI()
     {
-        if (_floorGrid == null)
+        if (_floorGenerator == null)
         {
             return;
         }
@@ -68,7 +68,7 @@ public class ShowMap : MonoBehaviour
         var iconWidth = Screen.width / 19;
         var iconHeight = Screen.height / 19;
 
-        foreach (var room in _floorGrid.Rooms.Where(r => r.IsVisibleOnMap))
+        foreach (var room in _floorGenerator.Grid.Rooms.Where(r => r.IsVisibleOnMap))
         {
             var roomTexture = room.PlayerHasVisited ? RoomTexture : UnvisitedRoomTexture;
             GUI.DrawTexture(

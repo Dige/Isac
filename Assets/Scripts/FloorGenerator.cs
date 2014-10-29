@@ -90,24 +90,34 @@ public class FloorGenerator : MonoBehaviour {
     private const float HorizontalDelta = 16f;
     private const float VerticalDelta = 10f;
 
-    private readonly FloorGrid _floorGrid = new FloorGrid(6, 6);
+    private FloorGrid _floorGrid = new FloorGrid(6, 6);
     public FloorGrid Grid { get { return _floorGrid; } }
 
 	public void Awake()
 	{
 	    Random.seed = DateTime.Now.Second;
-	    try
-	    {
-            GenerateFloorLayout();
-	    }
-	    catch (Exception ex)
-	    {
-            Debug.LogError("Failed to create level");
-	        Debug.LogException(ex);
-	    }
-	    
-	    AddPlayer();
+	    TryGenerateFloor();
+        AddPlayer();
 	}
+
+    public void TryGenerateFloor()
+    {
+        try
+        {
+            GenerateFloorLayout();
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Failed to create level");
+            Debug.LogException(ex);
+        }
+    }
+
+    public void ClearFloor()
+    {
+        _floorGrid.Rooms.ToList().ForEach(r => Destroy(r.gameObject));
+        _floorGrid = new FloorGrid(6,6);
+    }
 
     private void AddPlayer()
     {
