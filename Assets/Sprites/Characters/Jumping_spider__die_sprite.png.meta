@@ -50,12 +50,12 @@ TextureImporter:
     - name: Jumping_spider__die_sprite_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 9
         y: 14
         width: 113
         height: 149
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jumping_spider__die_sprite_1
       rect:
@@ -64,28 +64,28 @@ TextureImporter:
         y: 15
         width: 106
         height: 148
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: 5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jumping_spider__die_sprite_2
       rect:
         serializedVersion: 2
-        x: 292
+        x: 293
         y: 16
         width: 146
         height: 147
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jumping_spider__die_sprite_3
       rect:
         serializedVersion: 2
-        x: 470
+        x: 471
         y: 14
         width: 215
         height: 149
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

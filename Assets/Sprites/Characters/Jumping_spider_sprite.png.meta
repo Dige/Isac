@@ -53,61 +53,61 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 8
-        y: 0
+        y: 13
         width: 113
-        height: 163
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        height: 150
+      alignment: 9
+      pivot: {x: .5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jumping_spider_sprite_1
       rect:
         serializedVersion: 2
         x: 169
-        y: 0
+        y: 13
         width: 113
-        height: 163
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        height: 150
+      alignment: 9
+      pivot: {x: .5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jumping_spider_sprite_2
       rect:
         serializedVersion: 2
-        x: 310
-        y: 0
+        x: 311
+        y: 13
         width: 113
-        height: 163
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        height: 150
+      alignment: 9
+      pivot: {x: .5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jumping_spider_sprite_3
       rect:
         serializedVersion: 2
         x: 447
-        y: 0
+        y: 13
         width: 113
-        height: 163
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        height: 150
+      alignment: 9
+      pivot: {x: .5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jumping_spider_sprite_4
       rect:
         serializedVersion: 2
         x: 566
-        y: 0
+        y: 13
         width: 113
-        height: 163
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        height: 150
+      alignment: 9
+      pivot: {x: .5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Jumping_spider_sprite_5
       rect:
         serializedVersion: 2
         x: 696
-        y: 0
+        y: 13
         width: 104
-        height: 163
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        height: 150
+      alignment: 9
+      pivot: {x: .5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

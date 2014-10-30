@@ -278,6 +278,7 @@ namespace Assets.Scripts
                     var audioSources = GameObject.FindGameObjectWithTag("MainCamera").GetComponents<AudioSource>();
                     audioSources.ElementAt(1).Stop();
                     audioSources.ElementAt(2).Play();
+                    audioSources.ElementAt(0).PlayDelayed(9.629f);
                     var d = (LevelSwitchDoor) Instantiate(LevelSwitchDoorPrefab);
                     d.transform.parent = transform;
                     d.transform.localPosition = Vector3.zero;

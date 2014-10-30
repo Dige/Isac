@@ -217,6 +217,18 @@ Prefab:
       propertyPath: orthographic size
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: 288391539933a4aee8f4aab49dea90d8, type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200002, guid: 288391539933a4aee8f4aab49dea90d8, type: 2}
+      propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200004, guid: 288391539933a4aee8f4aab49dea90d8, type: 2}
+      propertyPath: m_Volume
+      value: .0799999982
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 288391539933a4aee8f4aab49dea90d8, type: 2}
   m_RootGameObject: {fileID: 893767461}
@@ -257,7 +269,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: .0299999993
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -383,7 +395,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: b63903490aac94e5885fb5f96c516b05, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .0299999993
+  m_Volume: .0799999982
   m_Pitch: 1
   Loop: 0
   Mute: 0
