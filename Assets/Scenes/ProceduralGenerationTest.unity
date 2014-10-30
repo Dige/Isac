@@ -227,7 +227,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 8200004, guid: 288391539933a4aee8f4aab49dea90d8, type: 2}
       propertyPath: m_Volume
-      value: .0799999982
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: 288391539933a4aee8f4aab49dea90d8, type: 2}
+      propertyPath: m_Volume
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200002, guid: 288391539933a4aee8f4aab49dea90d8, type: 2}
+      propertyPath: m_Volume
+      value: .100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 288391539933a4aee8f4aab49dea90d8, type: 2}
@@ -267,7 +275,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 9b491d39328504379916e4c10abb133e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .0299999993
+  m_Volume: .100000001
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -395,7 +403,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: b63903490aac94e5885fb5f96c516b05, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .0799999982
+  m_Volume: .100000001
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -454,7 +462,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 7d4987794aac147dd961c03fc14609fc, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .0299999993
+  m_Volume: .100000001
   m_Pitch: 1
   Loop: 1
   Mute: 0
