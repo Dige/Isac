@@ -79,8 +79,15 @@ public class Player : CharacterBase
         else
         {
             item.UseItem(this);
-            Destroy(item.gameObject);
+            item.Disable();
+            StartCoroutine(DestroyItem(item));
         }
+    }
+
+    IEnumerator DestroyItem(ItemBase item)
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(item.gameObject);
     }
 
     private IEnumerator PlayPickUpAnimation(ItemBase item)
